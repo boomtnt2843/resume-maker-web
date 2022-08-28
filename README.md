@@ -1,7 +1,6 @@
 # resume-maker-web
 ## planing step...
-### set up project
-
+### set up backend-api for this project
 1. install ***mongoDB compass***
 2. install ***express.js***
 ```
