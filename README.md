@@ -14,6 +14,15 @@ npm install express
 ```
 npm install -g nodemon
 ```
+4, install ***mongoose***
+```
+npm install mongoose
+```
+
+5. install ***bcrypt*** it's use for encode Password when customer create new account
+```
+npm install bcryptjs
+```
 😀 Easy step ~~~
 
 ### set up frontend for this project
