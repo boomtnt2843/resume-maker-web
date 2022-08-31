@@ -3,8 +3,8 @@
 ### set up backend-api for this project
 1. install ***mongoDB compass***
    - Create database
-     - ***Database name*** : "Resume-maker"
-     - ***Collection name*** : "user"
+     - ***Database name*** : "Resume"
+     - ***Collection name*** : "users"
 2. install ***express.js***
 ```
 npm init
