@@ -19,8 +19,8 @@ try{
 }
 
 const makeHash = async(plainText) => {
-    //BECAREFUL!!! salt hash DON'T use value more then 12
-    const result = await bcrypt.hash(plainText ,8);
+    //BECAREFUL!!! salt hash DON'T use value more then 15
+    const result = await bcrypt.hash(plainText ,9);
     return result; 
 }
 
