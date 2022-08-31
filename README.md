@@ -1,5 +1,5 @@
 # resume-maker-web
-## Sign in and Sign up
+## Step: Sign in and Sign up
 ### set up backend-api for this project
 1. install ***mongoDB compass***
    - Create database
