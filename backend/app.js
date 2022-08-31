@@ -2,7 +2,7 @@ const expressFunction = require('express')
 const mongoose = require('mongoose')
 var expressApp = expressFunction();
 
-const url = 'mongodb://localhost:27017/Resume-maker';
+const url = 'mongodb://localhost:27017/Resume';
 const config = {
     autoIndex : true,
     useNewUrlParser : true,
@@ -10,7 +10,7 @@ const config = {
 };
 
 expressApp.use((req, res, next) =>{
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, PATCH, DELETE, OPTIONS')
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Option, Authorization')
     return next()
@@ -27,6 +27,8 @@ expressApp.use((req, res, next) => {
         res.status(501).send('Cannot connect to mongoDB')
     });
 });
+
+expressApp.use('/user', require('./routes/user'))
 
 expressApp.listen(4200, function(){
     console.log('Listening on port 4200');  
