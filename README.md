@@ -14,7 +14,7 @@ npm install express
 ```
 npm install -g nodemon
 ```
-4, install ***mongoose***
+4. install ***mongoose***
 ```
 npm install mongoose
 ```
