@@ -3,30 +3,18 @@ const router = expressFunction.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-var Schema = require('mongoose').Schema;
-const userSchema = Schema({
-    username: String,
-    password: String,
-},{
-    collection: 'users'
-});
-
-let User
-try{
-    User = mongoose.model('users')
-}catch(error){
-    User = mongoose.model('users',userSchema);
-}
+const user = require('../models/user');
 
 const makeHash = async(plainText) => {
-    //BECAREFUL!!! salt hash DON'T use value more then 15
+    //BECAREFUL!!! salt hash DON'T use value more then 18
     const result = await bcrypt.hash(plainText ,9);
     return result; 
 }
 
 const insertUser = (dataUser) => {
     return new Promise ((resolve, reject) => {
-        var new_user = new User({
+        var new_user = new user({
+            _id: new mongoose.Types.ObjectId(),
             username: dataUser.username,
             password: dataUser.password
         });
@@ -57,8 +45,12 @@ router.route('/signup')
                 })
                 .catch(err => {
                     console.log(err);
+                    res.status(500).json(err);
                 })
         })
-        .catch(err=>{})
+        .catch(err=>{
+            console.log(err);
+            res.status(500).json(err);
+        })
     });
 module.exports = router
