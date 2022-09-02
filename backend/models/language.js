@@ -7,6 +7,10 @@ const languageSchema = mongoose.Schema({
     },
     power: { 
         type: Number
+    },
+    ofInformation: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'information' 
     }
 });
 

@@ -13,6 +13,10 @@ const educationSchema = mongoose.Schema({
     },
     endDate : {
         type: Date
+    },
+    ofInformation: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'information' 
     }
 });
 
