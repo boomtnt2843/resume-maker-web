@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const technicalSchema = mongoose.Schema({
+const languageSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    nameSkill: { 
+    name: { 
         type: String
     },
     power: { 
@@ -14,4 +14,4 @@ const technicalSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('technicalSkill', technicalSchema);
+module.exports = mongoose.model('language', languageSchema);

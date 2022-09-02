@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const informationSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     format: { 
-        type: Number
+        type: Number,
+        default: 1
     },
     fristName: { 
         type: String
@@ -43,7 +44,8 @@ const informationSchema = mongoose.Schema({
     },
     owner : {
          type: mongoose.Schema.Types.ObjectId, 
-         ref: 'users' 
+         ref: 'users',
+         required: true 
     }
 });
 
