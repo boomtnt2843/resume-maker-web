@@ -7,8 +7,6 @@ const authorization = require('../config/authorize');
 const user = require('../models/user');
 const info = require('../models/information');
 
-const key = 'CAT_MAOW';
-
 //Frist time you click "Let's Start"
 const createNewInformation = (dataInformation) => {
     return new Promise ((resolve, reject) => {

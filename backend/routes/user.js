@@ -5,8 +5,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const user = require('../models/user');
+const authorization = require('../config/authorize');
 
-const key = 'CAT_MAOW';
+const key = 'CAT_MEOW';
 
 const makeHash = async(plainText) => {
     //BECAREFUL!!! salt hash DON'T use value more then 18

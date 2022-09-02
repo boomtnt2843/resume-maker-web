@@ -2,7 +2,7 @@
 
 const jwt = require('jsonwebtoken');
 //key for authorization
-const key = 'CAT_MAOW';
+const key = 'CAT_MEOW';
 
 const authorization = ((req, res, next)=>{
     const token = req.headers['authorization'];
