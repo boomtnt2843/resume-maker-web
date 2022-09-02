@@ -22,7 +22,7 @@ npm install mongoose
 ```
 npm install bcryptjs
 ```
-6. install ***jwt** :json web token
+6. install ***jwt*** :json web token
 ```
 npm install jsonwebtoken
 ```
