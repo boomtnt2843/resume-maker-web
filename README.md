@@ -18,10 +18,13 @@ npm install -g nodemon
 ```
 npm install mongoose
 ```
-
 5. install ***bcrypt*** it's use for encode Password when customer create new account
 ```
 npm install bcryptjs
+```
+6. install ***jwt** :json web token
+```
+npm install jsonwebtoken
 ```
 😀 Easy step ~~~
 

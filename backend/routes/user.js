@@ -2,8 +2,11 @@ var expressFunction = require('express');
 const router = expressFunction.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const user = require('../models/user');
+
+const key = 'CAT_MAOW';
 
 const makeHash = async(plainText) => {
     //BECAREFUL!!! salt hash DON'T use value more then 18
@@ -28,9 +31,37 @@ const insertUser = (dataUser) => {
     });
 }
 
+const compareHash = async(plainText, hashText) =>{
+    return new Promise((resolve, reject) =>{
+        bcrypt.compare(plainText, hashText, (err, data) =>{
+            if(err){
+                reject(new Error ('Error bcrypt compare'))
+            }else{
+                resolve({status: data})
+            }
+        })
+    })
+}
+
+const findUser = (username) => {
+    return new Promise((resolve, reject) =>{
+        user.findOne({username : username}, (err, data) =>{
+            if(err){
+                reject(new Error('Cannot find username!'))
+            }else{
+                if(data){
+                    resolve({id: data._id, username: data.username, password: data.password})
+                }else{
+                    reject(new Error('Cannot find username!'))
+                }
+            }
+        })
+    })
+}
+
 //POST : register new account
 router.route('/signup')
-    .post((req, res) => {
+    .post(async(req, res) => {
         makeHash(req.body.password)
         .then(hashText => {
             const playload = {
@@ -50,7 +81,32 @@ router.route('/signup')
         })
         .catch(err=>{
             console.log(err);
-            res.status(500).json(err);
+            res.status(500).json({err});
         })
     });
+
+//POST : sign in
+router.route('/signin')
+    .post(async(req,res) => {
+        const playload = {
+            username: req.body.username,
+            password: req.body.password
+        }
+        //console.log(playload);
+        try{
+            const result = await findUser(playload.username);
+            const loginStatus = await compareHash(playload.password, result.password);
+            const status = loginStatus.status;
+
+            if(status){
+                const token = jwt.sign(result, key, {expiresIn: '3h'});
+                res.status(200).json({result, token, status});
+            }else{
+                res.status(200).json({status});
+            }
+        }catch(error){
+            console.log(error);
+            res.status(404).json({error});
+        } 
+    })
 module.exports = router
