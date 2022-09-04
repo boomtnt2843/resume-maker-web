@@ -30,6 +30,8 @@ expressApp.use((req, res, next) => {
 
 expressApp.use('/user', require('./routes/user'))
 expressApp.use('/information', require('./routes/information'))
+expressApp.use('/general', require('./routes/generalSkill'))
+expressApp.use('/technical', require('./routes/technicalSkill'))
 
 expressApp.listen(4200, function(){
     console.log('Listening on port 4200');  

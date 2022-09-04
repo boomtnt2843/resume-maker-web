@@ -14,4 +14,4 @@ const technicalSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('technicalSkill', technicalSchema);
+module.exports = mongoose.model('technicalskills', technicalSchema);

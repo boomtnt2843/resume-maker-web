@@ -1,10 +1,8 @@
 var expressFunction = require('express');
 const router = expressFunction.Router();
 const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
 
 const authorization = require('../config/authorize');
-const user = require('../models/user');
 const info = require('../models/information');
 
 //Frist time you click "Let's Start"
@@ -42,6 +40,24 @@ router.route('/create')
                 console.log(err);
                 res.status(500).json(err);
             })
+    })
+
+//find ownerID to edit information
+router.route('/edit/:ownerId')
+    .put(authorization, (req, res)=>{
+       info.findOneAndUpdate({
+        owner: req.params.ownerId
+       },{
+        $set : req.body
+       },(error, data) => {
+        if (error) {
+            console.log(error)
+            res.status(500).json(error)
+        } else {
+            res.status(200).json(data)
+            console.log('Data updated successfully')
+        }
+    })
     })
 
 module.exports = router
