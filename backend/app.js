@@ -32,6 +32,10 @@ expressApp.use('/user', require('./routes/user'))
 expressApp.use('/information', require('./routes/information'))
 expressApp.use('/general', require('./routes/generalSkill'))
 expressApp.use('/technical', require('./routes/technicalSkill'))
+expressApp.use('/activity', require('./routes/activity'))
+expressApp.use('/language', require('./routes/language'))
+expressApp.use('/education', require('./routes/education'))
+expressApp.use('/exprience', require('./routes/experience'))
 
 expressApp.listen(4200, function(){
     console.log('Listening on port 4200');  

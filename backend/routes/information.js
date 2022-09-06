@@ -60,4 +60,63 @@ router.route('/edit/:ownerId')
     })
     })
 
+router.route('/:ofInfoID')
+    .get((req,res)=>{
+        info.aggregate([{
+            $match:{
+                _id: mongoose.Types.ObjectId(req.params.ofInfoID)
+            },
+        },{
+            $lookup:{
+                from: "generalskills",
+                localField: "_id",
+                foreignField: "ofInformation",
+                as: "generalskills"
+            }
+        },{
+            $lookup:{
+                from: "technicalskills",
+                localField: "_id",
+                foreignField: "ofInformation",
+                as: "technicalskills"
+            }
+        },{
+            $lookup:{
+                from: "languages",
+                localField: "_id",
+                foreignField: "ofInformation",
+                as: "languages"
+            }
+        },{
+            $lookup:{
+                from: "experiences",
+                localField: "_id",
+                foreignField: "ofInformation",
+                as: "experiences"
+            }
+        },{
+            $lookup:{
+                from: "educations",
+                localField: "_id",
+                foreignField: "ofInformation",
+                as: "educations"
+            }
+        },{
+            $lookup:{
+                from: "activities",
+                localField: "_id",
+                foreignField: "ofInformation",
+                as: "activities"
+            }
+        }])
+        .then(data => {
+            res.status(200).json(data)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err)
+        })
+    })
+
+
 module.exports = router
