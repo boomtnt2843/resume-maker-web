@@ -20,4 +20,4 @@ const educationSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('education', educationSchema);
+module.exports = mongoose.model('educations', educationSchema);

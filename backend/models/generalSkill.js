@@ -14,4 +14,4 @@ const generalSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('generalSKill', generalSchema);
+module.exports = mongoose.model('generalskills', generalSchema);
