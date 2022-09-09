@@ -10,11 +10,11 @@ const addMylanguage = (dataMyLanguage) => {
     return new Promise((resolve, reject) => {
         var newLanguage = new language({
             _id : new mongoose.Types.ObjectId(),
-            name : dataMyLanguage.nameSkill,
+            name : dataMyLanguage.name,
             power : dataMyLanguage.power,
             ofInformation : dataMyLanguage.ofInformation
         })
-        newSkill.save((err, data) => {
+        newLanguage.save((err, data) => {
             if(err){
                 console.log(err);
                 reject(new Error('Cannot add new Language!'))

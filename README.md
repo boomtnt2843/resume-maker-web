@@ -34,5 +34,15 @@ npm install jsonwebtoken
 ```
 npm install react-bootstrap bootstrap
 ```
+3. copy THIS to paste in index.js
+```
+...
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+
+4. install ***react-router-dom*** for route 
+```
+npm i react-router-dom
+```
 
 Thx for reading

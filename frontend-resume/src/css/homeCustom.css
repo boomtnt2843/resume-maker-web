@@ -1,0 +1,154 @@
+/*Navbar Home*/
+
+.Home-Navbar-container{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    top:0;
+    position: sticky;
+    height: 4rem;
+    background-color: #FEE2C5;
+    box-shadow: 0px 4px #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    color:#001D6E;
+}
+
+.Logo-Home{
+    display: flex;
+    margin: 0.8rem;
+}
+
+.Logo-Home h1{
+    display: flex;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 4px 4px 2px #FFFFFF;
+}
+
+.Sign-btn{
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.Signup {
+    text-decoration: none;
+    height: 2.5rem;
+    border-radius: 15px;
+    color: #001D6E;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-right: 8px;
+    transition: all 0.5 ease;
+}
+
+.Signup:hover ,.Signin-btn:hover{
+    transform: scale(1.05);
+}
+
+.Signin-btn {
+    border: none;
+    background-color: #7FB5FF;
+    box-shadow: 2px 2px #FFFFFF,4px 4px #F0f0f0;
+    width: 6rem;
+    height: 2.5rem;
+    border-radius: 15px;
+    color: #001D6E;
+    font-weight: bold;
+    transition: all 0.5 ease;
+}
+
+.App-logo{
+    position: relative;
+    top:-10px;
+    width: 45px;
+    height: 45px;
+}
+
+/* Home page */
+
+.Main-page{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color:#C4DDFF;
+    height: 100vh;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    color:#001D6E;
+}
+
+.Main-page h1{
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 4px 4px 2px #FFFFFF;
+}
+
+.Format-page1-container{
+    background-color: #001D6E;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Format1-detail{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    color:#C4DDFF;
+    align-items: center;
+    justify-content: center;
+}
+
+.Format1-For-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Example-format1-btn{
+    width: 12rem;
+    height: 5rem;
+    border: none;
+    border-radius: 12px;
+    color: #001D6E;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #7FB5FF;
+}
+
+.Format-page2-container{
+    background-color: #7FB5FF;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Format2-detail{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    color:#001D6E;
+    align-items: center;
+    justify-content: center;
+}
+
+.Format2-For-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Example-format2-btn{
+    width: 12rem;
+    height: 5rem;
+    border: none;
+    border-radius: 12px;
+    color: #C4DDFF;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #001D6E;
+}
