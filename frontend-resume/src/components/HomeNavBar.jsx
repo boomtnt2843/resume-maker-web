@@ -6,11 +6,11 @@ function HomeNavBar() {
         <div className="Home-Navbar-container">
             <div className="Logo-Home">
               <img src={logo} className="App-logo" alt="logo" />
-              <h1>SAYNUM</h1>
+              <a href="#home">SAYNUM</a>
             </div>
             <div className='Sign-btn'>
-              <a href="" className='Signup'>SIGN UP</a>
-              <button className="Signin-btn">SIGN IN</button>
+              <a href="/signup" className='Signup'>SIGN UP</a>
+              <button className="Signin-btn"><a href="#signin">SIGN IN</a></button>
             </div>
         </div>
     );
