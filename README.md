@@ -3,8 +3,8 @@
 ### set up backend-api for this project
 1. install ***mongoDB compass***
    - Create database
-     - ***Database name*** : "Resume-maker"
-     - ***Collection name*** : "user"
+     - ***Database name*** : "Resume"
+     - ***Collection name*** : "users"
 2. install ***express.js***
 ```
 npm init
@@ -14,7 +14,7 @@ npm install express
 ```
 npm install -g nodemon
 ```
-4, install ***mongoose***
+4. install ***mongoose***
 ```
 npm install mongoose
 ```
@@ -22,7 +22,7 @@ npm install mongoose
 ```
 npm install bcryptjs
 ```
-6. install ***jwt** :json web token
+6. install ***jwt*** :json web token
 ```
 npm install jsonwebtoken
 ```
