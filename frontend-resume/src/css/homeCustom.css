@@ -10,6 +10,7 @@
     display: flex;
     justify-content: space-between;
     color:#001D6E;
+    z-index: 999;
 }
 
 .Logo-Home{
@@ -17,11 +18,18 @@
     margin: 0.8rem;
 }
 
-.Logo-Home h1{
+.Logo-Home a{
+    text-decoration: none;
+    align-items: center;
     display: flex;
     font-size: 2rem;
     font-weight: bold;
-    text-shadow: 4px 4px 2px #FFFFFF;
+    background-image: linear-gradient(to top,#7FB5FF 0%,#001D6E 100%);
+    background-size:  100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 .Sign-btn{
@@ -60,6 +68,10 @@
     transition: all 0.5 ease;
 }
 
+.Signin-btn a{
+    text-decoration: none;
+}
+
 .App-logo{
     position: relative;
     top:-10px;
@@ -85,6 +97,23 @@
     font-size: 5rem;
     font-weight: bold;
     text-shadow: 4px 4px 2px #FFFFFF;
+}
+
+.Start-btn{
+    position: relative;
+    border: 5px solid;
+    margin: 1rem;
+    font-size: 2rem;
+    width: 12rem;
+    height: 4rem;
+    color: #001D6E;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color: #FEE2C5;
+}
+
+.Start-btn:hover{
+    background-color: #fee2c500;
 }
 
 .Format-page1-container{
@@ -146,9 +175,29 @@
     width: 12rem;
     height: 5rem;
     border: none;
+    outline: none;
     border-radius: 12px;
     color: #C4DDFF;
     font-size: 2rem;
     font-weight: bold;
     background-color: #001D6E;
+}
+
+.Example-format1-btn:hover ,.Example-format2-btn:hover{
+    transform: translate(-10px,-10px);
+    box-shadow: 5px 5px #FEE2C5,10px 10px #FFFFFF;
+}
+
+/* Sign In page */
+
+.SignIn-page-container{
+    height: 92vh;
+    background-color: #FFDEB4;
+}
+
+/* foot page */
+
+.foot-container{
+    height: 8vh;
+    background-color: #FFB4B4;
 }
