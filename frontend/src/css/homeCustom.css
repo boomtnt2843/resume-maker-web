@@ -1,7 +1,6 @@
 /*Navbar Home*/
 
 .Home-Navbar-container{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     top:0;
     position: sticky;
     height: 4rem;
@@ -82,7 +81,6 @@
 /* Home page */
 
 .Main-page{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color:#C4DDFF;
     height: 100vh;
     width: auto;
@@ -110,6 +108,7 @@
     font-weight: bold;
     border-radius: 20px;
     background-color: #FEE2C5;
+    cursor: pointer;
 }
 
 .Start-btn:hover{
@@ -139,6 +138,7 @@
 }
 
 .Example-format1-btn{
+    cursor: pointer;
     width: 12rem;
     height: 5rem;
     border: none;
@@ -183,6 +183,7 @@
     font-weight: bold;
     background-color: #001D6E;
     transition: all 0.5s ease;
+    cursor: pointer;
 }
 
 .Example-format1-btn:hover ,.Example-format2-btn:hover{
@@ -245,6 +246,7 @@
 }
 
 .box-signin h3{
+    font-size: 1.4rem;
     font-weight: bold;
     color: #FFF9CA;
     margin-bottom: 1rem;
@@ -280,6 +282,7 @@
     font-size: 1.2rem;
     font-weight: bold;
     color: #FFDEB4;
+    cursor: pointer;
     transition: all 0.5s ease;
 }
 
@@ -289,6 +292,7 @@
 }
 
 .signup-page-btn{
+    cursor: pointer;
     border: none;
     border-radius: 10px;
     background-color: #ffffff;
