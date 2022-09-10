@@ -49,27 +49,27 @@
     font-weight: bold;
     margin-top: 1rem;
     margin-right: 8px;
-    transition: all 0.5 ease;
+    transition: all 0.5s ease;
 }
 
-.Signup:hover ,.Signin-btn:hover{
+.Signup:hover ,.Signin-link-btn:hover{
     transform: scale(1.05);
 }
 
-.Signin-btn {
+.Signin-link-btn {
     border: none;
     background-color: #7FB5FF;
     box-shadow: 2px 2px #FFFFFF,4px 4px #F0f0f0;
     width: 6rem;
     height: 2.5rem;
     border-radius: 15px;
-    color: #001D6E;
     font-weight: bold;
-    transition: all 0.5 ease;
+    transition: all 0.5s ease;
 }
 
-.Signin-btn a{
+.Signin-link-btn a{
     text-decoration: none;
+    color: #001D6E;
 }
 
 .App-logo{
@@ -147,6 +147,7 @@
     font-size: 2rem;
     font-weight: bold;
     background-color: #7FB5FF;
+    transition: all 0.5s ease;
 }
 
 .Format-page2-container{
@@ -181,6 +182,7 @@
     font-size: 2rem;
     font-weight: bold;
     background-color: #001D6E;
+    transition: all 0.5s ease;
 }
 
 .Example-format1-btn:hover ,.Example-format2-btn:hover{
@@ -188,11 +190,131 @@
     box-shadow: 5px 5px #FEE2C5,10px 10px #FFFFFF;
 }
 
+@media screen and (max-width: 440px){
+    .Logo-Home a{
+        font-size: 1.5rem;
+    }
+    .Signin-link-btn a, .Signup{
+        font-size: 0.8rem;
+    }
+    .Signup{
+        margin-top: 1.5rem;
+        margin-right: 4px;
+    }
+    .Signin-link-btn{
+        width: 5rem;
+    }
+    .Main-page h1{
+        font-size: 4rem;
+    }
+    .Main-page h2{
+        font-size: 1.2rem;
+    }
+}
+
 /* Sign In page */
 
 .SignIn-page-container{
     height: 92vh;
     background-color: #FFDEB4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.SignIn-page-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-signin{
+    background-color: #FFB4B4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin: 1rem;
+    width: 30rem;
+    height: 16rem;
+    border-radius: 30px;
+    box-shadow: 10px 10px #ffffff;
+}
+
+.box-signin h3{
+    font-weight: bold;
+    color: #FFF9CA;
+    margin-bottom: 1rem;
+}
+
+.signin-input{
+    border: none;
+    border-radius: 20px;
+    padding-left: 1rem;
+    height: 2rem;
+    width: 60%;
+    background-color: #FFF9CA;
+    outline: none;
+}
+
+.signin-input:focus{
+    border: 3px solid #FFDEB4;
+}
+
+.header-text{
+    font-weight: bold;
+    color: #ff6a6a;
+    text-shadow: 2px 2px #ffffff;
+}
+
+.signin-btn{
+    margin: 1.5rem;
+    border: none;
+    width: 8rem;
+    height: 3rem;
+    background-color: #ff6a6a;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFDEB4;
+    transition: all 0.5s ease;
+}
+
+.signin-btn:hover{
+    transform: translate(-10px,-10px);
+    box-shadow: 5px 5px #f0f0f0,10px 10px #FFFFFF;
+}
+
+.signup-page-btn{
+    border: none;
+    border-radius: 10px;
+    background-color: #ffffff;
+    transition: all 1s ease;
+}
+
+.signup-page-btn:hover{
+    transform: translate(-1.5rem);
+}
+
+.signup-page-btn:hover:after{
+    content: 'yes,I want.';
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 10px;
+    z-index: -1;
+    background-color: #ff6a6a;
+}
+
+@media screen and (max-width: 520px){
+    .box-signin{
+        width: 20rem;
+    }
+    .signup-page-btn:hover{
+        transform: translate(-0.5rem);
+    }
 }
 
 /* foot page */
@@ -200,4 +322,5 @@
 .foot-container{
     height: 8vh;
     background-color: #FFB4B4;
+    box-shadow: 0px -5px #FFFFFF;
 }
