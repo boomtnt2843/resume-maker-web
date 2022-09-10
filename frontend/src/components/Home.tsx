@@ -1,15 +1,16 @@
 import '../css/homeCustom.css';
 import HomeNavBar from './HomeNavBar';
 
-const toSignUp = () =>{
-  window.location.href='/signup'
-}
-
-const toSignIn = () =>{
-  window.location.href='#signin'
-}
-
 function Home() {
+  
+
+  const toSignUp = () =>{
+    window.location.href='/signup'
+  }
+  const toSignIn = () =>{
+    window.location.href='#signin'
+  }
+  
     return (
       <div>
         <HomeNavBar></HomeNavBar>
