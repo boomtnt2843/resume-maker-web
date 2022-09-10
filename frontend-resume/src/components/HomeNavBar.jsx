@@ -10,7 +10,7 @@ function HomeNavBar() {
             </div>
             <div className='Sign-btn'>
               <a href="/signup" className='Signup'>SIGN UP</a>
-              <button className="Signin-btn"><a href="#signin">SIGN IN</a></button>
+              <button className="Signin-link-btn"><a href="#signin">SIGN IN</a></button>
             </div>
         </div>
     );
