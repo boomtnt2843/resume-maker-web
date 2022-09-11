@@ -41,13 +41,15 @@
 }
 
 .Signup {
+    margin-right: 1rem;
     text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1.2rem;
     height: 2.5rem;
     border-radius: 15px;
     color: #001D6E;
     font-weight: bold;
-    margin-top: 1rem;
-    margin-right: 8px;
     transition: all 0.5s ease;
 }
 
@@ -68,6 +70,7 @@
 
 .Signin-link-btn a{
     text-decoration: none;
+    font-size: 1rem;
     color: #001D6E;
 }
 
@@ -93,6 +96,7 @@
 
 .Main-page h1{
     font-size: 5rem;
+    margin: 0;
     font-weight: bold;
     text-shadow: 4px 4px 2px #FFFFFF;
 }
@@ -196,10 +200,10 @@
         font-size: 1.5rem;
     }
     .Signin-link-btn a, .Signup{
+        padding-top: 1.5rem;
         font-size: 0.8rem;
     }
     .Signup{
-        margin-top: 1.5rem;
         margin-right: 4px;
     }
     .Signin-link-btn{
@@ -209,6 +213,10 @@
         font-size: 4rem;
     }
     .Main-page h2{
+        font-size: 1.2rem;
+    }
+    .Example-format1-btn ,.Example-format2-btn{
+        width: 8rem;
         font-size: 1.2rem;
     }
 }
@@ -312,12 +320,24 @@
     background-color: #ff6a6a;
 }
 
+.incorrect-input{
+    visibility: hidden;
+    margin-top: 1rem;
+    color: #ff6a6a;
+}
+
 @media screen and (max-width: 520px){
     .box-signin{
         width: 20rem;
     }
     .signup-page-btn:hover{
         transform: translate(-0.5rem);
+    }
+}
+
+@media screen and (max-width: 430px){
+    .box-signin{
+        width: 14rem;
     }
 }
 

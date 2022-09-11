@@ -98,9 +98,9 @@ router.route('/signin')
             const result = await findUser(playload.username);
             const loginStatus = await compareHash(playload.password, result.password);
             const status = loginStatus.status;
-
             if(status){
                 const token = jwt.sign(result, key, {expiresIn: '3h'});
+                console.log("ok")
                 res.status(200).json({result, token, status});
             }else{
                 res.status(200).json({status});
