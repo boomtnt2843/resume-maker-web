@@ -1,9 +1,45 @@
 import '../css/homeCustom.css';
 import HomeNavBar from './HomeNavBar';
+import { userInterface } from '../models/IUser';
+import { useState } from 'react';
 
 function Home() {
-  
 
+  const [user, setUser] = useState<Partial<userInterface>>({});
+
+  const signIn = () =>{
+    const apiUrl = "http://localhost:4200/user/signin";
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    }
+    console.log(requestOptions);
+    fetch(apiUrl, requestOptions)
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res);
+        if (res.status) {
+          console.log("ok");
+          localStorage.setItem("token", res.token);
+          localStorage.setItem("id", res.result.id);
+          window.location.href='/signup'
+        }else{
+          var a = document.getElementById("incorrect");
+          if(a!=undefined) a.style.visibility = "visible";
+          console.log("error");
+        }
+      });
+  }
+
+  const handleInputChange = (
+    event: React.ChangeEvent<{ id?: string; value: any }>
+  ) => {
+    const id = event.target.id as keyof typeof user;
+    const { value } = event.target;
+    setUser({ ...user, [id]: value });
+  };
+  
   const toSignUp = () =>{
     window.location.href='/signup'
   }
@@ -44,11 +80,12 @@ function Home() {
             <form>
               <div className="box-signin">
                 <h3>Username</h3>
-                <input type="text" className="signin-input" placeholder='username...' />
+                <input type="text" className="signin-input" placeholder='username...' id="username" onChange={handleInputChange} />
                 <h3>Password</h3>
-                <input type="password" className="signin-input" placeholder='password...' />
+                <input type="password" className="signin-input" placeholder='password...' id="password" onChange={handleInputChange}  />
+                <div className="incorrect-input" id='incorrect'>Incorrect username or password</div>
               </div>
-              <button className="signin-btn">
+              <button type='button' className="signin-btn" onClick={signIn}>
                 SIGN IN
               </button>
             </form>
