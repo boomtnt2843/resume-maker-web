@@ -66,11 +66,11 @@ router.route('/edit/:ownerId')
     })
     })
 
-router.route('/:ofInfoID')
+router.route('/all/:ofInfoID')
     .get((req,res)=>{
         info.aggregate([{
             $match:{
-                _id: mongoose.Types.ObjectId(req.params.ofInfoID)
+                owner: mongoose.Types.ObjectId(req.params.ofInfoID)
             },
         },{
             $lookup:{
@@ -128,43 +128,36 @@ router.route('/deleteInfo/:id')
     .delete(authorization, (req,res) => {
         activity.deleteMany({ofInformation: req.params.id}, (error ,data) => {
             if(error){
-                //console.log(error);
                 res.status(500).json(error)
             }
         })
         education.deleteMany({ofInformation: req.params.id}, (error ,data) => {
             if(error){
-                //console.log(error);
                 res.status(500).json(error)
             }
         })
         experience.deleteMany({ofInformation: req.params.id}, (error ,data) => {
             if(error){
-                //console.log(error);
                 res.status(500).json(error)
             }
         })
         general.deleteMany({ofInformation: req.params.id}, (error ,data) => {
             if(error){
-                //console.log(error);
                 res.status(500).json(error)
             }
         })
         language.deleteMany({ofInformation: req.params.id}, (error ,data) => {
             if(error){
-                //console.log(error);
                 res.status(500).json(error)
             }
         })
         technical.deleteMany({ofInformation: req.params.id}, (error ,data) => {
             if(error){
-                //console.log(error);
                 res.status(500).json(error)
             }
         })
         info.findByIdAndDelete(req.params.id, (error ,data) => {
             if(error){
-                //console.log(error);
                 res.status(500).json(error)
             }else{
                 res.status(200).json({

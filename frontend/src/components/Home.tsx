@@ -20,17 +20,18 @@ function Home() {
       .then((res) => {
         console.log(res);
         if (res.status) {
-          console.log("ok");
           localStorage.setItem("token", res.token);
           localStorage.setItem("id", res.result.id);
-          window.location.href='/signup'
+          localStorage.setItem("name",res.result.username);
+          window.location.href='/myaccount'
         }else{
-          var a = document.getElementById("incorrect");
-          if(a!=undefined) a.style.visibility = "visible";
+          var a = document.getElementById("incorrect") as HTMLDivElement;
+          a.style.visibility = "visible";
           console.log("error");
         }
       });
   }
+
 
   const handleInputChange = (
     event: React.ChangeEvent<{ id?: string; value: any }>

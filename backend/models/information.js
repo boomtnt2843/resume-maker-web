@@ -6,7 +6,7 @@ const informationSchema = mongoose.Schema({
         type: Number,
         default: 1
     },
-    fristName: { 
+    firstName: { 
         type: String
     },
     lastName: { 
