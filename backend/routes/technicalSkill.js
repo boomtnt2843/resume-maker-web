@@ -10,7 +10,7 @@ const addTechnical = (dataSkill) => {
     return new Promise((resolve, reject) => {
         var newSkill = new technical({
             _id : new mongoose.Types.ObjectId(),
-            nameSkill : dataSkill.nameSkill,
+            name : dataSkill.nameSkill,
             power : dataSkill.power,
             ofInformation : dataSkill.ofInformation
         })
