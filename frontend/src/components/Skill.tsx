@@ -1,19 +1,400 @@
-import '../css/navbar.css';
+import InfoNavBar from "./InfoNavBar";
+import { useEffect, useState } from "react";
+import { skillInterface } from "../models/ISkill";
+import { FaTrashAlt } from "react-icons/fa"
+import { format } from "path";
 
 function Skill() {
+  const [token, setToken] = useState<string>("");
+  const [myId, setMyId] = useState<string>("");
+  const [myInfoId, setInfoID] = useState<string>("");
+  const [generalSkills, setGenerals] = useState<skillInterface[]>([]);
+  const [generalSkill, setGeneral] = useState<Partial<skillInterface>>({});
+  const [technicalSkills, setTechnicals] = useState<skillInterface[]>([]);
+  const [technicalSkill, setTechnical] = useState<Partial<skillInterface>>({});
+  const [languages, setLanguages] = useState<skillInterface[]>([]);
+  const [language, setlanguage] = useState<Partial<skillInterface>>({});
+
+  const apiUrl = "http://localhost:4200";
+
+  const convertType = (data: string | number | Number | undefined ) => {
+    let val = typeof data === "string" ? parseInt(data) : data;
+    return val;
+  };
+
+  //general skill function
+  const getGeneralSkills = async () => {
+    const requestOptions = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    };
+    fetch(`${apiUrl}/general/${myInfoId}`, requestOptions)
+        .then((response) => response.json())
+        .then((res) => {
+            if (res) {
+              console.log(res.length);
+              setGenerals(res)
+            } else {
+              console.log("else");
+            }
+        });
+  };
+
+  const handleInputChangeGeneral = (
+    event: React.ChangeEvent<{ id?: string; value: any }>
+  ) => {
+      const id = event.target.id as keyof typeof generalSkill;
+      const { value } = event.target;
+      setGeneral({ ...generalSkill, [id]: value });
+      console.log(generalSkill);
+  };
+
+  function submitGeneralSkill() {
+    let data = {
+      nameSkill: generalSkill.name,
+      power: convertType(generalSkill.power),
+      ofInformation: myInfoId,
+    };
+    console.log(JSON.stringify(data))
+    const requestOptionsPost = {
+        method: "POST",
+        headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    };
+    setGeneral({});
+    fetch(`${apiUrl}/general/create`, requestOptionsPost)
+        .then((response) => response.json())
+        .then((res) => {
+            if (res) {
+                console.log(res);
+                getGeneralSkills();
+            } else {
+                console.log("error");
+            }
+        });
+}
+  
+  const deleteGeneralSkill = async (id: String) => {
+    const requestOptions = {
+        method: "DELETE",
+        headers: {
+          Authorization: token,
+          "Content-Type": "application/json"
+        },
+    };
+    fetch(`${apiUrl}/general/deleteOne/${id}`, requestOptions)
+        .then((response) => response.json())
+        .then((res) => {
+            if (res) {
+              getGeneralSkills();
+            } else {
+              console.log("else");
+            }
+        });
+  };
+
+  //technical skill function
+  const getTechnicalSkills = async () => {
+    const requestOptions = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    };
+    fetch(`${apiUrl}/technical/${myInfoId}`, requestOptions)
+        .then((response) => response.json())
+        .then((res) => {
+            if (res) {
+              setTechnicals(res)
+            } else {
+              console.log("else");
+            }
+        });
+  };
+
+  const handleInputChangeTechnical = (
+    event: React.ChangeEvent<{ id?: string; value: any }>
+  ) => {
+      const id = event.target.id as keyof typeof technicalSkill;
+      const { value } = event.target;
+      setTechnical({ ...technicalSkill, [id]: value });
+      console.log(technicalSkill);
+  };
+
+  function submitTechnicalSkill() {
+    let data = {
+      nameSkill: technicalSkill.name,
+      power: convertType(technicalSkill.power),
+      ofInformation: myInfoId,
+    };
+    console.log(JSON.stringify(data))
+    const requestOptionsPost = {
+        method: "POST",
+        headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    };
+    setTechnical({});
+    fetch(`${apiUrl}/technical/create`, requestOptionsPost)
+        .then((response) => response.json())
+        .then((res) => {
+            if (res) {
+                console.log(res);
+                getTechnicalSkills();
+            } else {
+                console.log("error");
+            }
+        });
+  }
+  
+  const deleteTechnicalSkill = async (id: String) => {
+    const requestOptions = {
+        method: "DELETE",
+        headers: {
+          Authorization: token,
+          "Content-Type": "application/json"
+        },
+    };
+    fetch(`${apiUrl}/technical/deleteOne/${id}`, requestOptions)
+        .then((response) => response.json())
+        .then((res) => {
+            if (res) {
+              getTechnicalSkills();
+            } else {
+              console.log("else");
+            }
+        });
+  };
+
+  //language function
+  const getLanguages = async () => {
+    const requestOptions = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    };
+    fetch(`${apiUrl}/language/${myInfoId}`, requestOptions)
+        .then((response) => response.json())
+        .then((res) => {
+            if (res) {
+              setLanguages(res)
+            } else {
+              console.log("else");
+            }
+        });
+  };
+
+  const handleInputChangeLanguage = (
+    event: React.ChangeEvent<{ id?: string; value: any }>
+  ) => {
+      const id = event.target.id as keyof typeof language;
+      const { value } = event.target;
+      setlanguage({ ...language, [id]: value });
+      console.log(language);
+  };
+
+  function submitLanguage() {
+    let data = {
+      name: language.name,
+      power: convertType(language.power),
+      ofInformation: myInfoId,
+    };
+    console.log(JSON.stringify(data))
+    const requestOptionsPost = {
+        method: "POST",
+        headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    };
+    setlanguage({});
+    fetch(`${apiUrl}/language/create`, requestOptionsPost)
+        .then((response) => response.json())
+        .then((res) => {
+            if (res) {
+                console.log(res);
+                getLanguages();
+            } else {
+                console.log("error");
+            }
+        });
+  }
+  
+  const deleteLanguage = async (id: String) => {
+    const requestOptions = {
+        method: "DELETE",
+        headers: {
+          Authorization: token,
+          "Content-Type": "application/json"
+        },
+    };
+    fetch(`${apiUrl}/language/deleteOne/${id}`, requestOptions)
+        .then((response) => response.json())
+        .then((res) => {
+            if (res) {
+              getLanguages();
+            } else {
+              console.log("else");
+            }
+        });
+  };
+
+  useEffect(()=>{
+    const token = localStorage.getItem("token")
+    const myID = localStorage.getItem("id")
+    const myInfoID = localStorage.getItem("Info_id")
+    if(myID) setMyId(myID);
+    if(myInfoID) setInfoID(myInfoID);
+    if(token) setToken(token);
+    else window.location.href='/';
+    if(myInfoId){ 
+      getGeneralSkills();
+      getTechnicalSkills();
+      getLanguages();
+    }
+  },[myInfoId])
+
     return (
+      <div>
+        <InfoNavBar></InfoNavBar>
         <div className="skill-container">
           <div className="general-skill-container">
             <h1>General Skill</h1>
-            <table className="general-table">
-              <tr>
-                <th>Skill</th>
-                <th>Power</th>
-                <th>Option</th>
-              </tr>
-            </table>
+            <div className="general-box">
+              <table className="general-table">
+                <thead>
+                  <tr>
+                    <th>Skill</th>
+                    <th>Power</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {generalSkills.map((item: skillInterface,index) => (
+                  <tr key={index}>
+                    <td>{item.name}</td>
+                    <td>{String(item.power)}</td>
+                    <td>
+                      <button onClick={()=>deleteGeneralSkill(item._id)}><FaTrashAlt/></button>
+                    </td>
+                  </tr>             
+                ))}
+                </tbody>
+              </table>
+              <div className="general-input">
+                <h1>IT'S MAXIMUN GENERAL SKILLS!</h1>
+                <form className="general-form" id="general-form"
+                  onSubmit={(e: React.SyntheticEvent) => {
+                    e.preventDefault();
+                    submitGeneralSkill();
+                    const generalform = document.getElementById("general-form") as HTMLFormElement;
+                    generalform.reset()
+                  }}>
+                  <h2>Add General Skill</h2>
+                  <p>Skill</p>
+                  <input type="text" className="name-input" id="name" onChange={handleInputChangeGeneral} />
+                  <p>Power</p>
+                  <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeGeneral} />
+                  <button type="submit">add</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div className="technical-skill-container">
+            <h1>Technical Skill</h1>
+            <div className="technical-box">
+              <table className="tachnical-table">
+                <thead>
+                  <tr>
+                    <th>Skill</th>
+                    <th>Power</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {technicalSkills.map((item: skillInterface,index) => (
+                  <tr key={index}>
+                    <td>{item.name}</td>
+                    <td>{String(item.power)}</td>
+                    <td>
+                      <button onClick={()=>deleteTechnicalSkill(item._id)}><FaTrashAlt/></button>
+                    </td>
+                  </tr>             
+                ))}
+                </tbody>
+              </table>
+              <div className="technical-input">
+                <h1>IT'S MAXIMUN TECHNICAL SKILLS!</h1>
+                <form className="technical-form" id="technical-form"
+                  onSubmit={(e: React.SyntheticEvent) => {
+                    e.preventDefault();
+                    submitTechnicalSkill();
+                    const technicalform = document.getElementById("technical-form") as HTMLFormElement;
+                    technicalform.reset();
+                  }}>
+                  <h2>Add Technical Skill</h2>
+                  <p>Skill</p>
+                  <input type="text" className="name-input" id="name" onChange={handleInputChangeTechnical} />
+                  <p>Power</p>
+                  <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeTechnical} />
+                  <button type="submit">add</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div className="language-container">
+            <h1>Language Skill</h1>
+            <div className="language-box">
+              <table className="language-table">
+                <thead>
+                  <tr>
+                    <th>language</th>
+                    <th>Power</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {languages.map((item: skillInterface,index) => (
+                  <tr key={index}>
+                    <td>{item.name}</td>
+                    <td>{String(item.power)}</td>
+                    <td>
+                      <button onClick={()=>deleteLanguage(item._id)}><FaTrashAlt/></button>
+                    </td>
+                  </tr>             
+                ))}
+                </tbody>
+              </table>
+              <div className="language-input">
+                <h1>IT'S MAXIMUN LANGUAGES!</h1>
+                <form className="language-form" id="language-form"
+                  onSubmit={(e: React.SyntheticEvent) => {
+                    e.preventDefault();
+                    submitLanguage();
+                    const languageform = document.getElementById("language-form") as HTMLFormElement;
+                    languageform.reset()
+                  }}>
+                  <h2>Add Language</h2>
+                  <p>Language</p>
+                  <input type="text" className="name-input" id="name" onChange={handleInputChangeLanguage} />
+                  <p>Power</p>
+                  <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeLanguage} />
+                  <button type="submit">add</button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
     );
   }
   

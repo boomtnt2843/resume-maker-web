@@ -22,6 +22,7 @@ function MyAccount() {
             .then((response) => response.json())
             .then((res) => {
                 if (res) {
+                    localStorage.setItem("Info_id", res._id);
                     setMyInfo(res);
                 } else {
                     console.log("else");
@@ -68,7 +69,7 @@ function MyAccount() {
         if(myID) setMyId(myID);
         if(token) setToken(token);
         else window.location.href='/';
-        if(myId) getMyInformation();
+        if(myId) {getMyInformation();}
         console.log(myInfo);
     },[myId])
 

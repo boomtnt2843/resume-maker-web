@@ -56,7 +56,6 @@ function AboutMe() {
         const id = event.target.id as keyof typeof myInfo;
         const { value } = event.target;
         setMyInfo({ ...myInfo, [id]: value });
-        console.log(myInfo); 
     };
 
     //use for get Information of user
