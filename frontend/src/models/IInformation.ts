@@ -11,7 +11,7 @@ export interface informationInterface {
     lastName: string,
     position: string,
     age: number,
-    birthDay: Date,
+    birthDay: string,
     email: string,
     tel: string,
     facebook: string,

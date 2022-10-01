@@ -1,9 +1,8 @@
-import '../css/homeCustom.css';
-import logo from '../image/LogoSaynum.png'
+import '../css/navbar.css';
 
 function HomeNavBar() {
     return (
-        <div className="Home-Navbar-container">
+        <div className="Navbar-container">
             <div className="Logo-Home">
               <img src={require('../image/LogoSaynum.png')} className="App-logo" alt="logo" />
               <a href="#home">SAYNUM</a>
