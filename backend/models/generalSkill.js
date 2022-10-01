@@ -6,7 +6,8 @@ const generalSchema = mongoose.Schema({
         type: String
     },
     power: { 
-        type: Number
+        type: Number,
+        default: 3
     },
     ofInformation: {
         type: mongoose.Schema.Types.ObjectId, 
