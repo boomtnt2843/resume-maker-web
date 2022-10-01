@@ -45,12 +45,11 @@ function Signup() {
     ) => {
         const {value} = event.target;
         setRe_password(value);
-        console.log(re_password);
     }
 
     const toHome = () =>{
         window.location.href='/'
-      }
+    }
 
     return (
         <div className="container-signup">

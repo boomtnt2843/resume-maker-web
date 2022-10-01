@@ -1,7 +1,7 @@
 import '../css/homeCustom.css';
 import HomeNavBar from './HomeNavBar';
 import { userInterface } from '../models/IUser';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Home() {
 
@@ -48,7 +48,11 @@ function Home() {
     window.location.href='#signin'
   }
   
-    return (
+  useEffect(()=>{
+    localStorage.clear();
+},[])
+
+  return (
       <div>
         <HomeNavBar></HomeNavBar>
         <div className='Main-page' id='home'>

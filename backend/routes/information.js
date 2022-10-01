@@ -30,16 +30,31 @@ const createNewInformation = (dataInformation) => {
         })
     })
 }
+//get for view in edit page
+const findoneInfo = (infoID) => {
+    return new Promise((resolve, reject) =>{
+        info.findOne({owner : infoID}, (err, data) =>{
+            if(err){
+                reject(new Error('Cannot find information!'))
+            }else{
+                if(data){
+                    resolve(data)
+                }else{
+                    reject(new Error('Cannot find information!'))
+                }
+            }
+        })
+    })
+}
 
+//first time crate
 router.route('/create')
     .post(authorization, (req,res)=>{
         const playload = {
             owner : req.body.owner 
         }
-        //console.log(playload);
         createNewInformation(playload)
             .then(result => {
-                //console.log(result);
                 res.status(200).json(result);
             })
             .catch(err=>{
@@ -66,6 +81,19 @@ router.route('/edit/:ownerId')
     })
     })
 
+router.route('/:ofInfoID')
+    .get((req,res)=>{
+        findoneInfo(req.params.ofInfoID)
+            .then(result => {
+                res.status(200).json(result);
+            })
+            .catch(err=>{
+                console.log(err);
+                res.status(500).json(err);
+            })
+    })
+
+//get for show in resume
 router.route('/all/:ofInfoID')
     .get((req,res)=>{
         info.aggregate([{

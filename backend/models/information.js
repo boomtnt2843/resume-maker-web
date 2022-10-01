@@ -18,7 +18,7 @@ const informationSchema = mongoose.Schema({
     age: { 
         type: Number
     },
-    brithDay: { 
+    birthDay: { 
         type: Date
     },
     email: { 
