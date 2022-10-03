@@ -1,8 +1,9 @@
 export interface exprienceInterface {
-    location: String,
-    position: String,
-    detail: String,
+    _id: string,
+    location: string,
+    position: string,
+    detail: string,
     startDate : Date,
     endDate : Date,
-    ofInformation: String   
+    ofInformation: string   
 }
