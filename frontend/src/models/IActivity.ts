@@ -1,7 +1,8 @@
 export interface activityInterface {
-    nameHeader: String,
-    detail: String,
+    _id: string,
+    nameHeader: string,
+    detail: string,
     startDate : Date,
     endDate : Date,
-    ofInformation: String   
+    ofInformation: string   
 }

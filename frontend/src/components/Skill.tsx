@@ -2,11 +2,9 @@ import InfoNavBar from "./InfoNavBar";
 import { useEffect, useState } from "react";
 import { skillInterface } from "../models/ISkill";
 import { FaTrashAlt } from "react-icons/fa"
-import { format } from "path";
 
 function Skill() {
   const [token, setToken] = useState<string>("");
-  const [myId, setMyId] = useState<string>("");
   const [myInfoId, setInfoID] = useState<string>("");
   const [generalSkills, setGenerals] = useState<skillInterface[]>([]);
   const [generalSkill, setGeneral] = useState<Partial<skillInterface>>({});
@@ -250,9 +248,7 @@ function Skill() {
 
   useEffect(()=>{
     const token = localStorage.getItem("token")
-    const myID = localStorage.getItem("id")
     const myInfoID = localStorage.getItem("Info_id")
-    if(myID) setMyId(myID);
     if(myInfoID) setInfoID(myInfoID);
     if(token) setToken(token);
     else window.location.href='/';
@@ -291,13 +287,13 @@ function Skill() {
                 </tbody>
               </table>
               <div className="general-input">
-                <h1>IT'S MAXIMUN GENERAL SKILLS!</h1>
+                <h1>IT'S MAXIMUM GENERAL SKILLS!</h1>
                 <form className="general-form" id="general-form"
                   onSubmit={(e: React.SyntheticEvent) => {
                     e.preventDefault();
                     submitGeneralSkill();
                     const generalform = document.getElementById("general-form") as HTMLFormElement;
-                    generalform.reset()
+                    generalform.reset();
                   }}>
                   <h2>Add General Skill</h2>
                   <p>Skill</p>
@@ -333,7 +329,7 @@ function Skill() {
                 </tbody>
               </table>
               <div className="technical-input">
-                <h1>IT'S MAXIMUN TECHNICAL SKILLS!</h1>
+                <h1>IT'S MAXIMUM TECHNICAL SKILLS!</h1>
                 <form className="technical-form" id="technical-form"
                   onSubmit={(e: React.SyntheticEvent) => {
                     e.preventDefault();
@@ -375,13 +371,13 @@ function Skill() {
                 </tbody>
               </table>
               <div className="language-input">
-                <h1>IT'S MAXIMUN LANGUAGES!</h1>
+                <h1>IT'S MAXIMUM LANGUAGES!</h1>
                 <form className="language-form" id="language-form"
                   onSubmit={(e: React.SyntheticEvent) => {
                     e.preventDefault();
                     submitLanguage();
                     const languageform = document.getElementById("language-form") as HTMLFormElement;
-                    languageform.reset()
+                    languageform.reset();
                   }}>
                   <h2>Add Language</h2>
                   <p>Language</p>

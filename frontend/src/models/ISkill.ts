@@ -1,6 +1,6 @@
 export interface skillInterface {
-    _id: String,
-    name: String,
+    _id: string,
+    name: string,
     power: Number,
-    ofInformation: String   
+    ofInformation: string   
 }

@@ -1,7 +1,8 @@
 export interface educationInterface {
-    name: String,
-    degress: String,
-    startDate : Date,
-    endDate : Date,
-    ofInformation: String   
+    _id: string,
+    name: string,
+    degress: string,
+    startDate : string,
+    endDate : string,
+    ofInformation: string   
 }

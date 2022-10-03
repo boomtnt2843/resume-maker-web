@@ -40,11 +40,11 @@
 }
 
 .Signup {
-    margin-right: 1rem;
-    text-decoration: none;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    padding-top: 1.2rem;
+    margin-right: 1rem;
+    padding-top: 0;
+    text-decoration: none;
     height: 2.5rem;
     border-radius: 15px;
     color: #001D6E;
@@ -75,6 +75,7 @@
 
 .App-logo{
     position: relative;
+    object-fit: cover;
     top:-10px;
     width: 45px;
     height: 45px;
@@ -86,7 +87,6 @@
         font-size: 1.5rem;
     }
     .Signin-link-btn a, .Signup{
-        padding-top: 1.5rem;
         font-size: 0.8rem;
     }
     .Signup{

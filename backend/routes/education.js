@@ -11,7 +11,7 @@ const addNewEducation = (dataEdu) => {
         var newEducation = new education({
             _id : new mongoose.Types.ObjectId(),
             name : dataEdu.name,
-            degress : dataEdu.detail,
+            degress : dataEdu.degress,
             startDate : dataEdu.startDate,
             endDate : dataEdu.endDate,
             ofInformation : dataEdu.ofInformation
