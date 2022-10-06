@@ -1,0 +1,12 @@
+.box-input > small{
+    display: none;
+}
+
+.box-input.error > small{
+    display: block;
+    color: #ff3e3e;
+}
+
+.box-input.error > input{
+    border: solid 4px #ff3e3e;
+}

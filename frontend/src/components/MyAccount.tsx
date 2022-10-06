@@ -47,6 +47,7 @@ function MyAccount() {
             .then((res) => {
                 if (res) {
                     console.log(res);
+                    localStorage.setItem("Info_id", res.new_info._id);
                     window.location.href='/myaccount/aboutme'
                 } else {
                     console.log("else");

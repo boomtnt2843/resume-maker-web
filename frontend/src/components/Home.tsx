@@ -27,7 +27,8 @@ function Home() {
         }else{
           var a = document.getElementById("incorrect") as HTMLDivElement;
           a.style.visibility = "visible";
-          console.log("error");
+          const expform = document.getElementById("exp-form") as HTMLFormElement;
+          expform.reset();
         }
       });
   }
@@ -47,6 +48,13 @@ function Home() {
   const toSignIn = () =>{
     window.location.href='#signin'
   }
+
+  const submitFormSignIn = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    signIn();
+    const expform = document.getElementById("sign-in-form") as HTMLFormElement;
+    expform.reset();
+}
   
   useEffect(()=>{
     localStorage.clear();
@@ -82,7 +90,7 @@ function Home() {
         </div>
           <div className="SignIn-page-container" id='signin'>
             <h1 className='header-text'>SIGN IN...</h1>
-            <form>
+            <form id="sign-in-form" onSubmit={submitFormSignIn}>
               <div className="box-signin">
                 <h3>Username</h3>
                 <input type="text" className="signin-input" placeholder='username...' id="username" onChange={handleInputChange} />
@@ -90,7 +98,7 @@ function Home() {
                 <input type="password" className="signin-input" placeholder='password...' id="password" onChange={handleInputChange}  />
                 <div className="incorrect-input" id='incorrect'>Incorrect username or password</div>
               </div>
-              <button type='button' className="signin-btn" onClick={signIn}>
+              <button type='submit' className="signin-btn">
                 SIGN IN
               </button>
             </form>

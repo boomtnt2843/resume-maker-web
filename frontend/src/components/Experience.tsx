@@ -89,6 +89,13 @@ function Experience() {
             });
       }
 
+    const submitFormExp = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        submitExprience();
+        const expform = document.getElementById("exp-form") as HTMLFormElement;
+        expform.reset();
+    }
+
     useEffect(()=>{
         const token = localStorage.getItem("token")
         const myInfoID = localStorage.getItem("Info_id")
@@ -133,14 +140,7 @@ function Experience() {
                     </table>
                     <div className="exp-input">
                         <h1>IT'S MAXIMUM EXPIRENCE!</h1>
-                        <form className="exp-form" id="exp-form"
-                            onSubmit={(e: React.SyntheticEvent) => {
-                                e.preventDefault();
-                                submitExprience();
-                                const expform = document.getElementById("exp-form") as HTMLFormElement;
-                                expform.reset();
-                            }}
-                            >
+                        <form className="exp-form" id="exp-form" onSubmit={submitFormExp}>
                             <h2>Add Exprience</h2>
                             <p>location</p>
                             <input type="text" className="location-input" id="location" onChange={handleInputChange} />
