@@ -1,7 +1,8 @@
 import InfoNavBar from "./InfoNavBar";
 import { useEffect, useState } from "react";
 import { skillInterface } from "../models/ISkill";
-import { FaTrashAlt } from "react-icons/fa"
+import { FaTrashAlt } from "react-icons/fa";
+import '../css/skill.css'
 
 function Skill() {
   const [token, setToken] = useState<string>("");
@@ -14,6 +15,13 @@ function Skill() {
   const [language, setlanguage] = useState<Partial<skillInterface>>({});
 
   const apiUrl = "http://localhost:4200";
+
+  const nameGeneralHead = document.getElementById('general-name-input') as HTMLDivElement;
+  const nameGeneralInput = nameGeneralHead?.querySelector('input') as HTMLInputElement;
+  const nameTechnicalHead = document.getElementById('technical-name-input') as HTMLDivElement;
+  const nameTechnicalInput = nameTechnicalHead?.querySelector('input') as HTMLInputElement;
+  const nameLanguageHead = document.getElementById('language-name-input') as HTMLDivElement;
+  const nameLanguageInput = nameLanguageHead?.querySelector('input') as HTMLInputElement;
 
   const convertType = (data: string | number | Number | undefined ) => {
     let val = typeof data === "string" ? parseInt(data) : data;
@@ -32,7 +40,7 @@ function Skill() {
         .then((response) => response.json())
         .then((res) => {
             if (res) {
-              console.log(res.length);
+              maxItem("general-input",res.length,10);
               setGenerals(res)
             } else {
               console.log("else");
@@ -46,7 +54,6 @@ function Skill() {
       const id = event.target.id as keyof typeof generalSkill;
       const { value } = event.target;
       setGeneral({ ...generalSkill, [id]: value });
-      console.log(generalSkill);
   };
 
   function submitGeneralSkill() {
@@ -96,6 +103,24 @@ function Skill() {
         });
   };
 
+  const submitFormGenearl = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    let errorInputCheck = false;
+    if(nameGeneralInput.value===""){
+      textError(nameGeneralInput,"plase input general skill");
+      errorInputCheck = true;
+    }else{
+      textcorrect(nameGeneralInput);
+    }
+
+    if(!errorInputCheck){
+      submitGeneralSkill();
+      const generalform = document.getElementById("general-form") as HTMLFormElement;
+      generalform.reset();
+    }
+  }
+
   //technical skill function
   const getTechnicalSkills = async () => {
     const requestOptions = {
@@ -108,6 +133,7 @@ function Skill() {
         .then((response) => response.json())
         .then((res) => {
             if (res) {
+              maxItem("technical-input",res.length,10);
               setTechnicals(res)
             } else {
               console.log("else");
@@ -121,7 +147,6 @@ function Skill() {
       const id = event.target.id as keyof typeof technicalSkill;
       const { value } = event.target;
       setTechnical({ ...technicalSkill, [id]: value });
-      console.log(technicalSkill);
   };
 
   function submitTechnicalSkill() {
@@ -171,6 +196,23 @@ function Skill() {
         });
   };
 
+  const submitFormTechnical = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    let errorInputCheck = false;
+    if(nameTechnicalInput.value===""){
+      textError(nameTechnicalInput,"plase input Technical skill");
+      errorInputCheck = true;
+    }else{
+      textcorrect(nameTechnicalInput)
+    }
+
+    if(!errorInputCheck){
+      submitTechnicalSkill();
+      const technicalform = document.getElementById("technical-form") as HTMLFormElement;
+      technicalform.reset();
+    }
+  }
+
   //language function
   const getLanguages = async () => {
     const requestOptions = {
@@ -183,7 +225,8 @@ function Skill() {
         .then((response) => response.json())
         .then((res) => {
             if (res) {
-              setLanguages(res)
+              maxItem("language-input",res.length,3);
+              setLanguages(res);
             } else {
               console.log("else");
             }
@@ -196,7 +239,6 @@ function Skill() {
       const id = event.target.id as keyof typeof language;
       const { value } = event.target;
       setlanguage({ ...language, [id]: value });
-      console.log(language);
   };
 
   function submitLanguage() {
@@ -243,8 +285,46 @@ function Skill() {
             } else {
               console.log("else");
             }
-        });
+        }); 
   };
+
+  const submitFormLanguage = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    let errorInputCheck = false;
+    if(nameLanguageInput.value===""){
+      textError(nameLanguageInput,"plase input language");
+      errorInputCheck = true;
+    }else{
+      textcorrect(nameLanguageInput);
+    }
+
+    if(!errorInputCheck){
+      submitLanguage();
+      const languageform = document.getElementById("language-form") as HTMLFormElement;
+      languageform.reset();
+    }
+  }
+
+  const textError = (element : HTMLInputElement,message : string) => {
+    const parentElement = element.parentElement as HTMLDivElement;
+    parentElement.className = 'box-input error';
+    const small = parentElement.querySelector('small') as HTMLSpanElement;
+    small.innerText = message
+  }
+
+  const textcorrect = (element : HTMLInputElement) => {
+    const parentElement = element.parentElement as HTMLDivElement;
+    parentElement.className = 'box-input';
+  }
+
+  const maxItem = (nameclass: string,num: number,max: number) => {
+    const element = document.getElementById(nameclass) as HTMLFormElement;
+    if (num >= max){
+        element.className = nameclass+" max";
+    }else{
+        element.className = nameclass;
+    }
+  }
 
   useEffect(()=>{
     const token = localStorage.getItem("token")
@@ -286,18 +366,15 @@ function Skill() {
                 ))}
                 </tbody>
               </table>
-              <div className="general-input">
+              <div className="general-input" id='general-input'>
                 <h1>IT'S MAXIMUM GENERAL SKILLS!</h1>
-                <form className="general-form" id="general-form"
-                  onSubmit={(e: React.SyntheticEvent) => {
-                    e.preventDefault();
-                    submitGeneralSkill();
-                    const generalform = document.getElementById("general-form") as HTMLFormElement;
-                    generalform.reset();
-                  }}>
+                <form className="general-form" id="general-form" onSubmit={submitFormGenearl}>
                   <h2>Add General Skill</h2>
-                  <p>Skill</p>
-                  <input type="text" className="name-input" id="name" onChange={handleInputChangeGeneral} />
+                  <div className="box-input" id='general-name-input'>
+                    <p>Skill</p>
+                    <input type="text" className="info-input" id="name" onChange={handleInputChangeGeneral} />
+                    <small>something error</small>
+                  </div>
                   <p>Power</p>
                   <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeGeneral} />
                   <button type="submit">add</button>
@@ -328,18 +405,15 @@ function Skill() {
                 ))}
                 </tbody>
               </table>
-              <div className="technical-input">
+              <div className="technical-input" id='technical-input'>
                 <h1>IT'S MAXIMUM TECHNICAL SKILLS!</h1>
-                <form className="technical-form" id="technical-form"
-                  onSubmit={(e: React.SyntheticEvent) => {
-                    e.preventDefault();
-                    submitTechnicalSkill();
-                    const technicalform = document.getElementById("technical-form") as HTMLFormElement;
-                    technicalform.reset();
-                  }}>
+                <form className="technical-form" id="technical-form" onSubmit={submitFormTechnical}>
                   <h2>Add Technical Skill</h2>
-                  <p>Skill</p>
-                  <input type="text" className="name-input" id="name" onChange={handleInputChangeTechnical} />
+                  <div className="box-input" id='technical-name-input'>
+                    <p>Skill</p>
+                    <input type="text" className="info-input" id="name" onChange={handleInputChangeTechnical} />
+                    <small>something error</small>
+                  </div>
                   <p>Power</p>
                   <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeTechnical} />
                   <button type="submit">add</button>
@@ -370,18 +444,15 @@ function Skill() {
                 ))}
                 </tbody>
               </table>
-              <div className="language-input">
+              <div className="language-input" id='language-input'>
                 <h1>IT'S MAXIMUM LANGUAGES!</h1>
-                <form className="language-form" id="language-form"
-                  onSubmit={(e: React.SyntheticEvent) => {
-                    e.preventDefault();
-                    submitLanguage();
-                    const languageform = document.getElementById("language-form") as HTMLFormElement;
-                    languageform.reset();
-                  }}>
+                <form className="language-form" id="language-form" onSubmit={submitFormLanguage}>
                   <h2>Add Language</h2>
-                  <p>Language</p>
-                  <input type="text" className="name-input" id="name" onChange={handleInputChangeLanguage} />
+                  <div className="box-input" id='language-name-input'>
+                    <p>Language</p>
+                    <input type="text" className="info-input" id="name" onChange={handleInputChangeLanguage} />
+                    <small>something error</small>
+                  </div>
                   <p>Power</p>
                   <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeLanguage} />
                   <button type="submit">add</button>

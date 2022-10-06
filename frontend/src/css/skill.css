@@ -1,0 +1,28 @@
+.box-input > small{
+    display: none;
+}
+
+.box-input.error > small{
+    display: block;
+    color: #ff3e3e;
+}
+
+.box-input.error > input{
+    border: solid 4px #ff3e3e;
+}
+
+.general-input > h1,.technical-input > h1,.language-input > h1{
+    display: none;
+}
+
+.general-input > form,.technical-input > form,.language-input > form{
+    display: block;
+}
+
+.general-input.max > h1,.technical-input.max > h1,.language-input.max > h1{
+    display: block;
+}
+
+.general-input.max > form,.technical-input.max > form,.language-input.max > form{
+    display: none;
+}
