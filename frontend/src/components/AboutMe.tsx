@@ -8,6 +8,10 @@ function AboutMe() {
     const [token, setToken] = useState<string>("");
     const [myId, setMyId] = useState<string>("");
     const [myInfo, setMyInfo] = useState<Partial<informationInterface>>({});
+    const [hobby, setHobby] = useState<string[]>([]);
+    const [itemHobby, setItemHobby] = useState<string>("");
+    const [interest, setInterest] = useState<string[]>([]);
+    const [itemInterest, setItemInterest] = useState<string>("");
 
     const apiUrl = "http://localhost:4200";
 
@@ -37,7 +41,8 @@ function AboutMe() {
             tel: myInfo.tel?.trim(),
             facebook: myInfo.facebook?.trim(),
             linkedin: myInfo.linkedin?.trim(),
-            address: myInfo.address
+            address: myInfo.address,
+            hobby: hobby
         };
         console.log(JSON.stringify(data))
         const requestOptionsPost = {
@@ -81,6 +86,8 @@ function AboutMe() {
             .then((response) => response.json())
             .then((res) => {
                 if (res) {
+                    setHobby(res.hobby);
+                    setInterest(res.interest);
                     setMyInfo(res);
                 } else {
                     console.log("else");
@@ -121,6 +128,36 @@ function AboutMe() {
           );
       };
 
+    const addHobby = () => {
+        const hobbyInputBox = document.getElementById("input-hobby") as HTMLInputElement;
+        if(hobbyInputBox.value === ""){
+            textError(hobbyInputBox,"plase input hobby");
+        }else{
+            textcorrect(hobbyInputBox);
+            setHobby(arr => [...arr, itemHobby]);
+            hobbyInputBox.value = "";
+        }
+    }
+    const addInterest = () => {
+        const interestInputBox = document.getElementById("input-interest") as HTMLInputElement;
+        if(interestInputBox.value === ""){
+            textError(interestInputBox,"plase input interest");
+        }else{
+            textcorrect(interestInputBox);
+            setInterest(arr => [...arr, itemInterest]);
+            interestInputBox.value = "";
+        }
+    }
+
+
+    const removeThisHobby = (index: number) => {
+        setHobby(arr => arr.filter((ihobby,i) => {return i !== index}))
+    };
+
+    const removeThisInterest = (index: number) => {
+        setInterest(arr => arr.filter((iInterrest,i) => {return i !== index}))
+    };
+
     const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         let errorInputCheck = false;
@@ -134,7 +171,7 @@ function AboutMe() {
         }else{
             textcorrect(firstnameInput);
         }
-        if(lastnameInput.value == ""){
+        if(lastnameInput.value === ""){
             textError(lastnameInput,"plase input your last name");
             errorInputCheck = true;
         }else if(!validateName(lastnameInput.value)){
@@ -275,6 +312,44 @@ function AboutMe() {
                         <p>Address</p>
                         <input type="text" className="info-input" id='address' defaultValue={""||myInfo.address} onChange={handleInputChange} placeholder='your adress...' />
                         <small>something error</small>
+                    </div>
+                    <div className="hobby-section">
+                        <p>Hobby</p>
+                        <div className="hobby-board">
+                            {hobby.map((item: string,index) =>(
+                                <div className="hobby-card" key={index}>
+                                    <p>{item}</p>
+                                    <button type="button" className="delete-hobby" onClick={()=>removeThisHobby(index)}>x</button>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="add-hobby">
+                            <div className="box-input">
+                                <p>add hobby</p>
+                                <input type="text" className="info-input" id="input-hobby" onChange={e => setItemHobby(e.target.value)} placeholder='your hobby...' />
+                                <small>something error</small>
+                            </div>
+                            <button type="button" onClick={addHobby} className="submit-hobby">add</button>
+                        </div>
+                    </div>  
+                    <div className="interest-section">
+                        <p>interest</p>
+                        <div className="interest-board">
+                            {interest.map((item: string,index) =>(
+                                <div className="interest-card" key={index}>
+                                    <p>{item}</p>
+                                    <button type="button" className="delete-interest" onClick={()=>removeThisInterest(index)}>x</button>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="add-interest">
+                            <div className="box-input">
+                                <p>add interest</p>
+                                <input type="text" className="info-input" id="input-interest" onChange={e => setItemInterest(e.target.value)} placeholder='your interest...' />
+                                <small>something error</small>
+                            </div>
+                            <button type="button" onClick={addInterest} className="submit-interest">add</button>
+                        </div>
                     </div>
                     <button type="submit" className="submit-aboutme" >save</button>
                 </form>

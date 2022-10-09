@@ -10,3 +10,17 @@
 .box-input.error > input{
     border: solid 4px #ff3e3e;
 }
+
+.hobby-board, .interest-board{
+    display: flex;
+    flex-direction: row;
+}
+
+.hobby-card, .interest-card{
+    padding: 0.5rem;
+    display: flex;
+    width: auto;
+    background-color: aliceblue;
+    justify-content: center;
+    align-items: center;
+}
