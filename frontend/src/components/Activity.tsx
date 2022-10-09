@@ -2,6 +2,7 @@ import InfoNavBar from "./InfoNavBar";
 import { useEffect,useState } from "react";
 import { FaTrashAlt } from "react-icons/fa"
 import { activityInterface } from "../models/IActivity";
+import '../css/activity.css'
 
 function Activity() {
     const [token, setToken] = useState<string>("");
@@ -139,14 +140,25 @@ function Activity() {
                         <h1>IT'S MAXIMUM ACTIVITY!</h1>
                         <form className="activity-form" id="activity-form"onSubmit={submitFormAct}>
                             <h2>Add Activity</h2>
-                            <p>Header</p>
-                            <input type="text" className="header-input" id="nameHeader" onChange={handleInputChange} />
-                            <p>Detail</p>
-                            <input type="text" className="detail-input" id="detail" onChange={handleInputChange} />
-                            <p>Start date</p>
-                            <input type="date" className="date-input" id="startDate" onChange={handleInputChange} />
-                            <p>End date</p>
-                            <input type="date" className="date-input" id="endDate" onChange={handleInputChange} />
+                            <div className="box-input">
+                                <p>Header</p>
+                                <input type="text" className="header-input" id="nameHeader" onChange={handleInputChange} />
+                                <small>something error</small>
+                            </div>
+                            <div className="box-input">
+                                <p>Detail</p>
+                                <input type="text" className="detail-input" id="detail" onChange={handleInputChange} />
+                                <small>something error</small>
+                            </div>
+                            <div className="box-input">
+                                <p>Start date</p>
+                                <input type="date" className="date-input" id="startDate" onChange={handleInputChange} />
+                                <small>something error</small>
+                            </div>
+                            <div className="box-input">
+                                <p>End date</p>
+                                <input type="date" className="date-input" id="endDate" onChange={handleInputChange} />
+                            </div>
                             <button type="submit">add</button>
                         </form>
                     </div>

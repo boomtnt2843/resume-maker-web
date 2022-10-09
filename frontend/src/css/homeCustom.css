@@ -11,7 +11,7 @@
     color:#001D6E;
 }
 
-.Main-page h1{
+.Main-page > h1{
     font-size: 5rem;
     margin: 0;
     font-weight: bold;
@@ -113,10 +113,10 @@
 }
 
 @media screen and (max-width: 440px){
-    .Main-page h1{
+    .Main-page > h1{
         font-size: 4rem;
     }
-    .Main-page h2{
+    .Main-page > h2{
         font-size: 1.2rem;
     }
     .Example-format1-btn ,.Example-format2-btn{
@@ -136,7 +136,7 @@
     justify-content: center;
 }
 
-.SignIn-page-container form{
+.SignIn-page-container > form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -157,7 +157,7 @@
     box-shadow: 10px 10px #ffffff;
 }
 
-.box-signin h3{
+.box-signin > h3{
     font-size: 1.4rem;
     font-weight: bold;
     color: #FFF9CA;

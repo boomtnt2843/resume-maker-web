@@ -1,7 +1,8 @@
 import InfoNavBar from "./InfoNavBar";
 import { useEffect,useState } from "react";
 import { exprienceInterface } from "../models/IExprience";
-import { FaTrashAlt } from "react-icons/fa"
+import { FaTrashAlt } from "react-icons/fa";
+import '../css/exp.css';
 
 function Experience() {
     const [token, setToken] = useState<string>("");
@@ -10,6 +11,13 @@ function Experience() {
     const [experience, setExperience] = useState<Partial<exprienceInterface>>({});
 
     const apiUrl = "http://localhost:4200";
+
+    const locationInput = document.getElementById('location') as HTMLInputElement;
+    const detailInput = document.getElementById('detail') as HTMLInputElement;
+    const positionInput = document.getElementById('position') as HTMLInputElement;
+    const startDateInput = document.getElementById('startDate') as HTMLInputElement;
+    const endDateInput = document.getElementById('endDate') as HTMLInputElement;
+    const expFormInput = document.getElementById('exp-input') as HTMLDivElement;
 
     const handleInputChange = (
         event: React.ChangeEvent<{ id?: string; value: any }>
@@ -32,6 +40,8 @@ function Experience() {
             .then((res) => {
                 if (res) {
                   console.log(res.length);
+                  
+                  maxExp(res.length);
                   setExperiences(res)
                 } else {
                   console.log("else");
@@ -91,9 +101,64 @@ function Experience() {
 
     const submitFormExp = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        submitExprience();
-        const expform = document.getElementById("exp-form") as HTMLFormElement;
-        expform.reset();
+        let errorInputCheck = false;
+
+        if(locationInput.value===""){
+            textError(locationInput,"plase input location");
+            errorInputCheck = true;
+        }else{
+            textcorrect(locationInput)
+        }
+        if(detailInput.value===""){
+            textError(detailInput,"plase input detail");
+            errorInputCheck = true;
+        }else{
+            textcorrect(detailInput)
+        }
+        if(positionInput.value===""){
+            textError(positionInput,"plase input position");
+            errorInputCheck = true;
+        }else{
+            textcorrect(positionInput)
+        }
+        if(startDateInput.value===""){
+            textError(startDateInput,"plase choose date");
+            errorInputCheck = true;
+        }else{
+            textcorrect(startDateInput)
+        }
+        if(endDateInput.value===""){
+            textError(endDateInput,"plase choose date");
+            errorInputCheck = true;
+        }else{
+            textcorrect(endDateInput)
+        }
+
+        if(!errorInputCheck){
+            submitExprience();
+            const expform = document.getElementById("exp-form") as HTMLFormElement;
+            expform.reset();
+        }
+    }
+
+    const maxExp = (num: number) => {
+        if (num >= 7){
+            expFormInput.className="exp-input max"
+        }else{
+            expFormInput.className="exp-input"
+        }
+      }
+
+    const textError = (element : HTMLInputElement,message : string) => {
+        const parentElement = element.parentElement as HTMLDivElement;
+        parentElement.className = 'box-input error';
+        const small = parentElement.querySelector('small') as HTMLSpanElement;
+        small.innerText = message
+    }
+
+    const textcorrect = (element : HTMLInputElement) => {
+        const parentElement = element.parentElement as HTMLDivElement;
+        parentElement.className = 'box-input';
     }
 
     useEffect(()=>{
@@ -138,20 +203,35 @@ function Experience() {
                         ))}
                         </tbody>
                     </table>
-                    <div className="exp-input">
+                    <div className="exp-input" id='exp-input'>
                         <h1>IT'S MAXIMUM EXPIRENCE!</h1>
                         <form className="exp-form" id="exp-form" onSubmit={submitFormExp}>
                             <h2>Add Exprience</h2>
-                            <p>location</p>
-                            <input type="text" className="location-input" id="location" onChange={handleInputChange} />
-                            <p>position</p>
-                            <input type="text" className="position-input" id="position" onChange={handleInputChange} />
-                            <p>detail</p>
-                            <input type="text" className="detail-input" id="detail" onChange={handleInputChange} />
-                            <p>start date</p>
-                            <input type="date" className="date-input" id="startDate" onChange={handleInputChange} />
-                            <p>end date</p>
-                            <input type="date" className="date-input" id="endDate" onChange={handleInputChange} />
+                            <div className="box-input">
+                                <p>location</p>
+                                <input type="text" className="location-input" id="location" onChange={handleInputChange} />
+                                <small>something error</small>
+                            </div>
+                            <div className="box-input">
+                                <p>position</p>
+                                <input type="text" className="position-input" id="position" onChange={handleInputChange} />
+                                <small>something error</small>
+                            </div>
+                            <div className="box-input">
+                                <p>detail</p>
+                                <input type="text" className="detail-input" id="detail" onChange={handleInputChange} />
+                                <small>something error</small>
+                            </div>
+                            <div className="box-input">
+                                <p>start date</p>
+                                <input type="date" className="date-input" id="startDate" onChange={handleInputChange} />
+                                <small>something error</small>
+                            </div>
+                            <div className="box-input">
+                                <p>end date</p>
+                                <input type="date" className="date-input" id="endDate" onChange={handleInputChange} />
+                                <small>something error</small>
+                            </div>
                             <button type="submit">add</button>
                         </form>
                     </div>
