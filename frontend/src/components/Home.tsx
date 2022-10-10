@@ -57,7 +57,9 @@ function Home() {
 }
   
   useEffect(()=>{
-    localStorage.clear();
+    if(localStorage.getItem('token')){
+      window.location.href='/myaccount'
+    }
 },[])
 
   return (

@@ -129,7 +129,7 @@
 
 .SignIn-page-container{
     height: 92vh;
-    background-color: #FFDEB4;
+    background-color: #dd7f5a;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,7 +144,7 @@
 }
 
 .box-signin{
-    background-color: #FFB4B4;
+    background-color: #a1c5e7;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,8 +159,8 @@
 
 .box-signin > h3{
     font-size: 1.4rem;
-    font-weight: bold;
-    color: #FFF9CA;
+    font-weight: 100;
+    color: #FFFFFF;
     margin-bottom: 1rem;
 }
 
@@ -170,7 +170,7 @@
     padding-left: 1rem;
     height: 2rem;
     width: 60%;
-    background-color: #FFF9CA;
+    background-color: #FFFFFF;
     outline: none;
 }
 
@@ -180,8 +180,8 @@
 
 .header-text{
     font-weight: bold;
-    color: #ff6a6a;
-    text-shadow: 2px 2px #ffffff;
+    color: #FFFFFF;
+    
 }
 
 .signin-btn{
@@ -189,11 +189,11 @@
     border: none;
     width: 8rem;
     height: 3rem;
-    background-color: #ff6a6a;
+    background-color: #61a1d7;
     border-radius: 10px;
     font-size: 1.2rem;
-    font-weight: bold;
-    color: #FFDEB4;
+    font-weight: 400;
+    color: #FFFFFF;
     cursor: pointer;
     transition: all 0.5s ease;
 }
@@ -230,6 +230,7 @@
     color: #ff6a6a;
 }
 
+
 @media screen and (max-width: 520px){
     .box-signin{
         width: 20rem;
@@ -249,7 +250,7 @@
 
 .foot-container{
     height: 8vh;
-    background-color: #FFB4B4;
+    background-color: #61a1d7;
     box-shadow: 0px -5px #FFFFFF;
 }
 
