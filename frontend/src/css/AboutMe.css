@@ -1,3 +1,85 @@
+.container-aboutme{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px), radial-gradient(#ffffff 1.5px, transparent 1.5px);
+    background-size: 45px 45px;
+    background-position: 0 0, 22.5px 22.5px;
+    background-color: #c4ddff;
+}
+
+.container-aboutme p{
+    font-size: 1.2rem;
+}
+
+.header-section{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.header-section>h1{
+    color: #001D6E;
+    font-size: 3rem;
+}
+
+.add-info-section{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5%;
+    margin-left: 5%;
+    width: 80%;
+    border-radius: 50px;
+    border: solid  #001D6E;
+    background-color: #ffffff70;
+}
+
+.name-zone,.date-zone{
+    display: flex;
+    width: 50%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.mailNtel-zone,.link-zone{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.name-zone > .box-input, .date-zone > .box-input,.mailNtel-zone > .box-input{
+    padding-right: 1rem;
+} 
+
+#age{
+    width: 2.5rem;
+}
+
+#tel{
+    width: 8rem;
+}
+
+#email,#facebook,#linkedin{
+    width: 12rem;
+}
+
+.group-link-input{
+    margin-right: 1rem;
+}
+.group-link-input > p{
+    margin-bottom: 0;
+}
+
+#link-input{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.info-input{
+    border-radius: 10px;
+    padding-left: 1rem;
+}
+
 .box-input > small{
     display: none;
 }
