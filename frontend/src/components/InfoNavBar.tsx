@@ -1,10 +1,13 @@
 import '../css/navbar.css';
 
 function InfoNavBar() {
+  const logout = () => {
+    localStorage.clear();
+    window.location.href='/'
+  }
     return (
         <div className="Navbar-container">
             <div className="Logo-Home">
-              <img src={require('../image/LogoSaynum.png')} className="App-logo" alt="logo" />
               <a href="">SAYNUM</a>
             </div>
             <div className="menu-group">
@@ -13,6 +16,7 @@ function InfoNavBar() {
                 <a href="/myaccount/education" className="item-menu">Education</a>
                 <a href="/myaccount/exp" className="item-menu">Experience</a>
                 <a href="/myaccount/activity" className="item-menu">Activity</a>
+                <button className="logout-btn" onClick={logout}>Logout</button>
             </div>
         </div>
     );
