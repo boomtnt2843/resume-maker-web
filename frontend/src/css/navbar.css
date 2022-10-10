@@ -22,7 +22,7 @@
     display: flex;
     font-size: 2rem;
     font-weight: bold;
-    background-image: linear-gradient(to top,#7FB5FF 0%,#001D6E 100%);
+    background-image: linear-gradient(to top,#89baff 0%,#002fb0 100%);
     background-size:  100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -95,4 +95,40 @@
     .Signin-link-btn{
         width: 5rem;
     }
+}
+
+/*Navbar Information*/
+.menu-group{
+    display: flex;
+    align-items: center;
+}
+.menu-group > a{
+    text-decoration: none;
+    color:#001D6E;
+    padding-right: 1rem;
+    transition: all 0.5s ease;
+}
+
+.menu-group > a:hover{
+    transform: scale(1.2,1.2);
+}
+
+.logout-btn{
+    border: none;
+    margin-right: 1rem;
+    color:#001D6E;
+    background-color: #7FB5FF;
+    box-shadow: 2px 2px #FFFFFF,4px 4px #F0f0f0;
+    width: 4rem;
+    height: 2.5rem;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.logout-btn:hover{
+    transform: scale(1.05,1.05);
+    background-color:#FFB4B4;
+    color: #FFFFFF;
 }

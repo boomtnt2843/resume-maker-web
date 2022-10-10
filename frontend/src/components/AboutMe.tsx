@@ -255,102 +255,114 @@ function AboutMe() {
         <div>
             <InfoNavBar></InfoNavBar>
             <div className="container-aboutme">
-                <form className='aboutme-form'onSubmit={submitForm}>    
-                    <h1>About Me</h1>
-                    <div className="box-input">
-                        <p>First Name</p>
-                        <input type="text" className="info-input" id='firstName' defaultValue={""||myInfo.firstName} onChange={handleInputChange} placeholder='your first name...' />
-                        <small>something error</small>
+                <form className='aboutme-form'onSubmit={submitForm}>
+                    <div className="header-section">
+                        <h1>About Me</h1>
                     </div>
-                    <div className="box-input">
-                        <p>Last Name</p>
-                        <input type="text" className="info-input" id='lastName' defaultValue={""||myInfo.lastName} onChange={handleInputChange} placeholder='your last name...' />
-                        <small>something error</small>
-                    </div>
-                    <div className="box-input">
-                        <p>Position</p>
-                        <input type="text" className="info-input" id='position' defaultValue={""||myInfo.position} onChange={handleInputChange} placeholder='your position...' />
-                        <small>something error</small>
-                    </div>
-                    <div className="box-input">
-                        <p>Age</p>
-                        <input type="number" className="info-input" id='age' min={1} defaultValue={null||myInfo.age} onChange={handleInputChange} placeholder='your age...' /> 
-                        <small>something error</small>
-                    </div>
-                    <div className="box-input">
-                        <p>Birth Day</p>
-                        <input type="date" className="info-input" id='birthDay' defaultValue={myInfo.birthDay===undefined?"":(myInfo.birthDay).slice(0,10)} onChange={handleInputChange} />
-                        <small>something error</small>
-                    </div>
-                    <div className="box-input">
-                        <p>Email</p>
-                        <input type="text" className="info-input" id='email' defaultValue={"" || myInfo.email} onChange={handleInputChange} placeholder='your email...' />
-                        <small>something error</small>
-                    </div>
-                    <div className="box-input">
-                        <p>Telephone</p>
-                        <input type="text" className="info-input" id='tel' defaultValue={""||myInfo.tel} onChange={handleInputChange} placeholder='your telephone number...' />
-                        <small>something error</small>
-                    </div>
-                    <div className="group-link-input">
-                        <p>Facebook (not all url)</p>
+                    <div className="add-info-section">
+                        <div className="name-zone">
+                            <div className="box-input">
+                                <p>First Name</p>
+                                <input type="text" className="info-input" id='firstName' defaultValue={""||myInfo.firstName} onChange={handleInputChange} placeholder='your first name...' />
+                                <small>something error</small>
+                            </div>
+                            <div className="box-input">
+                                <p>Last Name</p>
+                                <input type="text" className="info-input" id='lastName' defaultValue={""||myInfo.lastName} onChange={handleInputChange} placeholder='your last name...' />
+                                <small>something error</small>
+                            </div>
+                        </div>
                         <div className="box-input">
-                            <p>https://www.facebook.com/</p>
-                            <input type="text" className="info-input" id='facebook' defaultValue={""||myInfo.facebook} onChange={handleInputChange} placeholder='your facebook...' />
+                            <p>Position</p>
+                            <input type="text" className="info-input" id='position' defaultValue={""||myInfo.position} onChange={handleInputChange} placeholder='your position...' />
                             <small>something error</small>
                         </div>
-                    </div>
-                    <div className="group-link-input">
-                        <p>Linkedin (not all url)</p>
-                        <div className="box-input" id='group-linkedin'>
-                            <p>https://www.linkedin.com/in/</p>
-                            <input type="text" className="info-input" id='linkedin' defaultValue={""||myInfo.linkedin} onChange={handleInputChange} placeholder='your linkedin...' />
+                        <div className="date-zone">
+                            <div className="box-input">
+                                <p>Age</p>
+                                <input type="number" className="info-input" id='age' min={1} defaultValue={null||myInfo.age} onChange={handleInputChange} placeholder='your age...' /> 
+                                <small>something error</small>
+                            </div>
+                            <div className="box-input">
+                                <p>Birth Day</p>
+                                <input type="date" className="info-input" id='birthDay' defaultValue={myInfo.birthDay===undefined?"":(myInfo.birthDay).slice(0,10)} onChange={handleInputChange} />
+                                <small>something error</small>
+                            </div>
+                        </div>
+                        <div className="box-input">
+                            <p>Address</p>
+                            <input type="text" className="info-input" id='address' defaultValue={""||myInfo.address} onChange={handleInputChange} placeholder='your adress...' />
                             <small>something error</small>
                         </div>
-                    </div>
-                    <div className="box-input">
-                        <p>Address</p>
-                        <input type="text" className="info-input" id='address' defaultValue={""||myInfo.address} onChange={handleInputChange} placeholder='your adress...' />
-                        <small>something error</small>
-                    </div>
-                    <div className="hobby-section">
-                        <p>Hobby</p>
-                        <div className="hobby-board">
-                            {hobby.map((item: string,index) =>(
-                                <div className="hobby-card" key={index}>
-                                    <p>{item}</p>
-                                    <button type="button" className="delete-hobby" onClick={()=>removeThisHobby(index)}>x</button>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="add-hobby">
+                        <div className="mailNtel-zone">
                             <div className="box-input">
-                                <p>add hobby</p>
-                                <input type="text" className="info-input" id="input-hobby" onChange={e => setItemHobby(e.target.value)} placeholder='your hobby...' />
+                                <p>Email</p>
+                                <input type="text" className="info-input" id='email' defaultValue={"" || myInfo.email} onChange={handleInputChange} placeholder='your email...' />
                                 <small>something error</small>
                             </div>
-                            <button type="button" onClick={addHobby} className="submit-hobby">add</button>
-                        </div>
-                    </div>  
-                    <div className="interest-section">
-                        <p>interest</p>
-                        <div className="interest-board">
-                            {interest.map((item: string,index) =>(
-                                <div className="interest-card" key={index}>
-                                    <p>{item}</p>
-                                    <button type="button" className="delete-interest" onClick={()=>removeThisInterest(index)}>x</button>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="add-interest">
                             <div className="box-input">
-                                <p>add interest</p>
-                                <input type="text" className="info-input" id="input-interest" onChange={e => setItemInterest(e.target.value)} placeholder='your interest...' />
+                                <p>Telephone</p>
+                                <input type="text" className="info-input" id='tel' defaultValue={""||myInfo.tel} onChange={handleInputChange} placeholder='your telephone number...' />
                                 <small>something error</small>
                             </div>
-                            <button type="button" onClick={addInterest} className="submit-interest">add</button>
                         </div>
-                    </div>
+                        <div className="link-zone">
+                            <div className="group-link-input">
+                                <p>Facebook (not all url)</p>
+                                <div className="box-input" id='link-input'>
+                                    <p>https://www.facebook.com/</p>
+                                    <input type="text" className="info-input" id='facebook' defaultValue={""||myInfo.facebook} onChange={handleInputChange} placeholder='your facebook...' />
+                                    <small>something error</small>
+                                </div>
+                            </div>
+                            <div className="group-link-input">
+                                <p>Linkedin (not all url)</p>
+                                <div className="box-input" id='link-input'>
+                                    <p>https://www.linkedin.com/in/</p>
+                                    <input type="text" className="info-input" id='linkedin' defaultValue={""||myInfo.linkedin} onChange={handleInputChange} placeholder='your linkedin...' />
+                                    <small>something error</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="hobby-section">
+                            <p>Hobby</p>
+                            <div className="hobby-board">
+                                {hobby.map((item: string,index) =>(
+                                    <div className="hobby-card" key={index}>
+                                        <p>{item}</p>
+                                        <button type="button" className="delete-hobby" onClick={()=>removeThisHobby(index)}>x</button>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="add-hobby">
+                                <div className="box-input">
+                                    <p>add hobby</p>
+                                    <input type="text" className="info-input" id="input-hobby" onChange={e => setItemHobby(e.target.value)} placeholder='your hobby...' />
+                                    <small>something error</small>
+                                </div>
+                                <button type="button" onClick={addHobby} className="submit-hobby">add</button>
+                            </div>
+                        </div>  
+                        <div className="interest-section">
+                            <p>interest</p>
+                            <div className="interest-board">
+                                {interest.map((item: string,index) =>(
+                                    <div className="interest-card" key={index}>
+                                        <p>{item}</p>
+                                        <button type="button" className="delete-interest" onClick={()=>removeThisInterest(index)}>x</button>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="add-interest">
+                                <div className="box-input">
+                                    <p>add interest</p>
+                                    <input type="text" className="info-input" id="input-interest" onChange={e => setItemInterest(e.target.value)} placeholder='your interest...' />
+                                    <small>something error</small>
+                                </div>
+                                <button type="button" onClick={addInterest} className="submit-interest">add</button>
+                            </div>
+                        </div>
+                    </div>    
                     <button type="submit" className="submit-aboutme" >save</button>
                 </form>
             </div>

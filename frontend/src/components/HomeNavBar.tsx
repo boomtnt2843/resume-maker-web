@@ -4,7 +4,6 @@ function HomeNavBar() {
     return (
         <div className="Navbar-container">
             <div className="Logo-Home">
-              <img src={require('../image/LogoSaynum.png')} className="App-logo" alt="logo" />
               <a href="#home">SAYNUM</a>
             </div>
             <div className='Sign-btn' id='signBox'>
