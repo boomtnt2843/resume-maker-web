@@ -1,7 +1,8 @@
 .container-aboutme{
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    align-items: center;
+    width: 100%;
     background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px), radial-gradient(#ffffff 1.5px, transparent 1.5px);
     background-size: 45px 45px;
     background-position: 0 0, 22.5px 22.5px;
@@ -25,10 +26,11 @@
 
 .add-info-section{
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    padding: 5%;
-    margin-left: 5%;
-    width: 80%;
+    padding: 1rem;
+    width: 80vw;
     border-radius: 50px;
     border: solid  #001D6E;
     background-color: #ffffff70;
@@ -36,13 +38,13 @@
 
 .name-zone,.date-zone{
     display: flex;
-    width: 50%;
     justify-content: flex-start;
+    width: 50%;
     flex-wrap: wrap;
 }
 .mailNtel-zone,.link-zone{
     display: flex;
-    width: 100%;
+    width: 60%;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
@@ -65,8 +67,13 @@
 .group-link-input{
     margin-right: 1rem;
 }
-.group-link-input > p{
+
+.box-input > p,.group-link-input > p{
     margin-bottom: 0;
+}
+
+.group-link-input > .box-input > p{
+    margin-top: 0;
 }
 
 #link-input{
@@ -96,6 +103,8 @@
 .hobby-board, .interest-board{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
 .hobby-card, .interest-card{
@@ -103,6 +112,98 @@
     display: flex;
     width: auto;
     background-color: aliceblue;
+    margin: 0.2rem;
+    border-radius: 20px;
     justify-content: center;
     align-items: center;
+}
+
+.hobby-card>p, .interest-card>p{
+    margin: 0;
+    padding-right: 0.5rem;
+}
+
+.hobby-card>button, .interest-card>button{
+    margin: 0;
+    height: 2rem;
+    width: 2rem;
+    background-color: #C4DDFF;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hobby-card>button:hover, .interest-card>button:hover{
+    background-color:#FFB4B4;
+}
+
+
+.hobby-section,.interest-section{
+    width: 60%;
+    position: relative;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: solid 4px #7FB5FF;
+    background-color: #C4DDFF;
+    border-radius: 10px;
+}
+
+.hobby-section > p,.interest-section > p{
+    margin-top: 0;
+    margin-bottom: 0;
+    position: absolute;
+    top:-1rem;
+    left: -1rem;
+    padding: 4px;
+    border-radius: 10px;
+    border: solid 4px #7FB5FF;
+    width:fit-content;
+    background-color: aliceblue;
+}
+
+.add-hobby > button,.add-interest > button{
+    position: relative;
+    margin-top: 1rem;
+    font-weight: 100;
+    width: 6rem;
+    background-color: #7FB5FF;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-hobby > button:after,.add-interest > button:after{
+    position: absolute;
+    top: -0.5px;
+    left: -6rem;
+    height: 1.65rem;
+    width: 6rem;
+    background-color: #001D6E;
+    color: #ffffff;
+    border-radius: 5px;
+    font-weight: 100;
+    content: "ADD";
+    transition: all 0.5s ease;
+}
+
+.add-hobby > button:hover:after,.add-interest > button:hover:after{
+    transform: translate(6rem,0);
+}  
+
+.submit-aboutme{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 3rem;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    border: none;
+    background-color: #61a1d7;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.submit-aboutme:hover{
+    background-color: #c5ecac;
 }
