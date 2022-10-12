@@ -57,7 +57,7 @@ function AboutMe() {
         fetch(`${apiUrl}/information/edit/${myId}`, requestOptionsPost)
             .then((response) => response.json())
             .then((res) => {
-                if (res) {
+                if (res._id) {
                     console.log(res);
                 } else {
                     console.log("error");
@@ -308,7 +308,7 @@ function AboutMe() {
                         </div>
                         <div className="link-zone">
                             <div className="group-link-input">
-                                <p>Facebook (not all url)</p>
+                                <p>Facebook</p>
                                 <div className="box-input" id='link-input'>
                                     <p>https://www.facebook.com/</p>
                                     <input type="text" className="info-input" id='facebook' defaultValue={""||myInfo.facebook} onChange={handleInputChange} placeholder='your facebook...' />
@@ -316,7 +316,7 @@ function AboutMe() {
                                 </div>
                             </div>
                             <div className="group-link-input">
-                                <p>Linkedin (not all url)</p>
+                                <p>Linkedin</p>
                                 <div className="box-input" id='link-input'>
                                     <p>https://www.linkedin.com/in/</p>
                                     <input type="text" className="info-input" id='linkedin' defaultValue={""||myInfo.linkedin} onChange={handleInputChange} placeholder='your linkedin...' />
@@ -340,11 +340,11 @@ function AboutMe() {
                                     <input type="text" className="info-input" id="input-hobby" onChange={e => setItemHobby(e.target.value)} placeholder='your hobby...' />
                                     <small>something error</small>
                                 </div>
-                                <button type="button" onClick={addHobby} className="submit-hobby">add</button>
+                                <button type="button" onClick={addHobby} className="submit-hobby">ADD</button>
                             </div>
                         </div>  
                         <div className="interest-section">
-                            <p>interest</p>
+                            <p>Interest</p>
                             <div className="interest-board">
                                 {interest.map((item: string,index) =>(
                                     <div className="interest-card" key={index}>
@@ -359,11 +359,11 @@ function AboutMe() {
                                     <input type="text" className="info-input" id="input-interest" onChange={e => setItemInterest(e.target.value)} placeholder='your interest...' />
                                     <small>something error</small>
                                 </div>
-                                <button type="button" onClick={addInterest} className="submit-interest">add</button>
+                                <button type="button" onClick={addInterest} className="submit-interest">ADD</button>
                             </div>
                         </div>
                     </div>    
-                    <button type="submit" className="submit-aboutme" >save</button>
+                    <button type="submit" className="submit-aboutme" >Save your information</button>
                 </form>
             </div>
         </div>
