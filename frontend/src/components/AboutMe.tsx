@@ -42,7 +42,8 @@ function AboutMe() {
             facebook: myInfo.facebook?.trim(),
             linkedin: myInfo.linkedin?.trim(),
             address: myInfo.address,
-            hobby: hobby
+            hobby: hobby,
+            interest: interest
         };
         console.log(JSON.stringify(data))
         const requestOptionsPost = {
@@ -108,7 +109,7 @@ function AboutMe() {
         return String(url)
           .trim()
           .match(
-            /^((?!www.facebook.com)|(?!www.linkedin.com))+([-a-zA-Z0-9@:%_\+~.#?&=]{0,})$/
+            /^((?!www.))+([-a-zA-Z0-9@:%_\+~.#?&=]{0,})$/
           );
       };
 
@@ -190,7 +191,7 @@ function AboutMe() {
         }
 
         //email validation
-        if(emailInput.value == ""){
+        if(emailInput.value === ""){
             textError(emailInput,"plase input your email");
             errorInputCheck = true;
         }else if(!validateEmail(emailInput.value)){
@@ -201,7 +202,7 @@ function AboutMe() {
         }
 
         //tel validation
-        if(telInput.value == ""){
+        if(telInput.value === ""){
             textError(telInput,"plase input your telephone number");
             errorInputCheck = true;
         }else if(!validateTel(telInput.value)){
@@ -234,7 +235,7 @@ function AboutMe() {
         const parentElement = element.parentElement as HTMLDivElement;
         parentElement.className = 'box-input error';
         const small = parentElement.querySelector('small') as HTMLSpanElement;
-        small.innerText = message
+        small.innerText = message;        
     }
 
     const textcorrect = (element : HTMLInputElement) => {

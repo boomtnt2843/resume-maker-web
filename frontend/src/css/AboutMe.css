@@ -169,6 +169,7 @@
     width: 6rem;
     background-color: #7FB5FF;
     overflow: hidden;
+    cursor: pointer;
     border: none;
     border-radius: 5px;
 }
