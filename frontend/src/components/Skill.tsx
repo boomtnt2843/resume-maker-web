@@ -340,12 +340,17 @@ function Skill() {
   },[myInfoId])
 
     return (
-      <div>
+      <div id="general">
         <InfoNavBar></InfoNavBar>
-        <div className="skill-container">
-          <div className="general-skill-container">
-            <h1>General Skill</h1>
+        <div className="skill-menu" >
+          <a href="#general" className="skill-wrap">general skill</a>
+          <a href="#technical" className="skill-wrap">technical skill</a>
+          <a href="#language" className="skill-wrap">language</a>
+        </div>
+        <div className="skill-container" >
+          <div className="general-skill-container" >
             <div className="general-box">
+              <h1>General Skill</h1>
               <table className="general-table">
                 <thead>
                   <tr>
@@ -366,26 +371,26 @@ function Skill() {
                 ))}
                 </tbody>
               </table>
-              <div className="general-input" id='general-input'>
-                <h1>IT'S MAXIMUM GENERAL SKILLS!</h1>
-                <form className="general-form" id="general-form" onSubmit={submitFormGenearl}>
-                  <h2>Add General Skill</h2>
-                  <div className="box-input" id='general-name-input'>
-                    <p>Skill</p>
-                    <input type="text" className="info-input" id="name" onChange={handleInputChangeGeneral} />
-                    <small>something error</small>
-                  </div>
-                  <p>Power</p>
-                  <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeGeneral} />
-                  <button type="submit">add</button>
-                </form>
-              </div>
+            </div>
+            <div className="general-input" id='general-input'>
+              <h1>IT'S MAXIMUM GENERAL SKILLS!</h1>
+              <form className="general-form" id="general-form" onSubmit={submitFormGenearl}>
+                <h1>Add General Skill</h1>
+                <div className="box-input" id='general-name-input'>
+                  <p>Skill</p>
+                  <input type="text" className="info-input" id="name" onChange={handleInputChangeGeneral} placeholder="your skill..."/>
+                  <small>something error</small>
+                </div>
+                <p>Power</p>
+                <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeGeneral} />
+                <button type="submit">add</button>
+              </form>
             </div>
           </div>
-          <div className="technical-skill-container">
-            <h1>Technical Skill</h1>
+          <div className="technical-skill-container" id="technical">
             <div className="technical-box">
-              <table className="tachnical-table">
+              <h1>Technical Skill</h1>
+              <table className="technical-table">
                 <thead>
                   <tr>
                     <th>Skill</th>
@@ -405,25 +410,25 @@ function Skill() {
                 ))}
                 </tbody>
               </table>
-              <div className="technical-input" id='technical-input'>
-                <h1>IT'S MAXIMUM TECHNICAL SKILLS!</h1>
-                <form className="technical-form" id="technical-form" onSubmit={submitFormTechnical}>
-                  <h2>Add Technical Skill</h2>
-                  <div className="box-input" id='technical-name-input'>
-                    <p>Skill</p>
-                    <input type="text" className="info-input" id="name" onChange={handleInputChangeTechnical} />
-                    <small>something error</small>
-                  </div>
-                  <p>Power</p>
-                  <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeTechnical} />
-                  <button type="submit">add</button>
-                </form>
-              </div>
+            </div>
+            <div className="technical-input" id='technical-input'>
+              <h1>IT'S MAXIMUM TECHNICAL SKILLS!</h1>
+              <form className="technical-form" id="technical-form" onSubmit={submitFormTechnical}>
+                <h1>Add Technical Skill</h1>
+                <div className="box-input" id='technical-name-input'>
+                  <p>Skill</p>
+                  <input type="text" className="info-input" id="name" onChange={handleInputChangeTechnical} placeholder="your skill..."/>
+                  <small>something error</small>
+                </div>
+                <p>Power</p>
+                <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeTechnical} />
+                <button type="submit">add</button>
+              </form>
             </div>
           </div>
-          <div className="language-container">
-            <h1>Language Skill</h1>
+          <div className="language-container" id="language">
             <div className="language-box">
+              <h1>Language Skill</h1>
               <table className="language-table">
                 <thead>
                   <tr>
@@ -444,20 +449,20 @@ function Skill() {
                 ))}
                 </tbody>
               </table>
-              <div className="language-input" id='language-input'>
-                <h1>IT'S MAXIMUM LANGUAGES!</h1>
-                <form className="language-form" id="language-form" onSubmit={submitFormLanguage}>
-                  <h2>Add Language</h2>
-                  <div className="box-input" id='language-name-input'>
-                    <p>Language</p>
-                    <input type="text" className="info-input" id="name" onChange={handleInputChangeLanguage} />
-                    <small>something error</small>
-                  </div>
-                  <p>Power</p>
-                  <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeLanguage} />
-                  <button type="submit">add</button>
-                </form>
-              </div>
+            </div>
+            <div className="language-input" id='language-input'>
+              <h1>IT'S MAXIMUM LANGUAGES!</h1>
+              <form className="language-form" id="language-form" onSubmit={submitFormLanguage}>
+                <h1>Add Language</h1>
+                <div className="box-input" id='language-name-input'>
+                  <p>Language</p>
+                  <input type="text" className="info-input" id="name" onChange={handleInputChangeLanguage} placeholder="language..."/>
+                  <small>something error</small>
+                </div>
+                <p>Power</p>
+                <input type="range" className="slide-power-input" id="power" min={0} max={5} defaultValue={3} onChange={handleInputChangeLanguage} />
+                <button type="submit">add</button>
+              </form>
             </div>
           </div>
         </div>
