@@ -73,15 +73,6 @@
     color: #001D6E;
 }
 
-.App-logo{
-    position: relative;
-    object-fit: cover;
-    top:-10px;
-    width: 45px;
-    height: 45px;
-}
-
-
 @media screen and (max-width: 440px){
     .Logo-Home a{
         font-size: 1.5rem;
@@ -131,4 +122,61 @@
     transform: scale(1.05,1.05);
     background-color:#FFB4B4;
     color: #FFFFFF;
+}
+
+@media screen and (max-width: 610px){ 
+    .menu-group.is-active {
+        background: #FFFFFF;
+        top: 100%;
+        opacity: 1;
+        justify-content: center;
+        transition: all 0.5s ease;
+        z-index: -99;
+        height: 60vh;
+        font-size: 1.6rem;
+    }
+
+    .menu-group {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: -1;
+    }  
+    
+    .navbar-toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #fff;
+    }  
+    
+    #mobile-menu {
+        position: absolute;
+        cursor: pointer;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+
+    .navbar-toggle .bar {
+        display: block;
+    }
+
+    .navbar-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbar-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
 }

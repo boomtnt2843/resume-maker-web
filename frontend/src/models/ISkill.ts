@@ -1,6 +1,6 @@
 export interface skillInterface {
     _id: string,
     name: string,
-    power: Number,
+    power: number,
     ofInformation: string   
 }

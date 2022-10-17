@@ -1,6 +1,15 @@
 import '../css/navbar.css';
 
 function InfoNavBar() {
+
+
+  const mobileMenu = () =>{
+    const menu = document.getElementById('mobile-menu') as HTMLDivElement;
+    const menulist = document.getElementById('menu-list') as HTMLDivElement;
+    menu.classList.toggle('is-active');
+    menulist.classList.toggle('is-active');
+  }
+
   const logout = () => {
     localStorage.clear();
     window.location.href='/'
@@ -10,7 +19,12 @@ function InfoNavBar() {
             <div className="Logo-Home">
               <a href="">SAYNUM</a>
             </div>
-            <div className="menu-group">
+            <div className="navbar-toggle" onClick={mobileMenu} id="mobile-menu">
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
+            </div>
+            <div className="menu-group" id="menu-list">
                 <a href="/myaccount/aboutme" className="item-menu">About Me</a>
                 <a href="/myaccount/skill" className="item-menu">Skill</a>
                 <a href="/myaccount/education" className="item-menu">Education</a>

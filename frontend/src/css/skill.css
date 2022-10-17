@@ -1,14 +1,59 @@
-.box-input > small{
-    display: none;
+/* warp menu */
+
+.skill-menu{
+    display: flex;
+    position: sticky;
+    top: 4rem;
+    width: 100%;
+    background-color: #FFFFFF;
+    justify-content: center;
 }
 
-.box-input.error > small{
-    display: block;
-    color: #ff3e3e;
+.skill-menu > a{
+    justify-content: center;
+    text-decoration: none;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    color: #001D6E;
 }
 
-.box-input.error > input{
-    border: solid 4px #ff3e3e;
+.skill-menu > a:hover{
+    background-color: #61a1d7;
+}
+
+/* main content */
+
+.skill-container{
+    color: #001D6E;
+}
+
+.general-skill-container,.technical-skill-container,.language-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-image: radial-gradient(#ffffff 2px, transparent 2px), radial-gradient(#ffffff 2px, transparent 2px);
+    background-size: 100px 100px;
+    background-position: 0 0, 50px 50px;
+}
+
+.general-skill-container>div,.technical-skill-container>div,.language-container>div{
+    padding: 1rem;
+}
+
+.general-skill-container{
+    background-color: #bde0fe;
+}
+
+.technical-skill-container{
+    background-color: #a1c5e7;
+    flex-direction: row-reverse;
+}
+
+.language-container{
+    background-color: #a8e1df;
 }
 
 .general-input > h1,.technical-input > h1,.language-input > h1{
@@ -26,3 +71,195 @@
 .general-input.max > form,.technical-input.max > form,.language-input.max > form{
     display: none;
 }
+
+.general-input,.technical-input,.language-input{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 20rem;
+}
+
+.general-input h1,.technical-input h1,.language-input h1{
+    margin-top: 0;
+}
+
+.general-box,.technical-box,.language-box{
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.general-table{
+    background-color: #d1eaff;
+    padding: 1rem;
+    border-radius: 20px;
+    border-collapse: collapse;
+}
+
+.technical-table{
+    background-color: #a1c5e7;
+    padding: 1rem;
+    border-radius: 20px;
+    border-collapse: collapse;
+}
+
+.language-table{
+    background-color: #a8e1df;
+    padding: 1rem;
+    border-radius: 20px;
+    border-collapse: collapse;
+}
+
+.general-table th{
+    background-color:#a2d2ff;
+    padding: 1rem;
+}
+
+.technical-table th{
+    background-color:#61a1d7;
+    padding: 1rem;
+}
+
+.language-table th{
+    background-color:#88c7db;
+    padding: 1rem;
+}
+
+.general-table td,.technical-table td,.language-table td{
+    padding: 0.5rem;
+}
+
+.general-table th:nth-child(1),.technical-table th:nth-child(1),.language-table th:nth-child(1){
+    width: 10rem;
+    border-radius: 10px 0 0 0;
+    max-width: 16rem;
+}
+
+.general-table th:nth-child(2),.technical-table th:nth-child(2),.language-table th:nth-child(2){
+    width: 4rem;
+}
+
+.general-table th:nth-child(3),.technical-table th:nth-child(3),.language-table th:nth-child(3){
+    width: 6rem;
+    border-radius: 0 10px 0 0 ;
+}
+
+.general-table td:nth-child(1),.technical-table td:nth-child(1),.language-table td:nth-child(1){
+    padding-left: 1rem;
+    width: 10rem;
+    max-width: 16rem;
+}
+
+.general-table td:nth-child(2),.technical-table td:nth-child(2),.language-table td:nth-child(2){
+    text-align: center;
+    width: 4rem;
+}
+
+.general-table td:nth-child(3),.technical-table td:nth-child(3),.language-table td:nth-child(3){
+    text-align: center;
+    width: 4rem;
+}
+
+.general-table td:nth-child(3)>button{
+    border: none;
+    border-radius: 5px;
+    background-color: #a2d2ff;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    transition: all 0.5s ease;
+}
+
+.technical-table td:nth-child(3)>button{
+    border: none;
+    border-radius: 5px;
+    background-color: #61a1d7;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    transition: all 0.5s ease;
+}
+
+.language-table td:nth-child(3)>button{
+    border: none;
+    border-radius: 5px;
+    background-color: #88c7db;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    transition: all 0.5s ease;
+}
+
+.general-table td:nth-child(3)>button:hover,.technical-table td:nth-child(3)>button:hover,.language-table td:nth-child(3)>button:hover{
+    background-color:#ffc8dd;
+}
+
+@media screen and (max-width: 816px){
+    .skill-container>div{
+        height: 100%;
+    }
+
+    .skill-container>div>div{
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 465px){
+    .general-box,.technical-box,.language-box{
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 370px){
+    .general-input,.technical-input,.language-input{
+        border-radius: 0;
+    }
+}
+
+/* error box */
+
+.box-input > small{
+    display: none;
+}
+
+.box-input.error > small{
+    display: block;
+    color: #ff3e3e;
+}
+
+.box-input.error > input{
+    border: solid 4px #ff3e3e;
+}
+
+/* input range style*/
+
+input[type="range"] {
+    -webkit-appearance: none;
+    margin-right: 15px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    background-color: #a1c5e7;
+  }
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #d1eaff;
+    cursor: ew-resize;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+  }
+  
+  input[type=range]::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
