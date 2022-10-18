@@ -31,6 +31,23 @@ const addNewExp = (dataExp) => {
     })
 }
 
+router.route('/edit/:id')
+    .put(authorization, (req, res)=>{
+        experience.findOneAndUpdate({
+        _id: req.params.id
+       },{
+        $set : req.body
+       },(error, data) => {
+        if (error) {
+            console.log(error)
+            res.status(500).json(error)
+        } else {
+            res.status(200).json(data)
+            console.log('Data updated successfully')
+        }
+    })
+    })
+
 router.route('/:ofInfoID')
     .get((req,res)=>{
         experience.aggregate([{
