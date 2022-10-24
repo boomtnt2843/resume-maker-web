@@ -208,3 +208,9 @@
 .submit-aboutme:hover{
     background-color: #c5ecac;
 }
+
+@media screen and (max-width: 460px){
+    .add-info-section{
+        justify-content: flex-start;
+    }
+}

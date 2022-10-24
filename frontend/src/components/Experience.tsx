@@ -224,12 +224,12 @@ function Experience() {
                             </div>
                             <div className="box-input">
                                 <p>start date</p>
-                                <input type="date" className="date-input" id="startDate" onChange={handleInputChange} />
+                                <input type="month" className="date-input" id="startDate" onChange={handleInputChange} />
                                 <small>something error</small>
                             </div>
                             <div className="box-input">
                                 <p>end date</p>
-                                <input type="date" className="date-input" id="endDate" onChange={handleInputChange} />
+                                <input type="month" className="date-input" id="endDate" onChange={handleInputChange} />
                                 <small>something error</small>
                             </div>
                             <button type="submit">add</button>
