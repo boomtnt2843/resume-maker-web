@@ -152,12 +152,12 @@ function Activity() {
                             </div>
                             <div className="box-input">
                                 <p>Start date</p>
-                                <input type="date" className="date-input" id="startDate" onChange={handleInputChange} />
+                                <input type="month" className="date-input" id="startDate" onChange={handleInputChange} />
                                 <small>something error</small>
                             </div>
                             <div className="box-input">
                                 <p>End date</p>
-                                <input type="date" className="date-input" id="endDate" onChange={handleInputChange} />
+                                <input type="month" className="date-input" id="endDate" onChange={handleInputChange} />
                             </div>
                             <button type="submit">add</button>
                         </form>
