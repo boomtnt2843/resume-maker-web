@@ -1,3 +1,191 @@
+.education-container{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px), radial-gradient(#ffffff 1.5px, transparent 1.5px);
+    background-size: 45px 45px;
+    background-position: 0 0, 22.5px 22.5px;
+    background-color: #c4ddff;
+    color: #001D6E;
+}
+
+.education-container > h1{
+    width: 100%;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.education-box{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.education-show div{
+    display: flex;
+    align-items: baseline;
+}
+
+.start-date{
+    margin-right: 1rem;
+}
+
+.display-edu div > h2{
+    margin-right: 1rem;
+}
+
+.date-group{
+    flex-wrap: wrap;
+}
+
+.edu-item-box{
+    background-color: #ffffff90;
+    padding: 1rem;
+    max-width: 40rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.edu-item-box.active .display-edu{
+    display: none;
+}
+
+.edu-item-box .edu-edit-form{
+    display: none;
+}
+
+.edu-item-box .display-edu{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.edu-item-box.active .edu-edit-form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.edu-edit-form div > h2{
+    margin-right: 1rem;
+}
+
+.edu-edit-form > div{
+    flex-wrap: wrap;
+}
+
+.edu-edit-form div > input,.edu-edit-form div > textarea{
+    border-radius: 10px;
+    border: solid 2px;
+}
+
+.edu-edit-form div > textarea{
+    width: 90%;
+}
+
+.start-date-edit-group>h2,.end-date-edit-group>h2{
+    width: 7rem;
+}
+
+.edit-btn-group{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.update-btn{
+    border-radius: 5px;
+    border: none;
+    margin-right: 1rem;
+    background-color: #c4ddff;
+    width: 4rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.update-btn:hover{
+    background-color: #c5ecac;
+    transform: translate(-5px,-5px);
+    box-shadow: 5px 5px 0 0 #ffffff;
+}
+
+.edit-edu-btn{
+    border-radius: 10px;
+    border: none;
+    width: 4rem;
+    height: 2rem;
+    background-color: #c4ddff;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.edit-edu-btn:hover{
+    background-color: #c5ecac;
+    transform: translate(-5px,-5px);
+    box-shadow: 5px 5px 0 0 #ffffff;
+}
+
+.delete-btn{
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 100%;
+    background-color: #ffffff;
+    border: none;
+    transition: all 0.5s ease;
+}
+
+.delete-btn:hover{
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    background-color: #ffc8dd;
+}
+
+.cancel-btn{
+    border-radius: 5px;
+    border: none;
+    margin-right: 1rem;
+    background-color: #ffc8dd;
+    width: 4rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-btn:hover{
+    background-color: #c5ecac;
+    transform: translate(-5px,-5px);
+    box-shadow: 5px 5px 0 0 #ffffff;
+}
+
+.edu-submit-btn{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #c4ddff;
+    transition: all 0.5s ease;
+}
+
+.edu-submit-btn:hover{
+    background-color: #c5ecac;
+    transform: translate(-5px,-5px);
+    box-shadow: 5px 5px 0 0 #939393;
+}
+
+.edit-input-name{
+    display:none;
+}
+
 .education-input > h1{
     display: none;
 }
@@ -14,6 +202,26 @@
     display: none;
 }
 
+.education-input{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
+    height: 100%;
+    margin-bottom: 1rem;
+}
+
+.education-input form{
+    width: 60%;
+}
+
+.box-input #name{
+    width: 100%;
+}
+
 .box-input > small{
     display: none;
 }
@@ -25,4 +233,22 @@
 
 .box-input.error > input{
     border: solid 4px #ff3e3e;
+}
+
+@media screen and (max-width: 417px){
+    .date-group h2{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 495px){
+    .education-input{
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 555px){
+    .edu-item-box{
+        border-radius: 0;
+    }
 }
