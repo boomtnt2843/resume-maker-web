@@ -161,6 +161,15 @@ function Experience() {
         parentElement.className = 'box-input';
     }
 
+    const toggleEdit = (elementStr : string) =>{
+        const expElement = document.getElementById(elementStr) as HTMLDivElement;
+        expElement.classList.toggle('active');
+    }
+
+    const checkVarEdit = (elementStr : string) =>{
+        
+    }
+
     useEffect(()=>{
         const token = localStorage.getItem("token")
         const myInfoID = localStorage.getItem("Info_id")
@@ -177,32 +186,65 @@ function Experience() {
             <div className="exp-container">
                 <h1>Exprience</h1>
                 <div className="exp-box">
-                    <table className="exp-table">
-                        <thead>
-                            <tr>
-                                <th>location</th>
-                                <th>position</th>
-                                <th>detail</th>
-                                <th>start date</th>
-                                <th>end date</th>
-                                <th>delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {experiences.map((item: exprienceInterface,index) =>(
-                            <tr key={index}>
-                                <td>{item.location}</td>
-                                <td>{item.position}</td>
-                                <td>{item.detail}</td>
-                                <td>{String(item.startDate).slice(0,7)}</td>
-                                <td>{String(item.endDate).slice(0,7)}</td>
-                                <td>
-                                    <button onClick={()=>deleteExprience(item._id)}><FaTrashAlt/></button>
-                                </td>
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
+                    <div className="exp-show">
+                    {experiences.map((item: exprienceInterface,index) =>(
+                        <div className="exp-item-box" key={index} id={item._id}>
+                            <div className="display-exp">
+                                <div className="location-group">
+                                    <h2>location</h2>
+                                    <p>{item.location}</p>
+                                </div>
+                                <div className="position-group">
+                                    <h2>position</h2>
+                                    <p>{item.position}</p>
+                                </div>
+                                <div className="detail-group">
+                                    <h2>detail</h2>
+                                    <p>{item.detail}</p>
+                                </div>
+                                <div className="date-group">
+                                    <div className="start-date">
+                                        <h2>start Date</h2>
+                                        <p>{String(item.startDate).slice(0,7)}</p>
+                                    </div>
+                                    <div className="end-date">
+                                        <h2>end Date</h2>
+                                        <p>{String(item.endDate).slice(0,7)}</p>
+                                    </div> 
+                                </div>
+                                <div className="display-btn-group">
+                                    <button type="button" className="edit-exp-btn" onClick={()=>toggleEdit(item._id)}>Edit</button>
+                                    <button type="button" className="delete-btn" onClick={()=>deleteExprience(item._id)}><FaTrashAlt/></button>
+                                </div>
+                            </div>
+                            <div className="exp-edit-form" id={item._id+"-edit-form"}>
+                                <div className="location-edit-group">
+                                    <h2>location</h2>
+                                    <textarea rows={2} cols={50} className="edit-box" id={item._id+"-location"} defaultValue={item.location} />
+                                </div>
+                                <div className="position-edit-group">
+                                    <h2>position</h2>
+                                    <input type="text" className="edit-box" id={item._id+"-position"} defaultValue={item.position}/>
+                                </div>
+                                <div className="detail-edit-group">
+                                    <h2>detail</h2>
+                                    <textarea rows={2} cols={50} className="edit-box" id={item._id+"-detail"} defaultValue={item.detail}/>
+                                </div>
+                                <div className="start-date-edit-group">
+                                    <h2>start Date</h2>
+                                    <input type="month" className="edit-box" id={item._id+"-start-date"} defaultValue={String(item.startDate).slice(0,7)}/>
+                                </div>
+                                <div className="end-date-edit-group">
+                                    <h2>end Date</h2>
+                                    <input type="month" className="edit-box" id={item._id+"-end-date"} defaultValue={String(item.endDate).slice(0,7)}/>
+                                </div>
+                                <div className="edit-btn-group">
+                                    <button type="button" className="update-btn" onClick={()=>checkVarEdit(item._id)}>Update</button>
+                                    <button type="button" className="cancel-btn" onClick={()=>toggleEdit(item._id)}>Cancel</button>
+                                </div>
+                            </div>
+                        </div>))}
+                    </div>
                     <div className="exp-input" id='exp-input'>
                         <h1>IT'S MAXIMUM EXPIRENCE!</h1>
                         <form className="exp-form" id="exp-form" onSubmit={submitFormExp}>

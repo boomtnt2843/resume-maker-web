@@ -232,7 +232,7 @@ function Education() {
                                     <button type="button" className="delete-btn" onClick={()=>deleteEducation(item._id)}><FaTrashAlt/></button>
                                 </div>
                             </div>
-                            <form className="edu-edit-form" id={item._id+"-edit-form"}>
+                            <div className="edu-edit-form" id={item._id+"-edit-form"}>
                                 <div className="location-edit-group">
                                     <h2>location</h2>
                                     <textarea rows={2} cols={50} className="edit-box" id={item._id+"-name"} defaultValue={item.name} />
@@ -253,7 +253,7 @@ function Education() {
                                     <button type="button" className="update-btn" onClick={()=>checkVarEdit(item._id)}>Update</button>
                                     <button type="button" className="cancel-btn" onClick={()=>toggleEdit(item._id)}>Cancel</button>
                                 </div>
-                            </form>
+                            </div>
                         </div>))}
                     </div>
                     <div className="education-input" id="education-input">
