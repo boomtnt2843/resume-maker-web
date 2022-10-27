@@ -8,6 +8,7 @@ import Skill from './components/Skill';
 import Education from './components/Education';
 import Activity from './components/Activity';
 import Experience from './components/Experience';
+import MainResume from './components/MainResume';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/myaccount/education" element={<Education />}/>
         <Route path="/myaccount/exp" element={<Experience />}/>
         <Route path="/myaccount/activity" element={<Activity />}/>
+        <Route path="/resume" element={<MainResume />}/>
       </Routes>
     </Router>
   );

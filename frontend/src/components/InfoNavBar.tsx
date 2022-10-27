@@ -17,7 +17,7 @@ function InfoNavBar() {
     return (
         <div className="Navbar-container">
             <div className="Logo-Home">
-              <a href="">SAYNUM</a>
+              <a href="/myaccount">SAYNUM</a>
             </div>
             <div className="navbar-toggle" onClick={mobileMenu} id="mobile-menu">
                 <span className="bar"></span>
@@ -25,6 +25,7 @@ function InfoNavBar() {
                 <span className="bar"></span>
             </div>
             <div className="menu-group" id="menu-list">
+                <a href="/myaccount" className="item-menu">Home</a>
                 <a href="/myaccount/aboutme" className="item-menu">About Me</a>
                 <a href="/myaccount/skill" className="item-menu">Skill</a>
                 <a href="/myaccount/education" className="item-menu">Education</a>

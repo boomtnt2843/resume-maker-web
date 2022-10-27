@@ -16,6 +16,178 @@
     text-align: center;
 }
 
+.exp-box{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap-reverse;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.exp-show div{
+    display: flex;
+    align-items: baseline;
+}
+
+.start-date{
+    margin-right: 1rem;
+}
+
+.display-exp div > h2{
+    margin-right: 1rem;
+}
+
+.date-group{
+    flex-wrap: wrap;
+}
+
+.detail-group{
+    width: 80%;
+    flex-wrap: wrap;
+}
+
+.detail-group > h2{
+    margin-bottom: 0;
+}
+
+.exp-item-box{
+    background-color: #ffffff90;
+    padding: 1rem;
+    width: 40rem;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.exp-item-box.active .display-exp{
+    display: none;
+}
+
+.exp-item-box .exp-edit-form{
+    display: none;
+}
+
+.exp-item-box .display-exp{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.exp-item-box.active .exp-edit-form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.exp-edit-form div > h2{
+    margin-right: 1rem;
+}
+
+.exp-edit-form > div{
+    flex-wrap: wrap;
+}
+
+.exp-edit-form div > textarea{
+    width: 90%;
+}
+
+.start-date-edit-group>h2,.end-date-edit-group>h2{
+    width: 7rem;
+}
+
+.edit-btn-group{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.update-btn{
+    border-radius: 5px;
+    border: none;
+    margin-right: 1rem;
+    background-color: #c4ddff;
+    width: 4rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.update-btn:hover{
+    background-color: #c5ecac;
+    transform: translate(-5px,-5px);
+    box-shadow: 5px 5px 0 0 #ffffff;
+}
+
+.edit-exp-btn{
+    border-radius: 10px;
+    border: none;
+    width: 4rem;
+    height: 2rem;
+    background-color: #c4ddff;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.edit-exp-btn:hover{
+    background-color: #c5ecac;
+    transform: translate(-5px,-5px);
+    box-shadow: 5px 5px 0 0 #ffffff;
+}
+
+.delete-btn{
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    border-radius: 100%;
+    background-color: #ffffff;
+    border: none;
+    transition: all 0.5s ease;
+}
+
+.delete-btn:hover{
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    background-color: #ffc8dd;
+}
+
+.cancel-btn{
+    border-radius: 5px;
+    border: none;
+    margin-right: 1rem;
+    background-color: #ffc8dd;
+    width: 4rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-btn:hover{
+    background-color: #c5ecac;
+    transform: translate(-5px,-5px);
+    box-shadow: 5px 5px 0 0 #ffffff;
+}
+
+.exp-submit-btn{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #c4ddff;
+    transition: all 0.5s ease;
+}
+
+.exp-submit-btn:hover{
+    background-color: #c5ecac;
+    transform: translate(-5px,-5px);
+    box-shadow: 5px 5px 0 0 #939393;
+}
+
 .exp-input > h1{
     display: none;
 }
@@ -41,6 +213,48 @@
     color: #ff3e3e;
 }
 
+.exp-input{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
+    height: 100%;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
 .box-input.error > input{
     border: solid 4px #ff3e3e;
+}
+
+@media screen and (max-width: 417px){
+    .date-group h2{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 495px){
+    .exp-input{
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 690px){
+    .exp-item-box{
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .exp-show{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

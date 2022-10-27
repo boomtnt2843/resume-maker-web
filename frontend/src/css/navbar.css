@@ -124,7 +124,7 @@
     color: #FFFFFF;
 }
 
-@media screen and (max-width: 610px){ 
+@media screen and (max-width: 658px){ 
     .menu-group.is-active {
         background: #FFFFFF;
         top: 100%;

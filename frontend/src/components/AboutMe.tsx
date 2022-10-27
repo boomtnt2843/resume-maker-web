@@ -60,7 +60,9 @@ function AboutMe() {
             .then((res) => {
                 if (res._id) {
                     console.log(res);
+                    alertSnack("update successfully","show");
                 } else {
+                    alertSnack("update failed","show error");
                     console.log("error");
                 }
             });
@@ -243,6 +245,14 @@ function AboutMe() {
         parentElement.className = 'box-input';
     }
 
+    const alertSnack = (txt: string,status:string) =>{
+        const snackAlert = document.getElementById("snack-bar") as HTMLDivElement;
+        const textAlert = document.getElementById("text-alart") as HTMLDivElement;
+        textAlert.innerText=txt;
+        snackAlert.className = "snack-bar-submit "+status;
+        setTimeout(function(){snackAlert.className="snack-bar-submit"},3000);
+    }
+
     useEffect(()=>{
         const token = localStorage.getItem("token")
         const myID = localStorage.getItem("id")
@@ -366,6 +376,9 @@ function AboutMe() {
                     </div>    
                     <button type="submit" className="submit-aboutme" >Save your information</button>
                 </form>
+                <div className="snack-bar-submit" id="snack-bar">
+                    <p className="alart-text-snack" id="text-alart">something text!</p>
+                </div>
             </div>
         </div>
     );

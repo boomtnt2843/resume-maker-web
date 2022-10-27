@@ -43,7 +43,8 @@
 .edu-item-box{
     background-color: #ffffff90;
     padding: 1rem;
-    max-width: 40rem;
+    width: 40rem;
+    box-sizing: border-box;
     border-radius: 20px;
     margin-bottom: 1rem;
 }
@@ -75,11 +76,6 @@
 
 .edu-edit-form > div{
     flex-wrap: wrap;
-}
-
-.edu-edit-form div > input,.edu-edit-form div > textarea{
-    border-radius: 10px;
-    border: solid 2px;
 }
 
 .edu-edit-form div > textarea{
@@ -222,19 +218,6 @@
     width: 100%;
 }
 
-.box-input > small{
-    display: none;
-}
-
-.box-input.error > small{
-    display: block;
-    color: #ff3e3e;
-}
-
-.box-input.error > input{
-    border: solid 4px #ff3e3e;
-}
-
 @media screen and (max-width: 417px){
     .date-group h2{
         font-size: 1rem;
@@ -252,3 +235,19 @@
         border-radius: 0;
     }
 }
+
+@media screen and (max-width: 690px){
+    .edu-item-box{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .education-show{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
