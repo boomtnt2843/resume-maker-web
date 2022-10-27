@@ -89,13 +89,51 @@ function Activity() {
                     alertSnack("added failed","show error")
                 }
             });
-      }
+    }
 
     const submitFormAct = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        submitActivity();
-        const activityform = document.getElementById("activity-form") as HTMLFormElement;
-        activityform.reset();
+        let errorInputCheck = false;
+        const nameInput = document.getElementById('nameHeader') as HTMLInputElement;
+        const detailInput = document.getElementById('detail') as HTMLInputElement;
+        const startInput = document.getElementById('startDate') as HTMLInputElement;
+        const endInput = document.getElementById('endDate') as HTMLInputElement;
+
+        if(nameInput.value===""){
+            textError(nameInput,"plase input header or topic");
+            errorInputCheck = true;
+        }else{
+            textcorrect(nameInput)
+        }
+        if(detailInput.value===""){
+            textError(detailInput,"plase input detail");
+            errorInputCheck = true;
+        }else{
+            textcorrect(detailInput)
+        }
+        if(startInput.value===""){
+            textError(startInput,"plase choose date");
+            errorInputCheck = true;
+        }else{
+            textcorrect(startInput)
+        }
+        if(!errorInputCheck){
+            submitActivity();
+            const activityform = document.getElementById("activity-form") as HTMLFormElement;
+            activityform.reset();
+        }
+    }
+
+    const textError = (element : HTMLInputElement,message : string) => {
+        const parentElement = element.parentElement as HTMLDivElement;
+        parentElement.className = 'box-input error';
+        const small = parentElement.querySelector('small') as HTMLSpanElement;
+        small.innerText = message
+    }
+
+    const textcorrect = (element : HTMLInputElement) => {
+        const parentElement = element.parentElement as HTMLDivElement;
+        parentElement.className = 'box-input';
     }
 
     const toggleEdit = (elementStr : string) =>{
