@@ -62,8 +62,9 @@ function Experience() {
             .then((res) => {
                 if (res) {
                     getExpriences();
+                    alertSnack("deleted exprience successfully","show")
                 } else {
-                  console.log("else");
+                    alertSnack("deleted exprience failed","show error")
                 }
             });
       };
@@ -93,8 +94,9 @@ function Experience() {
                 if (res) {
                     console.log(res);
                     getExpriences();
+                    alertSnack("added exprience successfully","show")
                 } else {
-                    console.log("error");
+                    alertSnack("added exprience failed","show error")
                 }
             });
       }
@@ -167,7 +169,46 @@ function Experience() {
     }
 
     const checkVarEdit = (elementStr : string) =>{
-        
+        const locationEditElement = document.getElementById((elementStr+"-location")) as HTMLTextAreaElement;
+        const positionEditElement = document.getElementById(elementStr+"-position") as HTMLInputElement;
+        const detailEditElement = document.getElementById(elementStr+"-detail") as HTMLInputElement;
+        const sDateEditElement = document.getElementById(elementStr+"-start-date") as HTMLInputElement;
+        const eDateEditElement = document.getElementById(elementStr+"-end-date") as HTMLInputElement;
+        let data = {
+            location: locationEditElement.value,
+            position: positionEditElement.value,
+            detail: detailEditElement.value,
+            startDate: sDateEditElement.value,
+            endDate: eDateEditElement.value
+        };
+        const requestOptionsPost = {
+            method: "PUT",
+            headers: {
+                Authorization: token,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        };
+        fetch(`${apiUrl}/exprience/edit/${elementStr}`, requestOptionsPost)
+            .then((response) => response.json())
+            .then((res) => {
+                if (res._id) {
+                    toggleEdit(elementStr);
+                    getExpriences();
+                    alertSnack("update successfully","show")
+                } else {
+                    alertSnack("update failed","show error")
+                }
+                
+            });
+    }
+
+    const alertSnack = (txt: string,status:string) =>{
+        const snackAlert = document.getElementById("snack-bar") as HTMLDivElement;
+        const textAlert = document.getElementById("text-alart") as HTMLDivElement;
+        textAlert.innerText=txt;
+        snackAlert.className = "snack-bar-submit "+status;
+        setTimeout(function(){snackAlert.className="snack-bar-submit"},3000);
     }
 
     useEffect(()=>{
@@ -228,7 +269,7 @@ function Experience() {
                                 </div>
                                 <div className="detail-edit-group">
                                     <h2>detail</h2>
-                                    <textarea rows={2} cols={50} className="edit-box" id={item._id+"-detail"} defaultValue={item.detail}/>
+                                    <textarea rows={3} cols={50} className="edit-box" id={item._id+"-detail"} defaultValue={item.detail}/>
                                 </div>
                                 <div className="start-date-edit-group">
                                     <h2>start Date</h2>
@@ -250,33 +291,36 @@ function Experience() {
                         <form className="exp-form" id="exp-form" onSubmit={submitFormExp}>
                             <h2>Add Exprience</h2>
                             <div className="box-input">
-                                <p>location</p>
-                                <input type="text" className="location-input" id="location" onChange={handleInputChange} />
+                                <p>location/ company</p>
+                                <textarea rows={2} cols={50} className="info-input" id="location" onChange={handleInputChange} placeholder="location or company..."/>
                                 <small>something error</small>
                             </div>
                             <div className="box-input">
                                 <p>position</p>
-                                <input type="text" className="position-input" id="position" onChange={handleInputChange} />
+                                <input type="text" className="info-input" id="position" onChange={handleInputChange} placeholder="your position..."/>
                                 <small>something error</small>
                             </div>
                             <div className="box-input">
                                 <p>detail</p>
-                                <input type="text" className="detail-input" id="detail" onChange={handleInputChange} />
+                                <textarea rows={2} cols={50} className="info-input" id="detail" onChange={handleInputChange} placeholder="something detail..."/>
                                 <small>something error</small>
                             </div>
                             <div className="box-input">
                                 <p>start date</p>
-                                <input type="month" className="date-input" id="startDate" onChange={handleInputChange} />
+                                <input type="month" className="info-input" id="startDate" onChange={handleInputChange} />
                                 <small>something error</small>
                             </div>
                             <div className="box-input">
                                 <p>end date</p>
-                                <input type="month" className="date-input" id="endDate" onChange={handleInputChange} />
+                                <input type="month" className="info-input" id="endDate" onChange={handleInputChange} />
                                 <small>something error</small>
                             </div>
-                            <button type="submit">add</button>
+                            <button type="submit" className="exp-submit-btn">add</button>
                         </form>
                     </div>
+                </div>
+                <div className="snack-bar-submit" id="snack-bar">
+                    <p className="alart-text-snack" id="text-alart">something text!</p>
                 </div>
             </div>
         </div>

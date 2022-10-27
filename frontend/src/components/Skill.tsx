@@ -76,10 +76,10 @@ function Skill() {
         .then((response) => response.json())
         .then((res) => {
             if (res) {
-                console.log(res);
-                getGeneralSkills();
+              getGeneralSkills();
+              alertSnack("added successfully","show")
             } else {
-                console.log("error");
+              alertSnack("added failed","show error")
             }
         });
 }
@@ -97,8 +97,9 @@ function Skill() {
         .then((res) => {
             if (res) {
               getGeneralSkills();
+              alertSnack("deleted successfully","show")
             } else {
-              console.log("else");
+              alertSnack("deleted failed","show error")
             }
         });
   };
@@ -169,10 +170,10 @@ function Skill() {
         .then((response) => response.json())
         .then((res) => {
             if (res) {
-                console.log(res);
-                getTechnicalSkills();
+              getTechnicalSkills();
+              alertSnack("added successfully","show")
             } else {
-                console.log("error");
+              alertSnack("added failed","show error")
             }
         });
   }
@@ -190,8 +191,9 @@ function Skill() {
         .then((res) => {
             if (res) {
               getTechnicalSkills();
+              alertSnack("deleted successfully","show")
             } else {
-              console.log("else");
+              alertSnack("deleted failed","show error")
             }
         });
   };
@@ -261,10 +263,10 @@ function Skill() {
         .then((response) => response.json())
         .then((res) => {
             if (res) {
-                console.log(res);
-                getLanguages();
+              getLanguages();
+              alertSnack("added successfully","show")
             } else {
-                console.log("error");
+              alertSnack("added failed","show error")
             }
         });
   }
@@ -282,8 +284,9 @@ function Skill() {
         .then((res) => {
             if (res) {
               getLanguages();
+              alertSnack("deleted successfully","show")
             } else {
-              console.log("else");
+              alertSnack("deleted failed","show error")
             }
         }); 
   };
@@ -325,6 +328,14 @@ function Skill() {
         element.className = nameclass;
     }
   }
+
+  const alertSnack = (txt: string,status:string) =>{
+    const snackAlert = document.getElementById("snack-bar") as HTMLDivElement;
+    const textAlert = document.getElementById("text-alart") as HTMLDivElement;
+    textAlert.innerText=txt;
+    snackAlert.className = "snack-bar-submit "+status;
+    setTimeout(function(){snackAlert.className="snack-bar-submit"},3000);
+}
 
   useEffect(()=>{
     const token = localStorage.getItem("token")
@@ -464,6 +475,9 @@ function Skill() {
                 <button type="submit">add</button>
               </form>
             </div>
+          </div>
+          <div className="snack-bar-submit" id="snack-bar">
+            <p className="alart-text-snack" id="text-alart">something text!</p>
           </div>
         </div>
       </div>

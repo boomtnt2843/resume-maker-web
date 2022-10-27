@@ -17,3 +17,92 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.info-input,.edit-box{
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding-left: 1rem;
+  border: solid 2px;
+}
+
+.box-input > small{
+  display: none;
+}
+
+.box-input.error > small{
+  display: block;
+  color: #ff3e3e;
+}
+
+.box-input textarea{
+  width: 80%;
+}
+
+.box-input.error > input,.box-input.error > textarea{
+  border: solid 4px #ff3e3e;
+}
+
+
+.snack-bar-submit{
+  visibility: hidden;
+  display: flex;
+  position: fixed;
+  border-radius: 10px;
+  bottom: 1rem;
+  left: 10%;
+  width: 80%;
+  background-color: #c5ecac;
+  color: #232323;
+  padding: 1rem;
+  padding-left: 4rem;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 10px 10px 50px 0 #232323;
+}
+
+.snack-bar-submit.error{
+  background-color: #FFB4B4;
+}
+
+.snack-bar-submit.show {
+  visibility: visible; 
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+.snack-bar-submit .alart-text-snack{
+  margin: 0;
+}
+
+@media screen and (max-width: 460px){
+  .add-info-section{
+      justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 400px){
+  #input-hobby, #input-interest{
+      width: 80%;
+  }
+}

@@ -63,8 +63,9 @@ function Education() {
             .then((res) => {
                 if (res) {
                   getEducations();
+                  alertSnack("daleted successfully","show")
                 } else {
-                  console.log("else");
+                  alertSnack("daleted failed","show error")
                 }
             });
       };
@@ -93,8 +94,9 @@ function Education() {
                 if (res) {
                     console.log(res);
                     getEducations();
+                    alertSnack("added successfully","show")
                 } else {
-                    console.log("error");
+                    alertSnack("added failed","show error")
                 }
             });
       }
@@ -182,11 +184,20 @@ function Education() {
                 if (res._id) {
                     toggleEdit(elementStr);
                     getEducations();
+                    alertSnack("update successfully","show")
                 } else {
-                    console.log("error");
+                    alertSnack("update failed","show error")
                 }
                 
             });
+    }
+
+    const alertSnack = (txt: string,status:string) =>{
+        const snackAlert = document.getElementById("snack-bar") as HTMLDivElement;
+        const textAlert = document.getElementById("text-alart") as HTMLDivElement;
+        textAlert.innerText=txt;
+        snackAlert.className = "snack-bar-submit "+status;
+        setTimeout(function(){snackAlert.className="snack-bar-submit"},3000);
     }
 
     useEffect(()=>{
@@ -283,6 +294,9 @@ function Education() {
                             <button type="submit" className="edu-submit-btn">Add</button>
                         </form>
                     </div>
+                </div>
+                <div className="snack-bar-submit" id="snack-bar">
+                    <p className="alart-text-snack" id="text-alart">something text!</p>
                 </div>
             </div>
         </div>

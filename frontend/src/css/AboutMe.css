@@ -53,7 +53,7 @@
 } 
 
 #age{
-    width: 2.5rem;
+    width: 3rem;
 }
 
 #tel{
@@ -80,24 +80,6 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-}
-
-.info-input{
-    border-radius: 10px;
-    padding-left: 1rem;
-}
-
-.box-input > small{
-    display: none;
-}
-
-.box-input.error > small{
-    display: block;
-    color: #ff3e3e;
-}
-
-.box-input.error > input{
-    border: solid 4px #ff3e3e;
 }
 
 .hobby-board, .interest-board{
@@ -212,5 +194,18 @@
 @media screen and (max-width: 460px){
     .add-info-section{
         justify-content: flex-start;
+    }
+    .name-zone{
+        width: 100%;
+    }
+
+    #link-input>p{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px){
+    #input-hobby, #input-interest{
+        width: 80%;
     }
 }
