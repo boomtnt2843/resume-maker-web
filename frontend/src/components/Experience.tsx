@@ -40,7 +40,6 @@ function Experience() {
             .then((res) => {
                 if (res) {
                   console.log(res.length);
-                  
                   maxExp(res.length);
                   setExperiences(res)
                 } else {
@@ -92,7 +91,6 @@ function Experience() {
             .then((response) => response.json())
             .then((res) => {
                 if (res) {
-                    console.log(res);
                     getExpriences();
                     alertSnack("added exprience successfully","show")
                 } else {

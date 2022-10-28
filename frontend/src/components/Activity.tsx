@@ -32,8 +32,9 @@ function Activity() {
             .then((response) => response.json())
             .then((res) => {
                 if (res) {
-                  console.log(res.length);
-                  setActivities(res)
+                  console.log(res);
+                  maxAct(res.length);
+                  setActivities(res);
                 } else {
                   console.log("else");
                 }
@@ -82,7 +83,6 @@ function Activity() {
             .then((response) => response.json())
             .then((res) => {
                 if (res) {
-                    console.log(res);
                     getActivities();
                     alertSnack("added successfully","show")
                 } else {
@@ -182,6 +182,15 @@ function Activity() {
         setTimeout(function(){snackAlert.className="snack-bar-submit"},3000);
     }
 
+    const maxAct = (num: number) => {
+        const educationInput = document.getElementById('activity-input') as HTMLDivElement;
+        if (num >= 10){
+            educationInput.className="activity-input max"
+        }else{
+            educationInput.className="activity-input"
+        }
+      }
+
     useEffect(()=>{
         const token = localStorage.getItem("token")
         const myInfoID = localStorage.getItem("Info_id")
@@ -249,7 +258,7 @@ function Activity() {
                             </div>
                         </div>))}
                     </div>
-                    <div className="activity-input">
+                    <div className="activity-input" id="activity-input">
                         <h1>IT'S MAXIMUM ACTIVITY!</h1>
                         <form className="activity-form" id="activity-form"onSubmit={submitFormAct}>
                             <h2>Add Activity</h2>
