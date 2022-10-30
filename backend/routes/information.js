@@ -47,6 +47,23 @@ const findoneInfo = (infoID) => {
     })
 }
 
+//get only format
+const findoneFormat = (infoID) => {
+    return new Promise((resolve, reject) =>{
+        info.findOne({owner : infoID}, (err, data) =>{
+            if(err){
+                reject(new Error('Cannot find information!'))
+            }else{
+                if(data){
+                    resolve(data.format)
+                }else{
+                    reject(new Error('Cannot find information!'))
+                }
+            }
+        })
+    })
+}
+
 //first time crate
 router.route('/create')
     .post(authorization, (req,res)=>{
@@ -84,6 +101,18 @@ router.route('/edit/:ownerId')
 router.route('/:ofInfoID')
     .get((req,res)=>{
         findoneInfo(req.params.ofInfoID)
+            .then(result => {
+                res.status(200).json(result);
+            })
+            .catch(err=>{
+                console.log(err);
+                res.status(500).json(err);
+            })
+    })
+
+router.route('/format/:ofInfoID')
+    .get((req,res)=>{
+        findoneFormat(req.params.ofInfoID)
             .then(result => {
                 res.status(200).json(result);
             })
