@@ -142,10 +142,15 @@ function Experience() {
     }
 
     const maxExp = (num: number) => {
+        const showNothing = document.getElementById('nothing-item') as HTMLDivElement;
         if (num >= 7){
             expFormInput.className="exp-input max"
+            showNothing.className = "show-nothing have-item"
+        }else if(num==0){
+            showNothing.className = "show-nothing"
         }else{
             expFormInput.className="exp-input"
+            showNothing.className = "show-nothing have-item"
         }
       }
 
@@ -226,6 +231,9 @@ function Experience() {
                 <h1>Exprience</h1>
                 <div className="exp-box">
                     <div className="exp-show">
+                    <div className="show-nothing" id="nothing-item">
+                            <h1>Add Your Experience... </h1> 
+                        </div>
                     {experiences.map((item: exprienceInterface,index) =>(
                         <div className="exp-item-box" key={index} id={item._id}>
                             <div className="display-exp">
@@ -288,6 +296,7 @@ function Experience() {
                         <h1>IT'S MAXIMUM EXPIRENCE!</h1>
                         <form className="exp-form" id="exp-form" onSubmit={submitFormExp}>
                             <h2>Add Exprience</h2>
+                            <small>(maximum 7)</small>
                             <div className="box-input">
                                 <p>location/ company</p>
                                 <textarea rows={2} cols={50} className="info-input" id="location" onChange={handleInputChange} placeholder="location or company..."/>

@@ -43,10 +43,15 @@ function Education() {
 
       const maxEdu = (num: number) => {
         const educationInput = document.getElementById('education-input') as HTMLDivElement;
+        const showNothing = document.getElementById('nothing-item') as HTMLDivElement;
         if (num >= 5){
             educationInput.className="education-input max"
+            showNothing.className = "show-nothing have-item"
+        }else if(num==0){
+            showNothing.className = "show-nothing"
         }else{
             educationInput.className="education-input"
+            showNothing.className = "show-nothing have-item"
         }
       }
 
@@ -217,6 +222,9 @@ function Education() {
                 <h1>Education</h1>
                 <div className="education-box">
                     <div className="education-show">
+                        <div className="show-nothing" id="nothing-item">
+                            <h3>Add Your School or University... </h3> 
+                        </div>
                         {educations.map((item: educationInterface,index) =>(
                         <div className="edu-item-box" key={index} id={item._id}>
                             <div className="display-edu">
@@ -271,6 +279,7 @@ function Education() {
                         <h1>IT'S MAXIMUM EDUCATION!</h1>
                         <form className="education-form" id="education-form" onSubmit={submitFormEducation}>
                             <h2>Add Education</h2>
+                            <small>(maximum 5)</small>
                             <div className="box-input">
                                 <p>School / University</p>
                                 <input type="text" className="info-input" id="name" onChange={handleInputChange} placeholder="school or university..." />
