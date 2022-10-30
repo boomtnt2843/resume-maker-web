@@ -59,7 +59,7 @@ function MyAccount() {
     };
 
     const toAboutMe = () =>{
-        window.location.href='/myaccount/aboutme'
+        window.open('http://localhost:3000/resume?user='+myId)
     }
 
     useEffect(()=>{
