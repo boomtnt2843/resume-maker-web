@@ -210,6 +210,10 @@
     display: none;
 }
 
+.activity-form>h2{
+    margin-bottom: 0;
+}
+
 .activity-input{
     display: flex;
     flex-direction: column;

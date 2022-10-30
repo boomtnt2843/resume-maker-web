@@ -214,6 +214,10 @@
     color: #ff3e3e;
 }
 
+.exp-form > h2{
+    margin-bottom: 0;
+}
+
 .exp-input{
     display: flex;
     flex-direction: column;
