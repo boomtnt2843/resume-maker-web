@@ -43,6 +43,24 @@ code {
   border: solid 4px #ff3e3e;
 }
 
+.show-nothing{
+  background-color: #ffffff90;
+  padding: 1rem;
+  max-width: 40rem;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.show-nothing.have-item{
+  display: none;
+}
+
+@media screen and (max-width: 290px){
+  .show-nothing{
+    border-radius: 0;
+  }
+}
 
 .snack-bar-submit{
   visibility: hidden;

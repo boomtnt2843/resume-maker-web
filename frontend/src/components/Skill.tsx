@@ -387,6 +387,7 @@ function Skill() {
               <h1>IT'S MAXIMUM GENERAL SKILLS!</h1>
               <form className="general-form" id="general-form" onSubmit={submitFormGenearl}>
                 <h1>Add General Skill</h1>
+                <small>(maximum 10)</small>
                 <div className="box-input" id='general-name-input'>
                   <p>Skill</p>
                   <input type="text" className="info-input" id="name" onChange={handleInputChangeGeneral} placeholder="your skill..."/>
@@ -426,6 +427,7 @@ function Skill() {
               <h1>IT'S MAXIMUM TECHNICAL SKILLS!</h1>
               <form className="technical-form" id="technical-form" onSubmit={submitFormTechnical}>
                 <h1>Add Technical Skill</h1>
+                <small>(maximum 10)</small>
                 <div className="box-input" id='technical-name-input'>
                   <p>Skill</p>
                   <input type="text" className="info-input" id="name" onChange={handleInputChangeTechnical} placeholder="your skill..."/>
@@ -465,6 +467,7 @@ function Skill() {
               <h1>IT'S MAXIMUM LANGUAGES!</h1>
               <form className="language-form" id="language-form" onSubmit={submitFormLanguage}>
                 <h1>Add Language</h1>
+                <small>(maximum 3)</small>
                 <div className="box-input" id='language-name-input'>
                   <p>Language</p>
                   <input type="text" className="info-input" id="name" onChange={handleInputChangeLanguage} placeholder="language..."/>

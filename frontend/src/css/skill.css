@@ -132,6 +132,10 @@
     padding: 0.5rem;
 }
 
+.technical-form > h1,.general-form > h1,.technical-form > h1{
+    margin-bottom: 0;
+}
+
 .general-table th:nth-child(1),.technical-table th:nth-child(1),.language-table th:nth-child(1){
     width: 10rem;
     border-radius: 10px 0 0 0;

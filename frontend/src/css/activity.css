@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: stretch;
     width: 100%;
+    min-height: 100vh;
     background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px), radial-gradient(#ffffff 1.5px, transparent 1.5px);
     background-size: 45px 45px;
     background-position: 0 0, 22.5px 22.5px;
@@ -207,6 +208,10 @@
 
 .activity-input.max > form{
     display: none;
+}
+
+.activity-form>h2{
+    margin-bottom: 0;
 }
 
 .activity-input{

@@ -32,8 +32,9 @@ function Activity() {
             .then((response) => response.json())
             .then((res) => {
                 if (res) {
-                  console.log(res.length);
-                  setActivities(res)
+                  console.log(res);
+                  maxAct(res.length);
+                  setActivities(res);
                 } else {
                   console.log("else");
                 }
@@ -82,7 +83,6 @@ function Activity() {
             .then((response) => response.json())
             .then((res) => {
                 if (res) {
-                    console.log(res);
                     getActivities();
                     alertSnack("added successfully","show")
                 } else {
@@ -97,7 +97,6 @@ function Activity() {
         const nameInput = document.getElementById('nameHeader') as HTMLInputElement;
         const detailInput = document.getElementById('detail') as HTMLInputElement;
         const startInput = document.getElementById('startDate') as HTMLInputElement;
-        const endInput = document.getElementById('endDate') as HTMLInputElement;
 
         if(nameInput.value===""){
             textError(nameInput,"plase input header or topic");
@@ -182,6 +181,21 @@ function Activity() {
         setTimeout(function(){snackAlert.className="snack-bar-submit"},3000);
     }
 
+    const maxAct = (num: number) => {
+        const educationInput = document.getElementById('activity-input') as HTMLDivElement;
+        const showNothing = document.getElementById('nothing-item') as HTMLDivElement;
+        if (num >= 10){
+            educationInput.className="activity-input max"
+            showNothing.className = "show-nothing have-item"
+        }else if(num==0){
+            showNothing.className = "show-nothing"
+        }
+        else{
+            educationInput.className="activity-input"
+            showNothing.className = "show-nothing have-item"
+        }
+      }
+
     useEffect(()=>{
         const token = localStorage.getItem("token")
         const myInfoID = localStorage.getItem("Info_id")
@@ -198,7 +212,10 @@ function Activity() {
             <div className="activity-container">
                 <h1>Activity</h1>
                 <div className="activity-box">
-                <div className="activity-show">
+                    <div className="activity-show">
+                        <div className="show-nothing" id="nothing-item">
+                            <h1>Add Your Activity... </h1> 
+                        </div>
                         {activities.map((item: activityInterface,index) =>(
                         <div className="act-item-box" key={index} id={item._id}>
                             <div className="display-act">
@@ -249,10 +266,11 @@ function Activity() {
                             </div>
                         </div>))}
                     </div>
-                    <div className="activity-input">
+                    <div className="activity-input" id="activity-input">
                         <h1>IT'S MAXIMUM ACTIVITY!</h1>
                         <form className="activity-form" id="activity-form"onSubmit={submitFormAct}>
                             <h2>Add Activity</h2>
+                            <small>(maximum 10)</small>
                             <div className="box-input">
                                 <p>Header</p>
                                 <textarea rows={2} cols={50} className="info-input" id="nameHeader" onChange={handleInputChange} placeholder="Header or Topic..."/>

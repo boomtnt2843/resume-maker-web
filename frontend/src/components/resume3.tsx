@@ -1,7 +1,7 @@
-function resume3() {
+function Resume3() {
     return (
         <div></div>
       );
     }
     
-  export default resume3;
+  export default Resume3;
