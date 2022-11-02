@@ -328,6 +328,7 @@
 .all-like{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .all-like > div{
@@ -337,6 +338,7 @@
     border-radius: 1vmin;
     transition: all 0.2s ease;
     cursor: context-menu;
+    margin-bottom: 1vmin;
     z-index: 2;
 }
 
@@ -540,6 +542,7 @@
 
 .detail-box-edu>h2{
     font-size: 3vmin;
+    font-weight: 100;
 }
 
 .detail-box-edu>h1{
@@ -654,11 +657,145 @@
     font-size: 4vmin;
 }
 
+/* activity */
+
+.act-sec{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6vmin;
+    background-color: #191919;
+    padding-bottom: 10vmin;
+}
+
+.act-sec > h1{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+    padding-right: 10vmin;
+    font-size: 8vmin;
+    color: #e9d5da;
+    text-shadow: 0.5vmin 0.5vmin #4d4c7d;
+    z-index: 4;
+}
+
+.act-item{
+    max-width: 60vmax;
+    background-color: #e9d5dadc;
+    padding: 4vmin;
+    margin-bottom: 2vmin;
+    z-index: 4;
+    cursor: context-menu;
+    transition: all 0.3s ease-in-out;
+}
+
+.act-item:hover{
+    transform: scale(1.05,1.05);
+}
+
+.act-item h1,.act-item h2{
+    margin: 0;
+}
+
+.act-item h1{
+    font-size: 4vmin;
+}
+
+.act-item h2{
+    color: #313131;
+    font-size: 3vmin;
+    font-weight: 100;
+}
+
+.act-item h2:nth-child(1){
+    background-color: #4d4c7d;
+    color: #e9d5da;
+    padding-left: 2vmin;
+    padding-right: 2vmin;
+    width: fit-content;
+    font-size: 3vmin;
+}
+
+.ima-group-act .ima-obj-act-planet{
+    position: absolute;
+    width: 40vmin;
+    z-index: 2;
+}
+
+.ima-group-act .ima-obj-act-star{
+    position: absolute;
+    width: 10vmin;
+    z-index: 1;
+}
+.ima-group-act .ima-obj-act-line{
+    position: absolute;
+    height: 100%;
+    z-index: 1;
+}
+
+.ima-group-act .ima-obj-act-planet:nth-child(1){
+    top:2%;
+    left:4%;
+    animation:wiggle 7s infinite linear reverse;
+}
+.ima-group-act .ima-obj-act-planet:nth-child(2){
+    top:50%;
+    right: 3%;
+    animation:wiggle 10s infinite linear;
+}
+.ima-group-act .ima-obj-act-planet:nth-child(3){
+    top:80%;    
+    left:6%;
+    animation:wiggle 6s infinite linear;
+}
+.ima-group-act .ima-obj-act-star:nth-child(4){
+    top:0%;    
+    right:6%;
+    animation:blink 6s infinite linear;
+}
+.ima-group-act .ima-obj-act-star:nth-child(5){
+    top:33%;    
+    left:6%;
+    animation:blink 8s infinite linear;
+}
+.ima-group-act .ima-obj-act-star:nth-child(6){
+    top:12%;    
+    right: 1%;
+    animation:blink 3s infinite linear;
+}
+.ima-group-act .ima-obj-act-star:nth-child(7){
+    top:80%;    
+    left:7%;
+    animation:blink 7s infinite linear;
+}
+.ima-group-act .ima-obj-act-star:nth-child(8){
+    top:44%;    
+    right:0%;
+    animation:blink 4s infinite linear;
+}
+.ima-group-act .ima-obj-act-star:nth-child(9){
+    top:66%;    
+    left:2%;
+    animation:blink 6s infinite linear;
+}
+.ima-group-act .ima-obj-act-star:nth-child(10){
+    top:86%;    
+    right:2%;
+    animation:blink 5s infinite linear;
+}
+.ima-group-act .ima-obj-act-line:nth-child(11){
+    top:0;    
+    right:-3%;
+    animation:wiggle 10s infinite linear reverse;
+}
+
 /* animation group */
 
 @keyframes wiggle{
-    from { transform: rotate(0deg) translateX(4vmin) rotate(0deg); }
-    to   { transform: rotate(360deg) translateX(4vmin) rotate(-360deg); }
+    from { transform: rotate(0deg) translateX(2vmin) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(2vmin) rotate(-360deg); }
 }
 
 @keyframes blink {
