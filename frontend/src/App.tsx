@@ -9,8 +9,12 @@ import Education from './components/Education';
 import Activity from './components/Activity';
 import Experience from './components/Experience';
 import MainResume from './components/MainResume';
+import { useEffect } from "react";
 
 function App() {
+  useEffect(()=>{
+    document.title="Saynum-resume builder"
+  })
   return (
     <Router>
       <Routes>

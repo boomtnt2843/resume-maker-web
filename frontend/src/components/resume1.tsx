@@ -290,9 +290,33 @@ function Resume1() {
             </div>
             ):(<div className="nothing" />)}
 
-            {myInfo.experiences !== undefined && myInfo.experiences.length !== 0 ?(
+            {myInfo.activities !== undefined && myInfo.activities.length !== 0 ?(
             <div className="act-sec">
                 <h1>Activity</h1>
+                {myInfo.activities.map((item:activityInterface,index)=>(
+                    <div className="act-item" key={index}>
+                        <h2>
+                            {getMonthName(String(item.startDate).slice(5,7))}
+                            {" "+String(item.startDate).slice(0,4)}
+                            {item.endDate!==undefined&&String(item.endDate) !== "" ? " - "+getMonthName(String(item.endDate).slice(5,7))+" "+String(item.endDate).slice(0,4):""}
+                        </h2>
+                        <h1>{item.nameHeader}</h1>
+                        <h2>{item.detail}</h2>
+                    </div>
+                ))}
+                <div className="ima-group-act">
+                    <img className="ima-obj-act-planet" src={require('../image/spaces/Planet04.png')} alt="star" />
+                    <img className="ima-obj-act-planet" src={require('../image/spaces/Planet07.png')} alt="star" />
+                    <img className="ima-obj-act-planet" src={require('../image/spaces/Planet06.png')} alt="star" />
+                    <img className="ima-obj-act-star" src={require('../image/spaces/Star.png')} alt="star" />
+                    <img className="ima-obj-act-star" src={require('../image/spaces/Star_falls.png')} alt="star" />
+                    <img className="ima-obj-act-star" src={require('../image/spaces/Star.png')} alt="star" />
+                    <img className="ima-obj-act-star" src={require('../image/spaces/Star.png')} alt="star" />
+                    <img className="ima-obj-act-star" src={require('../image/spaces/Star.png')} alt="star" />
+                    <img className="ima-obj-act-star" src={require('../image/spaces/Star.png')} alt="star" />
+                    <img className="ima-obj-act-star" src={require('../image/spaces/Star_falls.png')} alt="star" />
+                    <img className="ima-obj-act-line" src={require('../image/spaces/line01.png')} alt="line" />
+                </div>
             </div>
             ):(<div className="nothing" />)}
         </div>
