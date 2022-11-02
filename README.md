@@ -1,5 +1,5 @@
 # resume-maker-web
-## UI Input information
+## Resume output
 ### set up backend-api for this project
 1. install ***mongoDB compass***
    - Create database
