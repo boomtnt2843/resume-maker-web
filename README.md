@@ -37,20 +37,12 @@ npm install jsonwebtoken
 
 ### set up frontend for this project
 1. install react (it's already installed if you clone this.)
-2. install react-bootstrap (not use boostrap)
-```
-npm install react-bootstrap bootstrap
-```
-3. copy THIS to paste in index.js
-```
-...
-import 'bootstrap/dist/css/bootstrap.min.css';
-```
-4. install ***react-router-dom*** for route 
+
+2. install ***react-router-dom*** for route 
 ```
 npm i react-router-dom
 ```
-5. install ***react-icon*** for use ICON
+3. install ***react-icon*** for use ICON
 ```
 npm install react-icons --save
 ```
