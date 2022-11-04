@@ -1,4 +1,5 @@
 import Resume1 from "./Resume1";
+import Resume2 from "./Resume2";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -13,7 +14,6 @@ function MainResume() {
     const [myInfo, setMyInfo] = useState<Partial<informationInterface>>({});
 
     const getMyInformation = async () => {
-        console.log(`${apiUrl}/information/${resumeInfo}`);
         const requestOptions = {
             method: "GET",
             headers: {
@@ -37,8 +37,19 @@ function MainResume() {
         console.log(myInfo);
     },[])
 
-    return (
+    if(myInfo.format===1){
+        return(
             <Resume1 />
         );
+    }
+
+    if(myInfo.format===2){
+        return (
+            <Resume2 />
+        );
+    }
+    return(
+        <div className=""></div>
+    )
 }
 export default MainResume;

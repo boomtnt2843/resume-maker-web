@@ -72,8 +72,8 @@ function Home() {
         </div>
         <div className="Format-page1-container">
           <div className="Format1-detail">
-            <h1>Format1</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dolorum ullam est unde impedit labore facilis quia deleniti earum in.</p>
+            <h1>Space Resume Format</h1>
+            <p>Space style it has many planets and stars</p>
           </div>
           <div className="Format1-For-btn">
             <button className="Example-format1-btn">Example 1</button>
