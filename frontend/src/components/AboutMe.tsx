@@ -307,7 +307,7 @@ function AboutMe() {
                         <div className="date-zone">
                             <div className="box-input">
                                 <p>Age</p>
-                                <input type="number" className="info-input" id='age' min={1} defaultValue={null||myInfo.age} onChange={handleInputChange} placeholder='your age...' /> 
+                                <input type="number" className="info-input" id='age' min={1} defaultValue={null||myInfo.age} onChange={handleInputChange} placeholder='age...' /> 
                                 <small>something error</small>
                             </div>
                             <div className="box-input">
@@ -329,7 +329,7 @@ function AboutMe() {
                             </div>
                             <div className="box-input">
                                 <p>Telephone</p>
-                                <input type="text" className="info-input" id='tel' defaultValue={""||myInfo.tel} onChange={handleInputChange} placeholder='your telephone number...' />
+                                <input type="text" className="info-input" id='tel' defaultValue={""||myInfo.tel} onChange={handleInputChange} placeholder='tel...' />
                                 <small>something error</small>
                             </div>
                         </div>

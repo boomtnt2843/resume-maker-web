@@ -220,7 +220,7 @@ function Activity() {
                         <div className="act-item-box" key={index} id={item._id}>
                             <div className="display-act">
                                 <div className="location-group">
-                                    <h2>location</h2>
+                                    <h2>header/topic</h2>
                                     <p>{item.nameHeader}</p>
                                 </div>
                                 <div className="degress-group">
@@ -234,7 +234,7 @@ function Activity() {
                                     </div>
                                     <div className="end-date">
                                         <h2>end Date</h2>
-                                        <p>{String(item.endDate)==="undefined" ? "-" : String(item.endDate).slice(0,7)}</p>
+                                        <p>{String(item.endDate)==="undefined"||item.endDate === null ? "-" : String(item.endDate).slice(0,7)}</p>
                                     </div> 
                                 </div>
                                 <div className="display-btn-group">
@@ -244,11 +244,11 @@ function Activity() {
                             </div>
                             <div className="act-edit-form" id={item._id+"-edit-form"}>
                                 <div className="location-edit-group">
-                                    <h2>location</h2>
+                                    <h2>header/topic</h2>
                                     <input type="text" className="edit-box" id={item._id+"-nameHeader"} defaultValue={item.nameHeader} />
                                 </div>
                                 <div className="degress-edit-group">
-                                    <h2>degress</h2>
+                                    <h2>detail</h2>
                                     <textarea rows={2} cols={50} className="edit-box" id={item._id+"-detail"} defaultValue={item.detail}/>
                                 </div>
                                 <div className="start-date-edit-group">
@@ -257,7 +257,7 @@ function Activity() {
                                 </div>
                                 <div className="end-date-edit-group">
                                     <h2>end Date</h2>
-                                    <input type="month" className="edit-box" id={item._id+"-end-date"} defaultValue={String(item.endDate) ==="undefined" ? "" : String(item.endDate).slice(0,7)}/>
+                                    <input type="month" className="edit-box" id={item._id+"-end-date"} defaultValue={String(item.endDate) ==="undefined"||item.endDate === null ? "" : String(item.endDate).slice(0,7)}/>
                                 </div>
                                 <div className="edit-btn-group">
                                     <button type="button" className="update-btn" onClick={()=>checkVarEdit(item._id)}>Update</button>
@@ -272,7 +272,7 @@ function Activity() {
                             <h2>Add Activity</h2>
                             <small>(maximum 10)</small>
                             <div className="box-input">
-                                <p>Header</p>
+                                <p>Header/topic</p>
                                 <textarea rows={2} cols={50} className="info-input" id="nameHeader" onChange={handleInputChange} placeholder="Header or Topic..."/>
                                 <small>something error</small>
                             </div>
