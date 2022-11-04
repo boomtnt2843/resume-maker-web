@@ -58,8 +58,19 @@ function MyAccount() {
         
     };
 
-    const toAboutMe = () =>{
+    const toResume = () =>{
         window.open('http://localhost:3000/resume?user='+myId)
+    }
+
+    const toAboutMe = () =>{
+        window.location.href='/myaccount/aboutme';
+    }
+
+    const copyLink = () =>{
+        navigator.clipboard.writeText('http://localhost:3000/resume?user='+myId);
+        const copyButton = document.getElementById("copy-button") as HTMLButtonElement;
+        copyButton.className = "copied"
+        setTimeout(function(){copyButton.className=""},2000);
     }
 
     useEffect(()=>{
@@ -77,9 +88,11 @@ function MyAccount() {
         return(
             <div>
                 <div className="container-header-into">
-                    <h1>Hello, 👋 {myName} </h1>
-                    <h2> 🔥 Let's create your Resume 🔥 </h2>
-                    <button className="move-btn" onClick={createNewAcc}>Let's Go!</button>
+                    <div className="text-none">
+                        <h1>Hello, 👋 {myName} </h1>
+                        <h2> 🔥 Let's create your Resume 🔥 </h2>
+                    </div>
+                    <button className="let-first-btn" onClick={createNewAcc}>Let's Go!</button>
                 </div>
             </div>
         );
@@ -89,15 +102,36 @@ function MyAccount() {
         <div>
             <InfoNavBar></InfoNavBar>
             <div className="container-header-into">
-                <h1>Welcome back, 👋 {myName} </h1>
-                <h2> 🔥 Let's input your information 🔥 </h2>
-                <button className="move-btn" onClick={toAboutMe}>Let's Go!</button>
-                <img id='barcode' 
-                    src={"https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=http://localhost:3000/resume?user="+myId}
-                    alt={"https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=http://localhost:3000/resume?user="+myId}
-                    title={"https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=http://localhost:3000/resume?user="+myId}
-                    width="100" 
-                    height="100" />
+                {myInfo.firstName !== undefined && myInfo.firstName !== "" ?(
+                <div className="text-already">
+                    <div className="text-already-zone">
+                        <div className="only-txt-ready">
+                            <h1>Welcome back, 👋 {myName} </h1>
+                            <h3> 🔥 Let's input your information 🔥 </h3>
+                        </div>
+                        <button className="move-btn" onClick={toResume}>Let's Go To Resume</button>
+                        <div className="copy-link">
+                            <input type="text" className="link-to-resume" defaultValue={"http://localhost:3000/resume?user="+myId} disabled />
+                            <button id="copy-button" onClick={copyLink}>Copy</button>
+                        </div>
+                    </div>
+                    <div className="qrcode-zone">
+                        <img id='barcode' 
+                            src={"https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=http://localhost:3000/resume?user="+myId}
+                            alt={"http://localhost:3000/resume?user="+myId}
+                            title={"http://localhost:3000/resume?user="+myId}
+                            width="100" 
+                            height="100" />
+                        <a id="download-button" href={'https://api.qrserver.com/v1/create-qr-code/?https://api.qrserver.com/v1/create-qr-code/?margin=0&download=1&size=170x170&data=http://localhost:3000/resume?user='+myId} >DOWNLOAD QRCODE</a>
+                    </div>
+                </div>):(
+                <div className="text-not-ready">
+                    <div className="first-txt">
+                        <h1>First Step</h1>
+                        <h3>Let's input some detail</h3>
+                    </div>
+                    <button className="go-to-about-me" onClick={toAboutMe}> Let's Start Click Me</button>
+                </div>)}
             </div>
         </div>
     );
