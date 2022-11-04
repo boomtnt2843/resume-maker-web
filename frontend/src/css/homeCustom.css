@@ -52,6 +52,15 @@
     justify-content: center;
 }
 
+.txt-example{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.example-1{
+    overflow: hidden;
+}
+
 .Format1-For-btn{
     display: flex;
     align-items: center;
