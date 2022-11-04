@@ -70,25 +70,36 @@ function Home() {
           <h2>WELCOME TO RESUME BUILDER</h2>
           <button className="Start-btn" onClick={toSignIn}>Let's Go</button>
         </div>
-        <div className="Format-page1-container">
-          <div className="Format1-detail">
-            <h1>Space Resume Format</h1>
-            <p>Space style it has many planets and stars</p>
-          </div>
-          <div className="Format1-For-btn">
-            <button className="Example-format1-btn">Example 1</button>
+        <div className="example-1">
+          <div className="header-name">
+                  <div className="text-name">
+                      <h1>Format 1</h1>
+                      <h1>Space</h1>
+                      <h2>#Space #Planet</h2>
+                  </div>
+                  <h1 className="position-job"><a href="" className="txt-example">More Detail</a></h1>
+                  <img className="ima-obj-plant01" src={require('../image/spaces/Planet01.png')} alt="plant01" />
+                  <img className="ima-obj-plant02" src={require('../image/spaces/Planet02.png')} alt="plant02" />
+                  <img className="ima-obj-spaceship" src={require('../image/spaces/Spaceship.png')} alt="spaceship" />
+                  <div className="star-group">
+                      <img className="ima-obj-star" src={require('../image/spaces/Star.png')} alt="star" />
+                      <img className="ima-obj-star" src={require('../image/spaces/Star.png')} alt="star" />
+                      <img className="ima-obj-star" src={require('../image/spaces/Star.png')} alt="star" />
+                      <img className="ima-obj-star" src={require('../image/spaces/Star_falls.png')} alt="starFall" />
+                      <img className="ima-obj-star" src={require('../image/spaces/Star_falls.png')} alt="starFall" />
+                  </div>
           </div>
         </div>
-        <div className="Format-page2-container">
-          <div className="Format2-For-btn">
-            <button className="Example-format2-btn">
-              Example 2
-            </button>
-          </div>
-          <div className="Format2-detail">
-            <h1>Format2</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla dolorum ullam est unde impedit labore facilis quia deleniti earum in.</p>
-          </div>
+        <div className="header-name-02">
+                <div className="sq-name" />
+                <div className="sq-name" />
+                <div className="sq-name" />
+                <div className="sq-name" />
+                <h1>Format 2</h1>
+                <h1>SHAPE</h1>
+                <h2>#Shape #Black #Blue #Pink</h2>
+                <a href="">More Detail</a>
+                <div className="cir-name" />
         </div>
           <div className="SignIn-page-container" id='signin'>
             <h1 className='header-text'>SIGN IN...</h1>

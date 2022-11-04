@@ -1,21 +1,236 @@
 .container-header-into{
-    background-color:aquamarine;
+    background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px), radial-gradient(#ffffff 1.5px, transparent 1.5px);
+    background-size: 45px 45px;
+    background-position: 0 0, 22.5px 22.5px;
+    background-color: #c4ddff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-.move-btn{
-    border: none;
-    width: 8rem;
-    height: 4rem;
-    border-radius: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    background-color:cadetblue;
-    color: white;
+    min-height: 100vh;
+    height: 100%;
+    color: #001D6E;
+    padding-bottom: 4vmin;
 }
 .container-aboutme-form{
     padding: 2rem;
+}
+
+.text-none{
+    background-color: #ffffff99;
+    padding: 2vmin;
+    border-radius: 2vmin;
+    margin-bottom: 2vmin;
+}
+
+.let-first-btn{
+    font-size: 8vmin;
+    border: none;
+    background-color: #8dbdff;
+    color: #001D6E;
+    border-radius: 4vmin;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.let-first-btn:hover{
+    transform: scale(1.05,1.05);
+    color: #ffffff;
+}
+
+.text-none h1{
+    font-size: 10vmin;
+    text-align: center;
+}
+
+.text-none h2{
+    font-size: 6vmin;
+    text-align: center;
+}
+
+.text-not-ready{
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.first-txt{
+    width: fit-content;
+    height: auto;
+    box-sizing: border-box;
+    padding: 2vmin;
+    background-color: #ffffff99;
+    border-radius: 2vmin;
+    margin-bottom: 2vmin;
+}
+
+.first-txt h1{
+    font-size: 16vmin;
+}
+
+.first-txt h3{
+    font-size: 6vmin;
+}
+
+.go-to-about-me{
+    max-width: 80vmin;
+    cursor: pointer;
+    height: 50%;
+    box-sizing: border-box;
+    padding: 0 5vmin 0 5vmin;
+    font-size: 6vmin;
+    color: #001D6E;
+    border: none;
+    border-radius: 5vmin;
+    background-color: #8dbdff;
+    box-shadow: 0 0 2vmin #ffffff;
+    transition: all 0.5s ease;
+}
+
+.go-to-about-me:hover{
+    transform: scale(1.05,1.05);
+    color: #ffffff;
+}
+
+.text-already{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.text-already-zone{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2vmin;
+}
+
+.only-txt-ready{
+    width: fit-content;
+    height: auto;
+    box-sizing: border-box;
+    padding: 2vmin;
+    background-color: #ffffff99;
+    border-radius: 2vmin;
+    margin-bottom: 2vmin;
+}
+
+.only-txt-ready h1{
+    font-size: 10vmin;
+}
+
+.only-txt-ready h3{
+    font-size: 6vmin;
+}
+
+.move-btn{
+    border: none;
+    cursor: pointer;
+    border-radius: 6vmin;
+    font-size: 4vmin;
+    font-weight: bold;
+    background-color:#8dbdff;
+    color: #001D6E;
+    transition: all 0.5s ease;
+}
+
+.move-btn:hover,#copy-button:hover{
+    transform: scale(1.05,1.05);
+    color: #ffffff;
+}
+
+.link-to-resume{
+    width: 60%;
+    text-align: center;
+    margin-top: 2vmin;
+    font-size: 2vmin;
+    background-color: #ffffff;
+    border-radius: 2vmin;
+    color: #001D6E;
+    border: none;
+}
+
+.copy-link{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    width: 100%;
+}
+
+#copy-button{
+    position: relative;
+    width: 30%;
+    font-size: 3vmin;
+    background-color:#8dbdff;
+    color: #001D6E;
+    border: none;
+    border-radius: 2vmin;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.copied#copy-button{
+    background-color: #9c9c9c;
+    color: #131313;
+    border: none;
+}
+
+.copied::after{
+    position: absolute;
+    top:-110%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    content: "Copied";
+}
+
+.qrcode-zone{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 2vmin;
+    background-color: #ffffff;
+    border-radius: 2vmin;
+}
+
+#barcode{
+    width: 20vmin;
+    height: 20vmin;
+    margin-bottom: 2vmin;
+}
+
+#download-button{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #131313;
+    padding: 4vmin 2vmin 4vmin 2vmin;
+    font-size: 2vmin;
+    transition: all 0.5s ease;
+}
+
+#download-button:hover{
+    color: #131313;
+    background-color: #bbbbbb;
+}
+
+@media screen and (max-width:1005px) {
+    .qrcode-zone{
+        flex-direction: row;
+    }
+    #barcode{
+        width: 40vmin;
+        height: 40vmin;
+        margin-bottom: 0;
+        margin-right: 4vmin;
+    }
+    #download-button{
+        font-size: 3vmin;
+    }
 }

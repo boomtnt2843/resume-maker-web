@@ -38,11 +38,15 @@
     z-index: 1;
 }
 
-.header-name-02 > h1{
+.header-name-02 > h1,.header-name-02 > a{
     margin: 0;
     font-size: 10vmin;
     color:#F72585;
     z-index: 10;
+}
+
+.header-name-02 > a:hover{
+    color: #ffffff;
 }
 
 .header-name-02 > h2{

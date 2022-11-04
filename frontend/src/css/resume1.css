@@ -34,7 +34,13 @@
     text-align: end;
     color: #363062;
     font-size: 10vmin;
-    /* text-shadow: 5px 5px #827397; */
+    z-index: 100;
+}
+.text-name h2{
+    margin: 0;
+    text-align: end;
+    color: #363062;
+    font-size: 6vmin;
     z-index: 100;
 }
 
@@ -46,6 +52,7 @@
     border-radius: 50px 0 0 20px;
     background-color: #4d4c7d;
     animation: fadeIn 2s 1 ease;
+    z-index: 10;
 }
 .position-job:after{
     content: "";
