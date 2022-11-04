@@ -253,6 +253,16 @@ function AboutMe() {
         setTimeout(function(){snackAlert.className="snack-bar-submit"},3000);
     }
 
+    const genOptionTag = () =>{
+        const option = []
+        const item = ["Space","Shape","Pencil"]
+        for(let i=1; i<4;i++){
+            if(myInfo.format!==i) option.push(<option value={i} key={i} >{item[i-1]}</option>)
+            else option.push(<option value={i} key={i} selected>{item[i-1]}</option>)
+        }
+        return(option)
+    }
+
     useEffect(()=>{
         const token = localStorage.getItem("token")
         const myID = localStorage.getItem("id")
@@ -271,6 +281,12 @@ function AboutMe() {
                         <h1>About Me</h1>
                     </div>
                     <div className="add-info-section">
+                        <div className="box-input" id="format-box">
+                                <p>Format Resume</p>
+                                <select id="format" onChange={handleInputChange}>
+                                    {genOptionTag()}
+                                </select>
+                            </div>
                         <div className="name-zone">
                             <div className="box-input">
                                 <p>First Name</p>

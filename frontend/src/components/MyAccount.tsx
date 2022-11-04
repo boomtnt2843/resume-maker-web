@@ -71,7 +71,6 @@ function MyAccount() {
         if(token) setToken(token);
         else window.location.href='/';
         if(myId) {getMyInformation();}
-        console.log(myInfo);
     },[myId])
 
     if(!myInfo._id){
@@ -93,6 +92,12 @@ function MyAccount() {
                 <h1>Welcome back, 👋 {myName} </h1>
                 <h2> 🔥 Let's input your information 🔥 </h2>
                 <button className="move-btn" onClick={toAboutMe}>Let's Go!</button>
+                <img id='barcode' 
+                    src={"https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=http://localhost:3000/resume?user="+myId}
+                    alt={"https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=http://localhost:3000/resume?user="+myId}
+                    title={"https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=http://localhost:3000/resume?user="+myId}
+                    width="100" 
+                    height="100" />
             </div>
         </div>
     );
