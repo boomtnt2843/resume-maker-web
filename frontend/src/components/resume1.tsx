@@ -146,7 +146,7 @@ function Resume1() {
                 <img className="ima-obj-star" src={require('../image/spaces/Star.png')} alt="star" />
                 <img className="ima-obj-star" src={require('../image/spaces/Star.png')} alt="star" />
                 <img className="ima-obj-star" src={require('../image/spaces/Star.png')} alt="star" />
-                <h1>Hobby</h1>
+                
                 <div className="all-like">
                     {myInfo.hobby.map((item: string,index) =>(
                     <div className="like-item" key={index}>
