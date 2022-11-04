@@ -50,7 +50,6 @@ function Resume1() {
         const date = new Date();
         date.setMonth(convertType(monthNumber) - 1);
       
-        // Using the browser's default locale.
         return date.toLocaleString([], { month: 'long' });
       }
       
@@ -66,7 +65,6 @@ function Resume1() {
 
     useEffect(()=>{
         getMyInformation();
-        //console.log(myInfo);
     },[])
 
     return (
@@ -146,7 +144,7 @@ function Resume1() {
                 <img className="ima-obj-star" src={require('../image/spaces/Star.png')} alt="star" />
                 <img className="ima-obj-star" src={require('../image/spaces/Star.png')} alt="star" />
                 <img className="ima-obj-star" src={require('../image/spaces/Star.png')} alt="star" />
-                
+                <h1>Hobby</h1>
                 <div className="all-like">
                     {myInfo.hobby.map((item: string,index) =>(
                     <div className="like-item" key={index}>
@@ -298,7 +296,7 @@ function Resume1() {
                         <h2>
                             {getMonthName(String(item.startDate).slice(5,7))}
                             {" "+String(item.startDate).slice(0,4)}
-                            {item.endDate!==undefined&&String(item.endDate) !== "" ? " - "+getMonthName(String(item.endDate).slice(5,7))+" "+String(item.endDate).slice(0,4):""}
+                            {item.endDate!==null&&item.endDate!==undefined&&String(item.endDate) !== "" ? " - "+getMonthName(String(item.endDate).slice(5,7))+" "+String(item.endDate).slice(0,4):""}
                         </h2>
                         <h1>{item.nameHeader}</h1>
                         <h2>{item.detail}</h2>

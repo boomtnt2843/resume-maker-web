@@ -49,7 +49,6 @@ function Resume2() {
         const date = new Date();
         date.setMonth(convertType(monthNumber) - 1);
       
-        // Using the browser's default locale.
         return date.toLocaleString([], { month: 'long' });
       }
       
@@ -303,7 +302,7 @@ function Resume2() {
                         <h2>
                             {getMonthName(String(item.startDate).slice(5,7))}
                             {" "+String(item.startDate).slice(0,4)}
-                            {item.endDate!==undefined&&String(item.endDate) !== "" ? " - "+getMonthName(String(item.endDate).slice(5,7))+" "+String(item.endDate).slice(0,4):""}
+                            {item.endDate!==null&&item.endDate!==undefined&&String(item.endDate) !== "" ? " - "+getMonthName(String(item.endDate).slice(5,7))+" "+String(item.endDate).slice(0,4):""}
                         </h2>
                         <h1>{item.nameHeader}</h1>
                         <h2>{item.detail}</h2>
