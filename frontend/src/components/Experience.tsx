@@ -12,11 +12,6 @@ function Experience() {
 
     const apiUrl = "http://localhost:4200";
 
-    const locationInput = document.getElementById('location') as HTMLInputElement;
-    const detailInput = document.getElementById('detail') as HTMLInputElement;
-    const positionInput = document.getElementById('position') as HTMLInputElement;
-    const startDateInput = document.getElementById('startDate') as HTMLInputElement;
-    const endDateInput = document.getElementById('endDate') as HTMLInputElement;
     const expFormInput = document.getElementById('exp-input') as HTMLDivElement;
 
     const handleInputChange = (
@@ -101,44 +96,21 @@ function Experience() {
 
     const submitFormExp = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        let errorInputCheck = false;
+        const locationInput = document.getElementById('location') as HTMLInputElement;
+        const detailInput = document.getElementById('detail') as HTMLInputElement;
+        const positionInput = document.getElementById('position') as HTMLInputElement;
+        const startDateInput = document.getElementById('startDate') as HTMLInputElement;
+        const endDateInput = document.getElementById('endDate') as HTMLInputElement;
 
-        if(locationInput.value===""){
-            textError(locationInput,"plase input location");
-            errorInputCheck = true;
-        }else{
-            textcorrect(locationInput)
-        }
-        if(detailInput.value===""){
-            textError(detailInput,"plase input detail");
-            errorInputCheck = true;
-        }else{
-            textcorrect(detailInput)
-        }
-        if(positionInput.value===""){
-            textError(positionInput,"plase input position");
-            errorInputCheck = true;
-        }else{
-            textcorrect(positionInput)
-        }
-        if(startDateInput.value===""){
-            textError(startDateInput,"plase choose date");
-            errorInputCheck = true;
-        }else{
-            textcorrect(startDateInput)
-        }
-        if(endDateInput.value===""){
-            textError(endDateInput,"plase choose date");
-            errorInputCheck = true;
-        }else{
-            textcorrect(endDateInput)
-        }
-
-        if(!errorInputCheck){
-            submitExprience();
-            const expform = document.getElementById("exp-form") as HTMLFormElement;
-            expform.reset();
-        }
+        let input1 = errorBlankEditCheck(locationInput,"please input location");
+        let input2 = errorBlankEditCheck(detailInput,"please input detail");
+        let input3 = errorBlankEditCheck(positionInput,"please input position");
+        let input4 = errorBlankEditCheck(startDateInput,"please choose date");
+        let input5 = errorBlankEditCheck(endDateInput,"please choose date");
+        if( input1 || input2 || input3 || input4 || input5) return
+        submitExprience();
+        const expform = document.getElementById("exp-form") as HTMLFormElement;
+        expform.reset();
     }
 
     const maxExp = (num: number) => {
@@ -154,14 +126,14 @@ function Experience() {
         }
       }
 
-    const textError = (element : HTMLInputElement,message : string) => {
+    const textError = (element : HTMLInputElement | HTMLTextAreaElement,message : string) => {
         const parentElement = element.parentElement as HTMLDivElement;
         parentElement.className = 'box-input error';
         const small = parentElement.querySelector('small') as HTMLSpanElement;
         small.innerText = message
     }
 
-    const textcorrect = (element : HTMLInputElement) => {
+    const textcorrect = (element : HTMLInputElement | HTMLTextAreaElement) => {
         const parentElement = element.parentElement as HTMLDivElement;
         parentElement.className = 'box-input';
     }
@@ -171,12 +143,27 @@ function Experience() {
         expElement.classList.toggle('active');
     }
 
+    const errorBlankEditCheck = (element : HTMLInputElement | HTMLTextAreaElement,errorTxt : string) => {
+        if(element.value.trim() === ""){
+            textError(element,errorTxt);
+            return true
+        }
+        textcorrect(element);
+        return false
+    }
+
     const checkVarEdit = (elementStr : string) =>{
         const locationEditElement = document.getElementById((elementStr+"-location")) as HTMLTextAreaElement;
         const positionEditElement = document.getElementById(elementStr+"-position") as HTMLInputElement;
         const detailEditElement = document.getElementById(elementStr+"-detail") as HTMLInputElement;
         const sDateEditElement = document.getElementById(elementStr+"-start-date") as HTMLInputElement;
         const eDateEditElement = document.getElementById(elementStr+"-end-date") as HTMLInputElement;
+        let input1 = errorBlankEditCheck(locationEditElement,"please input location");
+        let input2 = errorBlankEditCheck(positionEditElement,"please input detail");
+        let input3 = errorBlankEditCheck(detailEditElement,"please input position");
+        let input4 = errorBlankEditCheck(sDateEditElement,"please choose date");
+        let input5 = errorBlankEditCheck(eDateEditElement,"please choose date");
+        if( input1 || input2 || input3 || input4 || input5) return
         let data = {
             location: locationEditElement.value,
             position: positionEditElement.value,
@@ -268,22 +255,27 @@ function Experience() {
                                 <div className="location-edit-group">
                                     <h2>location</h2>
                                     <textarea rows={2} cols={50} className="edit-box" id={item._id+"-location"} defaultValue={item.location} />
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="position-edit-group">
                                     <h2>position</h2>
                                     <input type="text" className="edit-box" id={item._id+"-position"} defaultValue={item.position}/>
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="detail-edit-group">
                                     <h2>detail</h2>
                                     <textarea rows={3} cols={50} className="edit-box" id={item._id+"-detail"} defaultValue={item.detail}/>
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="start-date-edit-group">
                                     <h2>start Date</h2>
                                     <input type="month" className="edit-box" id={item._id+"-start-date"} defaultValue={String(item.startDate).slice(0,7)}/>
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="end-date-edit-group">
                                     <h2>end Date</h2>
                                     <input type="month" className="edit-box" id={item._id+"-end-date"} defaultValue={String(item.endDate).slice(0,7)}/>
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="edit-btn-group">
                                     <button type="button" className="update-btn" onClick={()=>checkVarEdit(item._id)}>Update</button>

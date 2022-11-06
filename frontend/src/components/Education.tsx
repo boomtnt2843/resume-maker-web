@@ -108,55 +108,30 @@ function Education() {
 
     const submitFormEducation = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        let errorInputCheck = false;
         const nameInput = document.getElementById('name') as HTMLInputElement;
         const degressInput = document.getElementById('degress') as HTMLInputElement;
         const startInput = document.getElementById('startDate') as HTMLInputElement;
         const endInput = document.getElementById('endDate') as HTMLInputElement;
-
-        if(nameInput.value===""){
-            textError(nameInput,"plase input name of school/university");
-            errorInputCheck = true;
-        }else{
-            textcorrect(nameInput)
-        }
-        if(degressInput.value===""){
-            textError(degressInput,"plase input degress");
-            errorInputCheck = true;
-        }else{
-            textcorrect(degressInput)
-        }
-        if(startInput.value===""){
-            textError(startInput,"plase choose date");
-            errorInputCheck = true;
-        }else{
-            textcorrect(startInput)
-        }
-        if(endInput.value===""){
-            textError(endInput,"plase choose date");
-            errorInputCheck = true;
-        }else{
-            textcorrect(endInput)
-        }
-
-        if(!errorInputCheck){
-            submitEducation();
-            const educationform = document.getElementById("education-form") as HTMLFormElement;
-            educationform.reset();
-        }
-
+        let input1 = errorBlankEditCheck(nameInput,"please input name of school/university");
+        let input2 = errorBlankEditCheck(degressInput,"please input degress");
+        let input3 = errorBlankEditCheck(startInput,"please choose date");
+        let input4 = errorBlankEditCheck(endInput,"please choose date");
+        if( input1 || input2 || input3 || input4) return
+        submitEducation();
+        const educationform = document.getElementById("education-form") as HTMLFormElement;
+        educationform.reset();
     }
 
-    const textError = (element : HTMLInputElement,message : string) => {
+    const textError = (element : HTMLInputElement | HTMLTextAreaElement ,message : string) => {
         const parentElement = element.parentElement as HTMLDivElement;
-        parentElement.className = 'box-input error';
+        parentElement.classList.add('error');
         const small = parentElement.querySelector('small') as HTMLSpanElement;
         small.innerText = message
     }
 
-    const textcorrect = (element : HTMLInputElement) => {
+    const textcorrect = (element : HTMLInputElement | HTMLTextAreaElement) => {
         const parentElement = element.parentElement as HTMLDivElement;
-        parentElement.className = 'box-input';
+        parentElement.classList.remove('error')
     }
 
     const toggleEdit = (elementStr : string) =>{
@@ -164,11 +139,25 @@ function Education() {
         eduElement.classList.toggle('active');
     }
 
+    const errorBlankEditCheck = (element : HTMLInputElement | HTMLTextAreaElement,errorTxt : string) => {
+        if(element.value.trim() === ""){
+            textError(element,errorTxt);
+            return true
+        }
+        textcorrect(element);
+        return false
+    }
+
     const checkVarEdit = (elementStr : string) =>{
         const nameEditElement = document.getElementById((elementStr+"-name")) as HTMLTextAreaElement;
         const degressEditElement = document.getElementById(elementStr+"-degress") as HTMLInputElement;
         const sDateEditElement = document.getElementById(elementStr+"-start-date") as HTMLInputElement;
         const eDateEditElement = document.getElementById(elementStr+"-end-date") as HTMLInputElement;
+        let input1 = errorBlankEditCheck(nameEditElement,"please input name of school/university");
+        let input2 = errorBlankEditCheck(degressEditElement,"please input degress");
+        let input3 = errorBlankEditCheck(sDateEditElement,"please choose date");
+        let input4 = errorBlankEditCheck(eDateEditElement,"please choose date");
+        if( input1 || input2 || input3 || input4) return
         let data = {
             name: nameEditElement.value,
             degress: degressEditElement.value,
@@ -193,7 +182,6 @@ function Education() {
                 } else {
                     alertSnack("update failed","show error")
                 }
-                
             });
     }
 
@@ -255,18 +243,22 @@ function Education() {
                                 <div className="location-edit-group">
                                     <h2>location</h2>
                                     <textarea rows={2} cols={50} className="edit-box" id={item._id+"-name"} defaultValue={item.name} />
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="degress-edit-group">
                                     <h2>degress</h2>
                                     <input type="text" className="edit-box" id={item._id+"-degress"} defaultValue={item.degress}/>
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="start-date-edit-group">
                                     <h2>start Date</h2>
                                     <input type="month" className="edit-box" id={item._id+"-start-date"} defaultValue={String(item.startDate).slice(0,7)}/>
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="end-date-edit-group">
                                     <h2>end Date</h2>
                                     <input type="month" className="edit-box" id={item._id+"-end-date"} defaultValue={String(item.endDate).slice(0,7)}/>
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="edit-btn-group">
                                     <button type="button" className="update-btn" onClick={()=>checkVarEdit(item._id)}>Update</button>

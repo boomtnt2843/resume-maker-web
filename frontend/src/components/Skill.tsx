@@ -109,7 +109,7 @@ function Skill() {
 
     let errorInputCheck = false;
     if(nameGeneralInput.value===""){
-      textError(nameGeneralInput,"plase input general skill");
+      textError(nameGeneralInput,"please input general skill");
       errorInputCheck = true;
     }else{
       textcorrect(nameGeneralInput);

@@ -26,22 +26,35 @@ code {
   border: solid 2px;
 }
 
+.error > small{
+  display: block;
+  color: #ff3e3e;
+}
+
 .box-input > small{
   display: none;
 }
 
-.box-input.error > small{
+/* .box-input.error > small{
   display: block;
   color: #ff3e3e;
-}
+} */
 
 .box-input textarea{
   width: 80%;
 }
 
-.box-input.error > input,.box-input.error > textarea{
+.error > input,.error > textarea{
   border: solid 4px #ff3e3e;
 }
+
+.error-text{
+  display: none;
+}
+
+/* .box-input.error > input,.box-input.error > textarea{
+  border: solid 4px #ff3e3e;
+} */
 
 .show-nothing{
   background-color: #ffffff90;

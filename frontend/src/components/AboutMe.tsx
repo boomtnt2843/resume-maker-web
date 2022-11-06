@@ -165,8 +165,8 @@ function AboutMe() {
         event.preventDefault();
         let errorInputCheck = false;
         //name validation
-        if(firstnameInput.value === ""){
-            textError(firstnameInput,"plase input your first name");
+        if(firstnameInput.value.trim() === ""){
+            textError(firstnameInput,"please input your first name");
             errorInputCheck = true;
         }else if(!validateName(firstnameInput.value)){
             textError(firstnameInput,"it's not name");
@@ -174,8 +174,8 @@ function AboutMe() {
         }else{
             textcorrect(firstnameInput);
         }
-        if(lastnameInput.value === ""){
-            textError(lastnameInput,"plase input your last name");
+        if(lastnameInput.value.trim() === ""){
+            textError(lastnameInput,"please input your last name");
             errorInputCheck = true;
         }else if(!validateName(lastnameInput.value)){
             textError(lastnameInput,"it's not name");
@@ -185,16 +185,16 @@ function AboutMe() {
         }
 
         //position validation
-        if(positionInput.value === ""){
-            textError(positionInput,"plase input your position");
+        if(positionInput.value.trim() === ""){
+            textError(positionInput,"please input your position");
             errorInputCheck = true;
         }else{
             textcorrect(positionInput);
         }
 
         //email validation
-        if(emailInput.value === ""){
-            textError(emailInput,"plase input your email");
+        if(emailInput.value.trim() === ""){
+            textError(emailInput,"please input your email");
             errorInputCheck = true;
         }else if(!validateEmail(emailInput.value)){
             textError(emailInput,"it's not email");
@@ -204,8 +204,8 @@ function AboutMe() {
         }
 
         //tel validation
-        if(telInput.value === ""){
-            textError(telInput,"plase input your telephone number");
+        if(telInput.value.trim() === ""){
+            textError(telInput,"please input your telephone number");
             errorInputCheck = true;
         }else if(!validateTel(telInput.value)){
             textError(telInput,"it's not Telephone number");
