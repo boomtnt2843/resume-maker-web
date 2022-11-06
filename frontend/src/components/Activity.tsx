@@ -97,40 +97,23 @@ function Activity() {
         const nameInput = document.getElementById('nameHeader') as HTMLInputElement;
         const detailInput = document.getElementById('detail') as HTMLInputElement;
         const startInput = document.getElementById('startDate') as HTMLInputElement;
-
-        if(nameInput.value===""){
-            textError(nameInput,"plase input header or topic");
-            errorInputCheck = true;
-        }else{
-            textcorrect(nameInput)
-        }
-        if(detailInput.value===""){
-            textError(detailInput,"plase input detail");
-            errorInputCheck = true;
-        }else{
-            textcorrect(detailInput)
-        }
-        if(startInput.value===""){
-            textError(startInput,"plase choose date");
-            errorInputCheck = true;
-        }else{
-            textcorrect(startInput)
-        }
-        if(!errorInputCheck){
-            submitActivity();
-            const activityform = document.getElementById("activity-form") as HTMLFormElement;
-            activityform.reset();
-        }
+        let input1 = errorBlankEditCheck(nameInput,"please input header or topic");
+        let input2 = errorBlankEditCheck(detailInput,"please input detail");
+        let input3 = errorBlankEditCheck(startInput,"please choose date");
+        if( input1 || input2 || input3 ) return
+        submitActivity();
+        const activityform = document.getElementById("activity-form") as HTMLFormElement;
+        activityform.reset();
     }
 
-    const textError = (element : HTMLInputElement,message : string) => {
+    const textError = (element : HTMLInputElement | HTMLTextAreaElement,message : string) => {
         const parentElement = element.parentElement as HTMLDivElement;
         parentElement.className = 'box-input error';
         const small = parentElement.querySelector('small') as HTMLSpanElement;
         small.innerText = message
     }
 
-    const textcorrect = (element : HTMLInputElement) => {
+    const textcorrect = (element : HTMLInputElement | HTMLTextAreaElement) => {
         const parentElement = element.parentElement as HTMLDivElement;
         parentElement.className = 'box-input';
     }
@@ -140,11 +123,24 @@ function Activity() {
         eduElement.classList.toggle('active');
     }
 
+    const errorBlankEditCheck = (element : HTMLInputElement | HTMLTextAreaElement,errorTxt : string) => {
+        if(element.value.trim() === ""){
+            textError(element,errorTxt);
+            return true
+        }
+        textcorrect(element);
+        return false
+    }
+
     const checkVarEdit = (elementStr : string) =>{
         const nameEditElement = document.getElementById((elementStr+"-nameHeader")) as HTMLTextAreaElement;
         const detailEditElement = document.getElementById(elementStr+"-detail") as HTMLInputElement;
         const sDateEditElement = document.getElementById(elementStr+"-start-date") as HTMLInputElement;
         const eDateEditElement = document.getElementById(elementStr+"-end-date") as HTMLInputElement;
+        let input1 = errorBlankEditCheck(nameEditElement,"please input header or topic");
+        let input2 = errorBlankEditCheck(detailEditElement,"please input detail");
+        let input3 = errorBlankEditCheck(sDateEditElement,"please choose date");
+        if( input1 || input2 || input3 ) return
         let data = {
             nameHeader: nameEditElement.value,
             detail: detailEditElement.value,
@@ -246,14 +242,17 @@ function Activity() {
                                 <div className="location-edit-group">
                                     <h2>header/topic</h2>
                                     <input type="text" className="edit-box" id={item._id+"-nameHeader"} defaultValue={item.nameHeader} />
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="degress-edit-group">
                                     <h2>detail</h2>
                                     <textarea rows={2} cols={50} className="edit-box" id={item._id+"-detail"} defaultValue={item.detail}/>
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="start-date-edit-group">
                                     <h2>start Date</h2>
                                     <input type="month" className="edit-box" id={item._id+"-start-date"} defaultValue={String(item.startDate).slice(0,7)}/>
+                                    <small className="error-text">something error</small>
                                 </div>
                                 <div className="end-date-edit-group">
                                     <h2>end Date</h2>
