@@ -666,6 +666,68 @@
     background: linear-gradient(290deg, #7209b7 0%, #3a0ca3 100%);
 }
 
+/* activity */
+
+.act-sec-02{
+    background-color: #131313;
+    padding-top: 1vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.act-sec-02 > h1{
+    font-size: 12vmin;
+    font-weight: 200;
+    width: 100%;
+    color: #f72585;
+    text-shadow: 0 0 3vmin #f72585;
+    text-align: center;
+}
+
+.act-item-02{
+    padding: 0 2vmin 2vmin 2vmin;
+    margin: 0 2vmin 0 2vmin;
+    text-align: center;
+    max-width: 120vmin;
+    margin-bottom: 4vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e9d5da;
+    border-radius: 4vmin;
+    overflow: hidden;
+}
+
+.act-item-02 > h3{
+    font-size: 4vmin;
+    color: #f72585;
+    margin: 0;
+}
+
+.act-item-02 > h2{
+    background: #131313;
+    background: -webkit-linear-gradient(203deg, #131313 0%, #474747 100%);
+    background: linear-gradient(203deg, #131313 0%, #474747 100%);
+    width: 100%;
+    color: #ffffff;
+    padding: 0 2vmin 0 2vmin;
+    font-size: 5vmin;
+    margin: 0;
+}
+
+.act-item-02 > p{
+    text-align:start;
+    font-size: 3vmin;
+    font-weight: 100;
+    margin: 0;
+    color: #131313;
+}
+
+.act-item-02:hover{
+    box-shadow: 0 0 3vmin #ffffff;
+}
+
 /* animation */
 
 @keyframes wiggle1{

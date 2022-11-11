@@ -299,13 +299,13 @@ function Resume2() {
                 <h1>Activity</h1>
                 {myInfo.activities.map((item:activityInterface,index)=>(
                     <div className="act-item-02" key={index}>
-                        <h2>
+                        <h2>{item.nameHeader}</h2>
+                        <h3>
                             {getMonthName(String(item.startDate).slice(5,7))}
                             {" "+String(item.startDate).slice(0,4)}
                             {item.endDate!==null&&item.endDate!==undefined&&String(item.endDate) !== "" ? " - "+getMonthName(String(item.endDate).slice(5,7))+" "+String(item.endDate).slice(0,4):""}
-                        </h2>
-                        <h1>{item.nameHeader}</h1>
-                        <h2>{item.detail}</h2>
+                        </h3>
+                        <p>{item.detail}</p>
                     </div>
                 ))}
             </div>
