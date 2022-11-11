@@ -1,5 +1,6 @@
 import Resume1 from "./Resume1";
 import Resume2 from "./Resume2";
+import Resume3 from "./Resume3";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -48,6 +49,13 @@ function MainResume() {
             <Resume2 />
         );
     }
+
+    if(myInfo.format===3){
+        return(
+            <Resume3 />
+        );
+    }
+
     return(
         <div className=""></div>
     )

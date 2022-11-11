@@ -7,7 +7,7 @@ import { educationInterface } from "../models/IEducation";
 import { exprienceInterface } from "../models/IExprience";
 import { activityInterface } from "../models/IActivity";
 
-import {BsSquareFill,BsFillStarFill,BsPinMapFill,BsCalendar3,BsFillTelephoneFill,BsFacebook,BsLinkedin} from "react-icons/bs";
+import {BsSquareFill,BsFillStarFill,BsPinMapFill,BsCalendar3,BsFillTelephoneFill,BsFacebook,BsLinkedin,BsFillEmojiSmileFill,BsBicycle} from "react-icons/bs";
 import {MdEmojiPeople,MdEmail,MdOutlineWork} from "react-icons/md"
 import {FaSchool,FaTools,FaLanguage} from "react-icons/fa"
 
@@ -143,7 +143,7 @@ function Resume2() {
                         <div className="all-like-02">
                             {myInfo.hobby.map((item: string,index) =>(
                             <div className="like-item-02" key={index}>
-                                <p><BsSquareFill/> {item}</p>
+                                <p><BsBicycle/> {item}</p>
                             </div>))}
                         </div>
                     </div>
@@ -156,7 +156,7 @@ function Resume2() {
                         <div className="all-like-02">
                             {myInfo.interest.map((item: string,index) =>(
                             <div className="like-item-02" key={index}>
-                                    <p><BsSquareFill/> {item}</p>
+                                    <p><BsFillEmojiSmileFill/> {item}</p>
                             </div>))}
                         </div>
                     </div>
