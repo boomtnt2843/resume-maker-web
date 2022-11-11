@@ -7,7 +7,7 @@ import { educationInterface } from "../models/IEducation";
 import { exprienceInterface } from "../models/IExprience";
 import { activityInterface } from "../models/IActivity";
 
-import {BsSquareFill,BsFillStarFill,BsPinMapFill,BsCalendar3,BsFillTelephoneFill,BsFacebook,BsLinkedin,BsFillEmojiSmileFill,BsBicycle} from "react-icons/bs";
+import {BsFillStarFill,BsPinMapFill,BsCalendar3,BsFillTelephoneFill,BsFacebook,BsLinkedin,BsFillEmojiSmileFill,BsBicycle} from "react-icons/bs";
 import {MdEmojiPeople,MdEmail,MdOutlineWork} from "react-icons/md"
 import {FaSchool,FaTools,FaLanguage} from "react-icons/fa"
 
