@@ -8,12 +8,33 @@ function Signup() {
     const [re_password, setRe_password] = useState('');
 
     const signUp = () =>{
+        const errorTxt = document.getElementById('errorInput') as HTMLParagraphElement;
         const apiUrl = "http://localhost:4200/user/signup";
+        user.username=user.username?.trim()
+        user.password=user.password?.trim()
         const requestOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user),
         }
+        if(user.username === "" && user.username === undefined){
+            errorTxt.className = 'errorInput show-error';
+            errorTxt.innerText = 'Please Input Your Username';
+            return
+        }
+
+        if(user.username === undefined? true : user.username.length < 4){
+            errorTxt.className = 'errorInput show-error';
+            errorTxt.innerText = 'Please Input Username more then 3 characters';
+            return
+        }
+
+        if(user.password === undefined? true : user.password.length < 4){
+            errorTxt.className = 'errorInput show-error';
+            errorTxt.innerText = 'Please Input Password more then 3 characters';
+            return
+        }
+
         if(user.password===re_password){
             console.log(requestOptions);
             fetch(apiUrl, requestOptions)
@@ -24,11 +45,13 @@ function Signup() {
                     console.log("ok");
                     window.location.href='/'
                 }else{
-                    console.log("error");
+                    errorTxt.className = 'errorInput show-error';
+                    errorTxt.innerText = 'Username Already Exists';
                 }
             })
         }else{
-            console.log("error");
+            errorTxt.className = 'errorInput show-error';
+            errorTxt.innerText = 'Password Not Matching';
         };
     }
 
@@ -57,9 +80,9 @@ function Signup() {
             <form className="form-signup" id='signUpForm'>
                 <div className="box-signup">
                     <h2>username</h2>
-                    <input type="text" className="signUp-input" id='username' onChange={handleInputChange} placeholder='username...' pattern='[A-Za-z]{}' title='Hi' required/>
+                    <input type="text" className="signUp-input" id='username' onChange={handleInputChange} placeholder='username...' />
                     <h2>password</h2>
-                    <input type="password" className="signUp-input" id='password' onChange={handleInputChange} placeholder='password...' pattern='[0-9]{}' title='Hi' required/>
+                    <input type="password" className="signUp-input" id='password' onChange={handleInputChange} placeholder='password...' />
                     <h2>repeat password</h2>
                     <input type="password" className="signUp-input" id='re_password' onChange={headleInputChange_repassword} placeholder='repeat password...' />
                     <p className="errorInput" id='errorInput'>Error</p>

@@ -57,11 +57,12 @@
 
 .enter-signup-btn{
     background-color: #a1c5e7;
+    color: #ffffff;
     margin: 2rem;
     border: none;
     width: 8rem;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 100;
     border-radius: 10px;
     height: 3rem;
     cursor: pointer;
@@ -80,7 +81,8 @@
     height: 3rem;
     border-radius: 20px;
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: 100;
+    color: #ffffff;
     background-color: #61a1d7;
     margin-bottom: 2rem;
     transition: all 0.5s ease;
@@ -89,5 +91,9 @@
 .errorInput{
     visibility: hidden;
     color: #ff6a6a;
+}
+
+.errorInput.show-error{
+    visibility: visible;
 }
 
