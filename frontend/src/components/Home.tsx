@@ -102,7 +102,7 @@ function Home() {
                 <div className="cir-name" />
         </div>
         <div className="header-name-03">
-              <h1>Format 3</h1>
+              <h1>Format 3 Bear</h1>
               <h1>#Brown #White #Bear</h1>
               <h2 id="home-click"><a href="" className="txt-example">More Detail</a></h2>
         </div>
