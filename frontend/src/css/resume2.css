@@ -229,12 +229,12 @@
     box-sizing: border-box;
 }
 
-#hobby-group .ico-ima-02{
+#hobby-group-02 .ico-ima-02{
     background: #7209b7;
     background: -webkit-linear-gradient(135deg, #7209b7 0%, #f72585 100%);
     background: linear-gradient(135deg, #7209b7 0%, #f72585 100%);
 }
-#interest-group .ico-ima-02{
+#interest-group-02 .ico-ima-02{
     background: #f72585;
     background: -webkit-linear-gradient(135deg, #f72585 0%, #7209b7 100%);
     background: linear-gradient(135deg, #f72585 0%, #7209b7 100%);
@@ -248,11 +248,11 @@
     box-sizing: border-box;
 }
 
-#interest-group > .text-like-group-02 > .all-like-02{
+#interest-group-02 > .text-like-group-02 > .all-like-02{
     justify-content: flex-end;
 }
 
-#interest-group > .text-like-group-02 > h1{
+#interest-group-02 > .text-like-group-02 > h1{
     text-align: end;
 }
 

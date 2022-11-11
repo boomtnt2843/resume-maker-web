@@ -136,7 +136,7 @@ function Resume2() {
                     <h1>Social Media</h1>
                 </div>)}
                 {myInfo.hobby !== undefined && myInfo.hobby.length !== 0 ?(
-                <div className="like-sec-02" id="hobby-group">
+                <div className="like-sec-02" id="hobby-group-02">
                     <div className="ico-ima-02" />
                     <div className="text-like-group-02">
                         <h1>Hobby</h1>
@@ -150,7 +150,7 @@ function Resume2() {
                 </div>):(<div className="nothing" />)}
 
                 {myInfo.interest !== undefined && myInfo.interest.length !== 0 ?(
-                <div className="like-sec-02" id="interest-group">
+                <div className="like-sec-02" id="interest-group-02">
                     <div className="text-like-group-02">
                         <h1>Interest</h1>
                         <div className="all-like-02">
