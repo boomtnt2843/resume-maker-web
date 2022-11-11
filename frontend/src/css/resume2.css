@@ -479,7 +479,7 @@
 .box-power-02{
     width: 5vmin;
     height: 5vmin;
-    border-radius: 1vmin;
+    border-radius: 100%;
     background-color: #ffffff;
     box-shadow: 0 0 2vmin #ffffff;
     margin-left: 5vmin;
