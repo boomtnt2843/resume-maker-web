@@ -35,11 +35,6 @@ code {
   display: none;
 }
 
-/* .box-input.error > small{
-  display: block;
-  color: #ff3e3e;
-} */
-
 .box-input textarea{
   width: 80%;
 }
@@ -51,10 +46,6 @@ code {
 .error-text{
   display: none;
 }
-
-/* .box-input.error > input,.box-input.error > textarea{
-  border: solid 4px #ff3e3e;
-} */
 
 .show-nothing{
   background-color: #ffffff90;
@@ -102,6 +93,7 @@ code {
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
+
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;}
   to {bottom: 30px; opacity: 1;}
@@ -136,4 +128,9 @@ code {
   #input-hobby, #input-interest{
       width: 80%;
   }
+}
+
+.error-container{
+  padding: 2vmin;
+  font-size: 4vmin;
 }

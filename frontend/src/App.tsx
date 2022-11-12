@@ -9,6 +9,7 @@ import Education from './components/Education';
 import Activity from './components/Activity';
 import Experience from './components/Experience';
 import MainResume from './components/MainResume';
+import ExampleResume from './components/ExampleResume';
 import { useEffect } from "react";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/myaccount/exp" element={<Experience />}/>
         <Route path="/myaccount/activity" element={<Activity />}/>
         <Route path="/resume" element={<MainResume />}/>
+        <Route path="/example" element={<ExampleResume />}/>
       </Routes>
     </Router>
   );

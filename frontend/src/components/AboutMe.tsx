@@ -255,7 +255,7 @@ function AboutMe() {
 
     const genOptionTag = () =>{
         const option = []
-        const item = ["Space","Shape","Pencil"]
+        const item = ["Space","Shape","Bear"]
         for(let i=1; i<4;i++){
             if(myInfo.format!==i) option.push(<option value={i} key={i} >{item[i-1]}</option>)
             else option.push(<option value={i} key={i} selected>{item[i-1]}</option>)
