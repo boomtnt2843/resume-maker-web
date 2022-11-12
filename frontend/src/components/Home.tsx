@@ -77,7 +77,7 @@ function Home() {
                       <h1>Space</h1>
                       <h2>#Space #Planet</h2>
                   </div>
-                  <h1 className="position-job"><a href="" className="txt-example">More Detail</a></h1>
+                  <h1 className="position-job"><a href="/example?user=example&format=1" className="txt-example">More Detail</a></h1>
                   <img className="ima-obj-plant01" src={require('../image/spaces/Planet01.png')} alt="plant01" />
                   <img className="ima-obj-plant02" src={require('../image/spaces/Planet02.png')} alt="plant02" />
                   <img className="ima-obj-spaceship" src={require('../image/spaces/Spaceship.png')} alt="spaceship" />
@@ -98,13 +98,13 @@ function Home() {
                 <h1>Format 2</h1>
                 <h1>SHAPE</h1>
                 <h2>#Shape #Black #Blue #Pink</h2>
-                <a href="">More Detail</a>
+                <a href="/example?user=example&format=2">More Detail</a>
                 <div className="cir-name" />
         </div>
         <div className="header-name-03">
               <h1>Format 3 Bear</h1>
               <h1>#Brown #White #Bear</h1>
-              <h2 id="home-click"><a href="" className="txt-example">More Detail</a></h2>
+              <h2 id="home-click"><a href="/example?user=example&format=3" className="txt-example">More Detail</a></h2>
         </div>
           <div className="SignIn-page-container" id='signin'>
             <h1 className='header-text'>SIGN IN...</h1>

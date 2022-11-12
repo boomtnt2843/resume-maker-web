@@ -11,7 +11,7 @@ function MainResume() {
     const params = new URLSearchParams(location.search)
     const apiUrl = "http://localhost:4200";
 
-    const [resumeInfo, setinfo] = useState(params.get("user"))
+    const resumeInfo = params.get("user");
     const [myInfo, setMyInfo] = useState<Partial<informationInterface>>({});
 
     const getMyInformation = async () => {
@@ -35,7 +35,6 @@ function MainResume() {
 
     useEffect(()=>{
         getMyInformation();
-        console.log(myInfo);
     },[])
 
     if(myInfo.format===1){
@@ -57,7 +56,10 @@ function MainResume() {
     }
 
     return(
-        <div className=""></div>
+        <div className="error-container">
+            <p>Loading. . .</p> 
+            <a href="/">return to website</a>
+        </div>
     )
 }
 export default MainResume;

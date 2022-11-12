@@ -11,6 +11,8 @@ const general = require('../models/generalSkill');
 const language = require('../models/language');
 const technical = require('../models/technicalSkill');
 
+const exampleData = require('../models/exampleData')
+
 //Frist time you click "Let's Start"
 const createNewInformation = (dataInformation) => {
     return new Promise ((resolve, reject) => {
@@ -125,6 +127,10 @@ router.route('/format/:ofInfoID')
 //get for show in resume
 router.route('/all/:ofInfoID')
     .get((req,res)=>{
+        if(req.params.ofInfoID==="example"){
+            res.status(200).json(exampleData);
+            return
+        }
         info.aggregate([{
             $match:{
                 owner: mongoose.Types.ObjectId(req.params.ofInfoID)
