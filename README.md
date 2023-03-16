@@ -1,6 +1,10 @@
 # resume-maker-web
 ## Status : finish ...may be?
 ### set up backend-api for this project
+make sure you stay in correct path(./resume-maker-web/backend)
+```
+cd backend
+```
 1. install ***mongoDB compass***
    - Create database
      - ***Database name*** : "Resume"
@@ -12,39 +16,61 @@
      - ***Collection name*** : "activities"
      - ***Collection name*** : "educations"
      - ***Collection name*** : "experiences"
-2. install ***express.js***
+2. used 
+   - ***express.js***
+   - ***nodemon***(optional)
+      command for install global
+      ```
+      npm install -g nodemon
+      ```
+   - ***mongoose***
+   - ***bcrypt*** it's use for encode Password when customer create new account
+   - ***jwt*** :json web token
+   
+   let's install all of them
+   ```
+   npm install
+   ```
+   or
+   ```
+   npm i
+   ```
+3.let's start
 ```
-npm init
-npm install express 
+nodemon app.js
 ```
-3. install ***nodemon***
+or
 ```
-npm install -g nodemon
-```
-4. install ***mongoose***
-```
-npm install mongoose
-```
-5. install ***bcrypt*** it's use for encode Password when customer create new account
-```
-npm install bcryptjs
-```
-6. install ***jwt*** :json web token
-```
-npm install jsonwebtoken
+node app.js
 ```
 😀 Easy step ~~~
 
 ### set up frontend for this project
-1. install react (it's already installed if you clone this.)
-
-2. install ***react-router-dom*** for route 
+make sure you stay in correct path(./resume-maker-web/frontend)
 ```
-npm i react-router-dom
+cd frontend
 ```
-3. install ***react-icon*** for use ICON
-```
-npm install react-icons --save
-```
+1. used
+   - ***react***
+   - ***react-router-dom*** for route 
+   - ***react-icon*** for use ICON
+2. let's start
+   ```
+   yarn
+   ```
+   or
+   ```
+   npm
+   ```
+   
+   and next
+   
+   ```
+   yarn start
+   ```
+   or 
+   ```
+   npm start
+   ```
 
 Thx for reading
