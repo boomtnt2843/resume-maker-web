@@ -6,7 +6,11 @@ make sure you stay in correct path(./resume-maker-web/backend)
 cd backend
 ```
 1. install ***mongoDB compass***
-2. used 
+2. setup database
+   ```
+   docker-compose up
+   ```
+3. used 
    - ***express.js***
    - ***nodemon***(optional)
       command for install global
