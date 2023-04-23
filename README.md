@@ -6,16 +6,6 @@ make sure you stay in correct path(./resume-maker-web/backend)
 cd backend
 ```
 1. install ***mongoDB compass***
-   - Create database
-     - ***Database name*** : "Resume"
-     - ***Collection name*** : "users"
-     - ***Collection name*** : "information"
-     - ***Collection name*** : "generalskills"
-     - ***Collection name*** : "technicalskills"
-     - ***Collection name*** : "languages"
-     - ***Collection name*** : "activities"
-     - ***Collection name*** : "educations"
-     - ***Collection name*** : "experiences"
 2. used 
    - ***express.js***
    - ***nodemon***(optional)
