@@ -65,7 +65,7 @@ function Resume1() {
 
     useEffect(()=>{
         getMyInformation();
-    },[])
+    })
 
     return (
         <div className="space-container">
@@ -271,7 +271,7 @@ function Resume1() {
             <div className="exp-sec">
                 <h1>Experiences</h1>
                 {myInfo.experiences.map((item:exprienceInterface,index)=>(
-                <div className={"exp-box-show "+"form"+(index%2)} key={index} >
+                <div className={"exp-box-show form"+(index%2)} key={index} >
                     <div className="text-exp-show">
                         <h2>
                             {getMonthName(String(item.startDate).slice(5,7))}
